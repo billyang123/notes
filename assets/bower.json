@@ -1,0 +1,74 @@
+{
+  "name": "myapp",
+  "version": "0.1.0",
+  "authors": [
+    "{杨斌斌}({TW003248}) <wb-yangbinbin@taobao.com>"
+  ],
+  "description": "我的blog",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies" : {
+    "jquery": "~1.10.2",
+    "console-polyfill": "~0.1.0",
+    "uikit" : "~2.6.0",
+    "screenfull": "~1.1.1",
+    "jquery-ujs": "*",
+    "rainbow": "~1.1.9",
+    "selectize": "~0.8.5",
+    "momentjs": "~2.5.1",
+    "jquery-autosize": "~1.18.4",
+    "codemirror" : "*"
+  },
+  "overrides": {
+    "uikit":{
+      "main":[
+        "dist/js/uikit.js",
+        "dist/js/addons/notify.js",
+        "dist/js/addons/form-password.js"
+      ]
+    },
+    "rainbow":{
+      "main": [
+        "js/rainbow.js",
+        "js/language/c.js",
+        "js/language/coffeescript.js",
+        "js/language/csharp.js",
+        "js/language/css.js",
+        "js/language/d.js",
+        "js/language/generic.js",
+        "js/language/go.js",
+        "js/language/haskell.js",
+        "js/language/html.js",
+        "js/language/java.js",
+        "js/language/javascript.js",
+        "js/language/lua.js",
+        "js/language/php.js",
+        "js/language/python.js",
+        "js/language/r.js",
+        "js/language/ruby.js",
+        "js/language/scheme.js",
+        "js/language/shell.js",
+        "js/language/smalltalk.js"
+      ]
+    },
+    "selectize": {
+      "main": [
+        "dist/css/selectize.bootstrap3.css",
+        "dist/js/selectize.js"
+      ]
+    },
+    "momentjs": {
+      "main": [
+        "moment.js",
+        "lang/zh-cn.js"
+      ]
+    }
+  }
+}
