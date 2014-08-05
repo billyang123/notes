@@ -25,9 +25,15 @@
         </div>
 	</div>
 	<div class="uk-form-row">
-		<label class="uk-form-label" for="form-emaill">emaill</label>
+		<label class="uk-form-label" for="form-email">Email</label>
 		<div class="uk-form-controls">
-            <input type="text" id="form-emaill" placeholder="" name="email">
+            <input type="text" id="form-email" placeholder="" name="email">
+        </div>
+	</div>
+	<div class="uk-form-row">
+		<label class="uk-form-label" for="form-intro">Introduction</label>
+		<div class="uk-form-controls">
+            <textarea type="text" id="form-intro" placeholder="" name="intro"></textarea>
         </div>
 	</div>
 	<div class="uk-form-row">

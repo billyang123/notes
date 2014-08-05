@@ -2,7 +2,7 @@
 <li class="uk-animation-fade">
     <article class="uk-comment">
         <header class="uk-comment-header">
-            <img class="uk-comment-avatar" src="http://placekitten.com/50/50" alt="">
+            <img class="uk-comment-avatar" src="/identicon.php?uid=<?=$item['username']?>&size=50" alt="">
             <h4 class="uk-comment-title"><?=$item['username']?></h4>
             <div class="uk-comment-meta uk-clearfix">
                 <span class="uk-align-left">Reply <?=$item['com_user_name']?> on <?=date("Y-m-d H:i:s",$item['create_date'])?></span>

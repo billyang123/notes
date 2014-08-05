@@ -3,16 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title><?=$title ?></title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<?=$assets ?>/public/app.css">
     <script type="text/javascript" src="<?=$assets ?>/public/app.js"></script>
     <script>require('main');</script>
-</head> 
+
+</head>
 <body class="uk-width-1-1 <?php if($nav=="login"): ?>_login-body<?php endif ?>">
 	<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 		<?php if($nav!="login"): ?>
 		<nav class="uk-navbar uk-margin-large-bottom">
-		    <a class="uk-navbar-brand uk-hidden-small" href="/">Personal notes</a>
+		    <a class="uk-navbar-brand uk-hidden-small" href="/"><i class="uk-icon-home uk-icon-small"></i>note</a>
 		    <ul class="uk-navbar-nav uk-hidden-small">
 		    	<?php foreach($nav_list  as $i => $nav_item): ?>
 			    	<?php if($nav_item=="notes"): ?>
@@ -47,7 +50,7 @@
 			        	<div class="uk-dropdown">
 							<ul class="uk-nav uk-nav-dropdown">
 								<li><a href="<?=$assets ?>/index.php/register"><i class="uk-icon-plus-circle"></i>   Register</a></li>
-								<li><a href="#"><i class="uk-icon-trash-o"></i>   Settings</a></li>
+								<li><a href="<?=$assets ?>/index.php/setting"><i class="uk-icon-trash-o"></i>   Settings</a></li>
 								<?php if($user['is_login']): ?>
 					            <li><a href="<?=$assets ?>/index.php/logout"><i class="uk-icon-sign-out"></i>    Logout</a></li>
 					        	<?php else: ?>

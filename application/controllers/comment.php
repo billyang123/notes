@@ -22,6 +22,7 @@
 			// echo '<br>';
 			// var_dump($this->comment_model->get_comment());
 			// exit(0);
+			$data["assets"] = $this->assets;
 			$data["user"] = $this->get_currentUser();
 			$this->load->view('comment/index',$data);
 			
@@ -30,6 +31,7 @@
 		{	$this->checkLogin();
 			$data["content"] = $this->comment_model->set_comment($noteId);
 			$data["user"] = $this->get_currentUser();
+			$data["assets"] = $this->assets;
 			$this->load->view('comment/index',$data);
 		}
 		public function reply($commentId)

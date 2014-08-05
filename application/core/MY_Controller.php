@@ -7,6 +7,7 @@
 		  	parent::__construct();
 		  	$this->load->library('template');
 		  	$this->load->library('session');
+		  	$this->assets = '';
 		  	date_default_timezone_set('UTC');
 		}
 		public function result_jsonCode($data = FALSE, $isSuccess = true)
@@ -32,7 +33,10 @@
 
 			// $this->template->set('username',$this->session->userdata('username'));
 			//$this->user = $this->get_currentUser();
-			$this->template->set('user',$this->get_currentUser());
+			$this->template->set_globals(array(
+				'user' =>$this->get_currentUser(),
+				'assets' =>$this->assets
+			));
 			$this->template->load('template', $viewName,$data);
 		}
 		public function checkLogin()
@@ -47,7 +51,7 @@
 					$redirect = '?' . $_SERVER['QUERY_STRING'];
 				}
 				if($this->input->is_ajax_request()) {
-					echo '<script>window.location.href="http://'.$_SERVER['HTTP_HOST'].'/~apple/index.php/login";</script>';
+					echo '<script>window.location.href="http://'.$_SERVER['HTTP_HOST'].$this->assets.'/index.php/login";</script>';
 					exit(0);
 				}else{
 					redirect('/index.php/account/login?redirect='.$redirect);

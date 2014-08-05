@@ -1,16 +1,32 @@
 <div class="uk-width-medium-3-4">
     <article class="uk-article _index-article uk-panel-box">
         <h1 class="uk-article-title">
-            <a href="/~apple/index.php/notes/<?=$content["id"] ?>"><?=$content["title"] ?></a>
+            <a href="<?=$assets?>/index.php/notes/<?=$content["id"] ?>"><?=$content["title"] ?></a>
         </h1>
         <p class="uk-article-meta"><span><i class="uk-icon-user uk-icon-small"></i>  <?=$content['userName'] ?></span>   <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$content["create_date"]) ?></span></p>
         <div class="notes-content">
             <?=parse_markdown($content["content"]) ?>
         </div>
-        <p><a href="/~apple/index.php/comment?noteId=<?=$content['id'] ?>" data-remote-once="true" class="uk-button" data-remote="true" data-done="$('.js-comment-<?=$content['id'] ?>').html(res).parent().show()">comment</a></p>
+        <div class="uk-clearfix">
+            <a href="<?=$assets?>/index.php/comment?noteId=<?=$content['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$content['id'] ?>').html(res).parent().show()">comment</a>
+            <?php if($content['userId']==$user["userId"]): ?>
+            <div class="uk-button-group uk-float-right">
+                <button class="uk-button">Option</button>
+                <div data-uk-dropdown="{mode:'click'}" class="">
+                    <button class="uk-button"><i class="uk-icon-caret-down"></i></button>
+                    <div class="uk-dropdown uk-dropdown-small">
+                        <ul class="uk-nav uk-nav-dropdown">
+                            <li><a href="/index.php/notes/update/<?=$content["id"] ?>">update</a></li>
+                            <li><a href="/index.php/notes/delete/<?=$content["id"] ?>">delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <?php endif ?>
+        </div>
         <div class="_comment-content" style="display:none;">
             <ul class="uk-comment-list js-comment-<?=$content['id'] ?>"></ul>
-            <form class="uk-form uk-clearfix" data-remote="true" action="/~apple/index.php/comment/add/<?=$content['id'] ?>" method="post" data-done="$('.js-comment-<?=$content['id'] ?>').after(res)">
+            <form class="uk-form uk-clearfix" data-remote="true" action="<?=$assets?>/index.php/comment/add/<?=$content['id'] ?>" method="post" data-done="$('.js-comment-<?=$content['id'] ?>').after(res)">
                 <input value="<?=$content['userId'] ?>" type="hidden" name="com_user_id">
                 <input value="<?=$content['userName'] ?>" type="hidden" name="com_user_name">
                 <input value="false" type="hidden" name="issub">
@@ -41,6 +57,4 @@
         </ul>
     </div>
 </div>
-<script type="text/javascript">
 
-</script>  

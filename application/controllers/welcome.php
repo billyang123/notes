@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class Welcome extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,14 +20,15 @@ class Welcome extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->spark('markdown/1.2.0');
-		//$this->load->library('util');
+		//$this->load->spark('markdown/1.2.0');
+		$this->load->library('uploadtoken');
 	}
 	public function index()
 	{
 
-		$this->load->model('dbforge_model');
-		$this->dbforge_model->create_fields();
+		$data["token"] = $this->uploadtoken->get_token();
+		$data["key"] = $this->uploadtoken->get_key();
+		$this->loadView('notes','','welcome_message',$data);
 	}
 }
 

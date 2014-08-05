@@ -32,9 +32,9 @@ class Account_model extends CI_Model {
 	}
 
 
-	public function add_user($username, $password, $email)
+	public function add_user($username, $password, $email, $intro)
 	{
-		$data = array('username'=>$username,'password'=>$password,'email'=>$email);
+		$data = array('username'=>$username,'password'=>$password,'email'=>$email,'intro'=>$intro);
 		$this->db->insert('note_users',$data);
 		if($this->db->affected_rows() > 0)
 		{
@@ -68,5 +68,18 @@ class Account_model extends CI_Model {
 
 		$query = $this->db->get_where('note_users', array('id' => $id));
 		return $query->row_array();
+	}
+	public function update_user($id=FALSE)
+	{
+		if ($id === FALSE)
+		{
+			return FALSE;
+		}else{
+			$this->db->where('id',$id);  
+			return $this->db->update('note_users',array(
+				"email"=> $this->input->post("email"),
+				"intro"=> $this->input->post("intro")
+				));
+		}
 	}
 }

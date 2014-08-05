@@ -1,12 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+require_once("qiniu/io.php");
 require_once("qiniu/rs.php");
 class Uploadtoken {
 		var $template_data = array();
-
+		var $bucket = 'ybbcdn';
 		
 
 		function get_token()
-		{	$bucket = 'ybbcdn';
+		{	
+			$bucket = $this->bucket;
 			$SecertKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
 			$AccessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
 			Qiniu_SetKeys($AccessKey, $SecertKey);
@@ -14,21 +16,26 @@ class Uploadtoken {
 			$upToken = $putPolicy->Token(null);
 			return $upToken;
 		}
-	
-		function load($template = '', $view = '' , $view_data = array(), $return = FALSE)
-		{               
-			$this->CI =& get_instance();
-			$this->set('content_for_template', $this->CI->load->view($view, $view_data, TRUE));
-			$this->set('nav_list', array('home','notes','media', 'about', 'write'));
-			$this->set('assets',"/~apple");	
-			return $this->CI->load->view($template, $this->template_data, $return);
-		}
-		function load_main($view = '', $view_data = array(), $return = FALSE)
+		function get_key()
 		{
-			 $this->set('nav_list', array('Home', 'Photos', 'About', 'Contact'));
-			 $this->load('template', $view, $view_data, $return);
+			return md5("yangbinbin".time());
 		}
-
+		function uploadToQiNiu($bucket='ybbcdn',$key1="default",$fileDir)
+		{
+			$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
+			$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
+			Qiniu_SetKeys($accessKey, $secretKey);
+			$putPolicy = new Qiniu_RS_PutPolicy($bucket);
+			$upToken = $putPolicy->Token(null);
+			$putExtra = new Qiniu_PutExtra();
+			$putExtra->Crc32 = 1;
+			list($ret, $err) = Qiniu_PutFile($upToken, $key1, $fileDir, $putExtra);
+			if ($err !== null) {
+				return $err;
+			} else {
+				return $ret;   
+			}
+		}
 }
 
 /* End of file Template.php */

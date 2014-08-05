@@ -16,7 +16,7 @@
     </div>
   	<div class="uk-form-row">
         <p><i class="uk-icon-info-circle uk-icon-small"></i>      Notes written in Markdown syntax requirements, please refer to <a href="http://wowubuntu.com/markdown/">Markdown</a> syntax concrete syntax.</p>
-        <textarea data-uk-markdownarea="{mode:'tab'}" name="content">#Heading
+        <textarea data-uk-markdownarea="{mode:'tab'}" name="content" style="width:100%;">#Heading
 
             Lorem ipsum dolor sit **amet**, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. [This is a link](#)
 

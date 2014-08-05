@@ -6,6 +6,7 @@ class Notes_model extends CI_Model {
 	    $this->load->database();
 	   	//$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 	   	$this->db->cache_on();
+	   	$this->load->library('session');
 	}
 
 	public function cache_notes(){
@@ -42,9 +43,8 @@ class Notes_model extends CI_Model {
 	  $query = $this->db->get_where('notes', array('type' => $type));
 	  return $query->row_array();
 	}
-	public function get_notes_by_scope($scope="1"){
-		$this->db->where('scope',$scope);
-		$query = $this->db->get('notes');
+	public function get_notes_by_scope($scope='1'){
+		$query = $this->db->get_where('notes', array('scope' => $scope,'userId'=>$this->session->userdata('userId')));
 	  	return $query->result_array();
 	}
 	public function set_notes()
@@ -81,5 +81,25 @@ class Notes_model extends CI_Model {
 	  $query = $this->db->get_where('notes', array('id' => $id));
 	  return $query->row_array();
 	}
-
+	public function update_notes($id = FALSE)
+	{	
+		$userId = $this->input->post('userId');
+		if($this->session->userdata('userId')!=$userId){
+			return FALSE;
+		}
+		if($id){
+			$this->load->helper('url');
+			$slug = url_title($this->input->post('title'), 'dash', TRUE);
+			$time = time();
+			$this->db->where('id',$id);
+			return $this->db->update('notes',array(
+				'title' => $this->input->post('title'),
+			    'slug' => $slug,
+			    'content' => $this->input->post('content'),
+			    'type' => $this->input->post('type'),
+			    'create_date' => $time,
+			    'scope' => $this->input->post('scope')
+				));
+		}
+	}
 }

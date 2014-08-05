@@ -13,4 +13,5 @@
 			$data['user'] = $this->get_currentUser();
 			$this->loadView('Write','Write','write/index',$data);
 		}
+		
 	}

@@ -45,8 +45,10 @@ class Upload_model extends CI_Model {
 		$chunk = isset($_REQUEST["chunk"]) ? intval($_REQUEST["chunk"]) : 0;
 		$chunks = isset($_REQUEST["chunks"]) ? intval($_REQUEST["chunks"]) : 0;
 		// Remove old temp files
-
+		echo $targetDir;exit(0);	
 		if ($cleanupTargetDir) {
+es
+
 			if (!is_dir($targetDir) || !$dir = opendir($targetDir)) {
 				die('{"jsonrpc" : "2.0", "error" : {"code": 100, "message": "Failed to open temp directory."}, "id" : "id"}');
 			}
@@ -66,7 +68,6 @@ class Upload_model extends CI_Model {
 			}
 			closedir($dir);
 		}
-
 		// Open temp file
 		if (!$out = @fopen("{$filePath}.part", $chunks ? "ab" : "wb")) {
 			die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
@@ -99,7 +100,6 @@ class Upload_model extends CI_Model {
 			// Strip the temp .part suffix off 
 			rename("{$filePath}.part", $filePath);
 		}
-		//echo 'hhhhh'.$filePath;exit(0);
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
 		$result = $this->uploadtoken->uploadToQiNiu('ybbcdn',$_key_,$filePath);
 		$path = 'http://ybbcdn.qiniudn.com/'.$_key_;

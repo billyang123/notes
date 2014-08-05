@@ -3,6 +3,7 @@
 		function __construct()
 		{
 		  	parent::__construct();
+		  	$this->checkLogin();
 		  	$this->load->model('media_model');
 		  	$this->load->library('uploadtoken');
 		}
@@ -13,7 +14,17 @@
 			//var_dump($this->uploadtoken->get_token());exit(0);
 			$data["token"] = $this->uploadtoken->get_token();
 			//$this->result_jsonCode($data["content"]);exit(0);
-			$this->loadView('media','media','media/index',$data);
+			//echo $this->upload_model->get_token();exit(0);
+			$data["images"] = $this->media_model->get_yunImgInfo();
+			$this->loadView('media','media','media/album',$data);
+		}
+		public function photo()
+		{
+			//echo $albumId;exit(0);
+			$data["user"] = $this->get_currentUser();
+			$data["content"] = $this->media_model->get_yunImgInfo();
+			//var_dump($data);exit(0);
+			$this->loadView('media','media','media/photo',$data);
 		}
 		public function createAlbum()
 		{
@@ -30,5 +41,25 @@
 					$this->result_jsonCode("保存失败",false);
 				}
 			}
+		}
+		public function album($albumId)
+		{
+			//echo $albumId;exit(0);
+			$data["user"] = $this->get_currentUser();
+			$data["content"] = $this->media_model->get_yunImgInfo($albumId);
+			//var_dump($data);exit(0);
+			$this->loadView('media','media','media/photo',$data);
+		}
+		public function video()
+		{
+			//echo $albumId;exit(0);
+			$data["user"] = $this->get_currentUser();
+			$data["content"] = $this->media_model->get_video();
+			//var_dump($data);exit(0);
+			$this->loadView('media','media','media/video',$data);
+		}
+		public function addVideo()
+		{
+			$this->media_model->set_video_info();
 		}
 	}

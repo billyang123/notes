@@ -53,6 +53,7 @@
 			$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[passconf]|md5');
 			$this->form_validation->set_rules('passconf', 'Password Confirmation', 'trim|required');
 			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('intro', 'Intro', 'trim|max_length[500]');
 			if($this->form_validation->run() == FALSE){
 				//$this->load->view('account/register');
 				$this->loadView('register','','account/register');
@@ -61,12 +62,17 @@
 				$password = $this->input->post("password");
 				
 				$email = $this->input->post("email");
-				if($this->account_model->add_user($username,$password,$email)){
+				$intro = $this->input->post("intro");
+				if($this->account_model->add_user($username,$password,$email,$intro)){
 					$data["message"] = "账号创建成功!";
+					$data["redirect"] = "/notes";
+					$this->loadView('login','','account/login',$data);
+					
 				}else{
 					$data["message"] = "账号创建失败!";
+					$this->loadView('register','','account/register',$data);
 				}
-				$this->loadView('register','','account/register',$data);
+
 			}
 		}
 		//退出登录
@@ -81,7 +87,24 @@
 				//$this->loadView('logout','','note/notes');
 			}
 		}
+		public function updateInfo($id){
+			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+			$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
+			$this->form_validation->set_rules('intro', 'Intro', 'trim|max_length[500]');
+			if($this->form_validation->run() == FALSE){
+				//$this->load->view('account/register');
+				redirect('/index.php/setting');
+			}else{
+				
+				if($this->account_model->update_user($id)){
+					$this->result_jsonCode('修改成功！',true);
+					
+				}else{
+					$this->result_jsonCode('修改失败！',false);
+				}
 
+			}
+		}
 		public function userList(){
 			$data["content"] = $this->account_model->get_users();
 			echo($this->result_jsonCode($data));return;

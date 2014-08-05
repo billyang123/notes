@@ -3573,8 +3573,8 @@ select.uk-form-width-mini {
  ========================================================================== */
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/~apple/public/fonts/fontawesome-webfont.eot");
-  src: url("/~apple/public/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("/~apple/public/fonts/fontawesome-webfont.woff") format("woff"), url("/~apple/public/fonts/fontawesome-webfont.ttf") format("truetype");
+  src: url("/public/fonts/fontawesome-webfont.eot");
+  src: url("/public/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("/public/fonts/fontawesome-webfont.woff") format("woff"), url("/public/fonts/fontawesome-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -7900,8 +7900,8 @@ input.uk-search-field {
 }
 @font-face {
   font-family: 'FontAwesome';
-  src: url("/~apple/public/fonts/fontawesome-webfont.eot");
-  src: url("/~apple/public/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("/~apple/public/fonts/fontawesome-webfont.woff") format("woff"), url("/~apple/public/fonts/fontawesome-webfont.ttf") format("truetype");
+  src: url("/public/fonts/fontawesome-webfont.eot");
+  src: url("/public/fonts/fontawesome-webfont.eot?#iefix") format("embedded-opentype"), url("/public/fonts/fontawesome-webfont.woff") format("woff"), url("/public/fonts/fontawesome-webfont.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

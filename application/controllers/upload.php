@@ -3,12 +3,13 @@
 		function __construct()
 		{
 		  	parent::__construct();
+		  	
 		  	$this->load->model('upload_model');
 		}
 		public function index()
 		{
-			$this->upload_model->upload();
-		}
 
-		
+			$data=$this->upload_model->upload();
+			$this->result_jsonCode($data,true);
+		}		
 	}
