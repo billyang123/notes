@@ -34,17 +34,19 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut.</p>
     </div> -->
 	<div class="uk-panel uk-panel-box">
-        <h3 class="uk-panel-title">Latest Articles</h3>
+        <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Latest Articles</h3>
         <ul class="uk-list uk-list-line">
         	<?php foreach (array_slice($content,0,10) as $item):?>
             <li><a href="#"><?=$item["title"] ?></a></li>
             <?php endforeach;?>
         </ul>
-        <h3 class="uk-panel-title">Social Links</h3>
+        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>
         <ul class="uk-list uk-list-line">            
             <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>
             <li><a href="https://github.com/">GitHub</a></li>
             <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
+            <li><a href="http://getbootstrap.com/">bootstrap</a></li>
+            <li><a href="http://www.getuikit.net/">uikit</a></li>
         </ul>
     </div>
 </div>

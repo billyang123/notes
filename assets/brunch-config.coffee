@@ -20,4 +20,4 @@ exports.config =
   #   wrapper: (path, data) ->
   #     return 'require.define({#{path}, function (exports, require, module) {#{data}}});\n\n'
   # conventions:
-  #   assets: /images(\/|\)/
+  #    assets: /images(\/|\)/

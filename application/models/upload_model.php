@@ -21,7 +21,10 @@ class Upload_model extends CI_Model {
 		// usleep(5000);
 
 		// Settings
-		$targetDir = "/var/tmp" . DIRECTORY_SEPARATOR . "plupload";
+		//$tmpDir = '/Library/WebServer/Documents/notes/notes';
+		$tmpDir = '/var/tmp';
+
+		$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
 
 		//$targetDir = 'uploads';
 		$cleanupTargetDir = true; // Remove old files
@@ -71,7 +74,6 @@ class Upload_model extends CI_Model {
 		if (!$out = @fopen("{$filePath}.part", $chunks ? "ab" : "wb")) {
 			die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
 		}
-
 		if (!empty($_FILES)) {
 			if ($_FILES["file"]["error"] || !is_uploaded_file($_FILES["file"]["tmp_name"])) {
 				die('{"jsonrpc" : "2.0", "error" : {"code": 103, "message": "Failed to move uploaded file."}, "id" : "id"}');

@@ -18,13 +18,15 @@
 		   	echo $json;
 		}
 		public function get_currentUser()
-		{
+		{	
+
 			return array(
 				"userId"=>$this->session->userdata('userId'),
 				'username'=>$this->session->userdata('username'),
 				'is_login'=>$this->session->userdata('logged_in')
 			);
 		}
+		
 		public function loadView($title = '', $nav = '' , $viewName = '', $data = array(), $return = FALSE)
 		{
 			$this->template->set('title', $title);

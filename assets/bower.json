@@ -14,27 +14,26 @@
     "test",
     "tests"
   ],
-  "dependencies" : {
-    "jquery": "~1.10.2",
-    "console-polyfill": "~0.1.0",
-    "uikit" : "~2.6.0",
-    "screenfull": "~1.1.1",
-    "jquery-ujs": "*",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "uikit": "~2.6.0",
+    "jquery-ujs": "~1.0.0",
+    "console-polyfill": "~0.1.1",
+    "screenfull": "~1.2.1",
     "rainbow": "~1.1.9",
-    "selectize": "~0.8.5",
-    "momentjs": "~2.5.1",
-    "jquery-autosize": "~1.18.4",
-    "codemirror" : "*"
+    "selectize": "~0.11.0",
+    "momentjs": "~2.8.1",
+    "codemirror": "~4.4.0"
   },
   "overrides": {
-    "uikit":{
-      "main":[
+    "uikit": {
+      "main": [
         "dist/js/uikit.js",
         "dist/js/addons/notify.js",
         "dist/js/addons/form-password.js"
       ]
     },
-    "rainbow":{
+    "rainbow": {
       "main": [
         "js/rainbow.js",
         "js/language/c.js",

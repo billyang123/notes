@@ -19,9 +19,18 @@
 		}
 		public function note($id)
 		{
+
 			$data["content"] = $this->notes_model->get_notes($id);
 			$data["user"] = $this->get_currentUser();
-			//echo($this->result_jsonCode($data));exit(0);
+			$this->load->model('account_model');
+			$info = $this->account_model->get_users($data["content"]["userId"]);
+			$data["com_user"] = array(
+				"userId"=>$data["content"]["userId"],
+				'userName'=>$info["username"],
+				'intro' => $info["intro"],
+				'email'=>$info["email"],
+				'is_login'=>true
+				);
 			if(count($data["content"])>0){
 				$this->loadView('notes','notes','note/note',$data);
 			}else{

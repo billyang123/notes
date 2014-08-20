@@ -1,4 +1,4 @@
-<form class="uk-form uk-form-horizontal" data-remote="true" action="<?=$assets?>/index.php/account/updateInfo/<?=$userInfo['id'] ?>" method="post">
+<form class="uk-form uk-form-horizontal" data-remote="true" data-done="$.alert(res.content)" action="<?=$assets?>/index.php/account/updateInfo/<?=$userInfo['id'] ?>" method="post">
 	<div class="uk-form-row">
 		<label class="uk-form-label" for="form-username">userName</label>
 		<div class="uk-form-controls">
