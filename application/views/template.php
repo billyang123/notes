@@ -11,7 +11,7 @@
     <script>require('main');</script>
 
 </head>
-<body class="uk-width-1-1 <?php if($nav=="login"): ?>_login-body<?php endif ?>">
+<body class="uk-width-1-1<?php if($nav=="login"): ?><?php endif ?>">
 	<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 		<?php if($nav!="login"): ?>
 		<nav class="uk-navbar uk-margin-large-bottom">
