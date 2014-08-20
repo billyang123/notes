@@ -127,8 +127,8 @@ $(function() {
 
         // Resize images on clientside if we can
         resize: {
-            width : 200, 
-            height : 200, 
+            // width : 200, 
+            // height : 200, 
             quality : 90,
             crop: true // crop to exact dimensions
         },
