@@ -8,7 +8,7 @@
 <script src="<?=$assets?>/public/vendor/marked.js"></script>
 <!-- Markdown Area JavaScript and CSS -->
 <script src="<?=$assets?>/public/dist/markdownarea.js"></script>
-<form action="<?=$assets?>/index.php/notes/create" method="post" class="uk-form uk-form-horizontal _write-form">
+<form action="<?=$assets?>/index.php/notes/create" data-method="post" data-remote="true" data-done="$.alert('保存成功！！')" class="uk-form uk-form-horizontal _write-form">
     <input value="<?=$user['username'] ?>" name="userName" type="hidden">
     <input value="<?=$user['userId'] ?>" name="userId" type="hidden">
  	<div class="uk-form-row _write-title">

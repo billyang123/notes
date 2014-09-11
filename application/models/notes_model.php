@@ -23,10 +23,18 @@ class Notes_model extends CI_Model {
 	  if ($id === FALSE)
 	  {
 	  	//$this->cache_notes();
-	  	$query = $this->db->get('notes');
+	  	//$query = $this->db->get('notes');
 	    //$query = $this->db->get('notes');
 	    //return $this->cache->get('notes');
-	    return $query->result_array();
+	    if($this->session->userdata('logged_in')){
+	    	$query1 = $this->db->get_where('notes', array('scope' => '1');
+	    	$query2 = $this->db->get_where('notes', array('scope' => '2','userId'=>$this->session->userdata('userId'));
+	    	$result = array_merge_recursive($query1->result_array(), $query2->result_array()); 
+	    }else{
+	    	$query = $this->db->get_where('notes', array('scope' => '1');
+	    	$result = $query->result_array();
+	    }
+	    return $result;
 	  }
 	  
 	  $query = $this->db->get_where('notes', array('id' => $id));

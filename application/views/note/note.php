@@ -17,7 +17,7 @@
                     <div class="uk-dropdown uk-dropdown-small">
                         <ul class="uk-nav uk-nav-dropdown">
                             <li><a href="/index.php/notes/update/<?=$content["id"] ?>">update</a></li>
-                            <li><a href="/index.php/notes/delete/<?=$content["id"] ?>">delete</a></li>
+                            <li><a href="/index.php/notes/delete/<?=$content["id"] ?>" data-remote="true" data-method="post" data-done="$.alert('删除成功！')">delete</a></li>
                         </ul>
                     </div>
                 </div>
