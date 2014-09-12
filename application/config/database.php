@@ -48,13 +48,13 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '144.76.19.105';
-$db['default']['username'] = 'ybb0130';
-$db['default']['password'] = 'ybb7060093';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
 // $db['default']['hostname'] = '10.63.12.199';
 // $db['default']['username'] = 'root';
 // $db['default']['password'] = '';
-$db['default']['database'] = 'ybbdb';
+$db['default']['database'] = 'testdb';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
