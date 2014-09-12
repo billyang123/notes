@@ -6,10 +6,10 @@
 		  	$this->load->spark('markdown/1.2.0');
 		  	$this->load->model('notes_model');
 		}
-		public function index()
+		public function index($page = 1)
 		{	
 			
-			$page = $this->input->get('p',1);
+			//$page = $this->input->get('p',1);
 			$data = $this->notes_model->get_notes(FALSE,$page,2);
 			//$data["content"] = array_reverse($this->notes_model->get_notes());
 			//$data["laters"] = array_reverse($data["content"]);
@@ -21,7 +21,7 @@
 			}else{
 				$this->loadView('notes','notes','note/index',$data);
 			}
-			$this->loadView('notes','notes','note/index',$data);
+			//$this->loadView('notes','notes','note/index',$data);
 		}
 		public function note($id)
 		{
