@@ -35,7 +35,7 @@
         <?php if($currentPage==$total):?>
         <li class="uk-pagination-next uk-disabled"><a href="#">下一页</a></li>
         <?php else: ?>
-        <li class="uk-pagination-next"><a href="/index.php/notes/index/<?=($currentPage-1) ?>" >下一页</a></li>
+        <li class="uk-pagination-next"><a href="/index.php/notes/index/<?=($currentPage+1) ?>" >下一页</a></li>
         <?php endif;?>
     </ul>
 </div>
