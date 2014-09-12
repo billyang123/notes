@@ -24,7 +24,7 @@ class Notes_model extends MY_Model {
 	  {
 	  	//$this->cache_notes();
 
-	  	//$query = $this->db->get('notes');
+	  	$query = $this->db->get('notes');
 	    //$query = $this->db->get('notes');
 	    //return $this->cache->get('notes');
 	    // if($this->session->userdata('logged_in')){
@@ -35,14 +35,14 @@ class Notes_model extends MY_Model {
 	    // 	$query = $this->db->get_where('notes', array('scope' => '1');
 	    // 	$result = $query->result_array();
 	    // }
-	    $result = $this->get_page_data('notes', FALSE, $limit, ($page-1)*$limit, FALSE);
-	    //$result = $query->result_array();
+	    //$result = $this->get_page_data('notes', FALSE, $limit, ($page-1)*$limit, FALSE);
+	    $result = $query->result_array();
 	    return $result;
 	  }
 	  
 	  //$query = $this->db->get_where('notes', array('id' => $id));
-	  //return $query->row_array();
-	  return $this->get_page_data('notes', array('id' => $id), $limit, $page, FALSE);
+	  return $query->row_array();
+	  //return $this->get_page_data('notes', array('id' => $id), $limit, $page, FALSE);
 	}
 	// type：1为public，1为personal
 	public function get_notesByType($type = FALSE){
