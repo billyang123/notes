@@ -9,7 +9,9 @@
 		public function index()
 		{	
 			
-			$data["content"] = array_reverse($this->notes_model->get_notes());
+			$page = $this->input->get('p',1);
+			$data = $this->notes_model->get_notes(FALSE,$page,2);
+			//$data["content"] = array_reverse($this->notes_model->get_notes());
 			//$data["laters"] = array_reverse($data["content"]);
 			//echo($this->result_jsonCode($data));exit(0);
 			//var_dump($data);exit(0);

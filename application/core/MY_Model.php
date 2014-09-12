@@ -23,6 +23,8 @@ class MY_Model extends CI_Model {
 	            $this->db->where($where, NULL, false);
 	        }
 	    }
+	    $dbhandle = clone($this->db);
+	    $total = $this->db->count_all_results($tablename);
 	    if($limit) {
 	        $dbhandle->limit($limit);
 	    }
@@ -33,7 +35,7 @@ class MY_Model extends CI_Model {
 	        $dbhandle->order_by($order_by);
 	    }
 	    $data = $dbhandle->get($tablename)->result_array();
-	    return array('total' => $total, 'data' => $data);
+	    return array('total' => $total, 'currentPage' => $offset, 'content' => $data);
 	}
 
 }
