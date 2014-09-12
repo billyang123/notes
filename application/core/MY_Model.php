@@ -35,7 +35,7 @@ class MY_Model extends CI_Model {
 	        $dbhandle->order_by($order_by);
 	    }
 	    $data = $dbhandle->get($tablename)->result_array();
-	    return array('total' => $total, 'currentPage' => $offset, 'content' => $data);
+	    return array('total' => $total, 'currentPage' => $offset+1, 'content' => $data);
 	}
 
 }
