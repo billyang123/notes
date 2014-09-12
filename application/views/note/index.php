@@ -37,7 +37,7 @@
         <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Latest Articles</h3>
         <ul class="uk-list uk-list-line">
         	<?php foreach (array_slice($content,0,10) as $item):?>
-            <li><a href="#"><?=$item["title"] ?></a></li>
+            <li class="uk-text-overflow"><a href="/index.php/notes/<?=$item["id"] ?>" title="<?=$item["title"] ?>"><?=$item["title"] ?></a></li>
             <?php endforeach;?>
         </ul>
         <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>

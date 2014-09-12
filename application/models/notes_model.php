@@ -1,5 +1,5 @@
 <?php
-class Notes_model extends CI_Model {
+class Notes_model extends MY_Model {
 
 	public function __construct()
 	{
@@ -19,7 +19,7 @@ class Notes_model extends CI_Model {
 		return $this->cache->get('notes');
 
 	}
-  	public function get_notes($id = FALSE){
+  	public function get_notes($id = FALSE,$page = 1){
 	  if ($id === FALSE)
 	  {
 	  	//$this->cache_notes();

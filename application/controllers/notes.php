@@ -9,12 +9,16 @@
 		public function index()
 		{	
 			
-
 			$data["content"] = array_reverse($this->notes_model->get_notes());
 			//$data["laters"] = array_reverse($data["content"]);
 			//echo($this->result_jsonCode($data));exit(0);
 			//var_dump($data);exit(0);
 			//$data["assets"] = "";
+			if($this->input->is_ajax_request()){
+				$this->loadView('notes','notes','note/note_page',$data);
+			}else{
+				$this->loadView('notes','notes','note/index',$data);
+			}
 			$this->loadView('notes','notes','note/index',$data);
 		}
 		public function note($id)
