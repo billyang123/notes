@@ -16,6 +16,7 @@
 			//echo($this->result_jsonCode($data));exit(0);
 			//var_dump($data);exit(0);
 			//$data["assets"] = "";
+			//echo json_encode($data);exit(0);
 			if($this->input->is_ajax_request()){
 				$this->loadView('notes','notes','note/note_page',$data);
 			}else{
