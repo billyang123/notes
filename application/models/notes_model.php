@@ -35,7 +35,7 @@ class Notes_model extends MY_Model {
 	    // 	$query = $this->db->get_where('notes', array('scope' => '1');
 	    // 	$result = $query->result_array();
 	    // }
-	    $result = $this->get_page_data('notes', FALSE, $limit, $page, FALSE);
+	    $result = $this->get_page_data('notes', FALSE, $limit, ($page-1)*$limit, FALSE);
 	    //$result = $query->result_array();
 	    return $result;
 	  }
