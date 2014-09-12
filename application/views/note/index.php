@@ -29,12 +29,12 @@
     <ul class="uk-pagination">
         <?php if($currentPage==1)?>
         <li class="uk-pagination-previous uk-disabled"><a href="#">上一页</a></li>
-        <?php else ?>
+        <?php else: ?>
         <li class="uk-pagination-previous"><a href="/index.php/notes/index/<?=($currentPage-1) ?>" >上一页</a></li>
         <?php endif?>
         <?php if($currentPage==$total)?>
         <li class="uk-pagination-next uk-disabled"><a href="#">下一页</a></li>
-        <?php else ?>
+        <?php else: ?>
         <li class="uk-pagination-next"><a href="/index.php/notes/index/<?=($currentPage-1) ?>" >下一页</a></li>
     </ul>
 </div>

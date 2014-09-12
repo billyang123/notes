@@ -10,7 +10,7 @@
 		{	
 			
 			//$page = $this->input->get('p',1);
-			$data = $this->notes_model->get_notes(FALSE,$page,2);
+			$data = $this->notes_model->get_notes(FALSE,$page,5);
 			//$data["content"] = array_reverse($this->notes_model->get_notes());
 			//$data["laters"] = array_reverse($data["content"]);
 			//echo($this->result_jsonCode($data));exit(0);
