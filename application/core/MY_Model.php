@@ -37,5 +37,4 @@ class MY_Model extends CI_Model {
 	    $data = $dbhandle->get($tablename)->result_array();
 	    return array('total' => $total, 'currentPage' => ceil($offset/$limit), 'content' => $data);
 	}
-
 }

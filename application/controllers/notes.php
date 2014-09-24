@@ -5,13 +5,15 @@
 		  	parent::__construct();
 		  	$this->load->spark('markdown/1.2.0');
 		  	$this->load->model('notes_model');
+		  	$this->load->library('session');
+		  	$this->load->model('classify_model');
 		}
 		public function index($page = 1)
 		{	
 			
 			//$page = $this->input->get('p',1);
-			$data = $this->notes_model->get_notes(FALSE,$page,5);
-			//$data["content"] = array_reverse($this->notes_model->get_notes());
+			//$data = $this->notes_model->get_notes(FALSE,$page,5);
+			$data["content"] = array_reverse($this->notes_model->get_notes());
 			//$data["laters"] = array_reverse($data["content"]);
 			//echo($this->result_jsonCode($data));exit(0);
 			//var_dump($data);exit(0);
@@ -21,6 +23,25 @@
 				$this->loadView('notes','notes','note/note_page',$data);
 			}else{
 				$this->loadView('notes','notes','note/index',$data);
+			}
+			//$this->loadView('notes','notes','note/index',$data);
+		}
+		public function mine()
+		{	
+			
+			//$page = $this->input->get('p',1);
+			//$data = $this->notes_model->get_notes(FALSE,$page,5);
+			$data["user"] = $this->get_currentUser();
+			$data["content"] = array_reverse($this->notes_model->get_notesByUserId($data["user"]["userId"]));
+			//$data["laters"] = array_reverse($data["content"]);
+			//echo($this->result_jsonCode($data));exit(0);
+			//var_dump($data);exit(0);
+			//$data["assets"] = "";
+			//echo json_encode($data);exit(0);
+			if($this->input->is_ajax_request()){
+				$this->loadView('notes','mine','note/note_page',$data);
+			}else{
+				$this->loadView('notes','mine','note/index',$data);
 			}
 			//$this->loadView('notes','notes','note/index',$data);
 		}
@@ -95,6 +116,7 @@
 			    return;
 			}
 			$data["content"] = $this->notes_model->get_notes($id);
+			$data["classify"] = $this->classify_model->getClassify();
 			$this->loadView('Write','Write','write/update',$data);
 
 		}

@@ -26,18 +26,6 @@
         </div> 
     </article>
     <?php endforeach;?>
-    <!-- <ul class="uk-pagination">
-        <?php if($currentPage==1):?>
-        <li class="uk-pagination-previous uk-disabled"><a href="#">上一页</a></li>
-        <?php else: ?>
-        <li class="uk-pagination-previous"><a href="/index.php/notes/index/<?=($currentPage-1) ?>" >上一页</a></li>
-        <?php endif;?>
-        <?php if($currentPage==$total-1):?>
-        <li class="uk-pagination-next uk-disabled"><a href="#">下一页</a></li>
-        <?php else: ?>
-        <li class="uk-pagination-next"><a href="/index.php/notes/index/<?=($currentPage+1) ?>" >下一页</a></li>
-        <?php endif;?>
-    </ul> -->
 </div>
 <div class="uk-width-medium-1-4">
 	<!-- <div class="uk-panel uk-panel-box uk-text-center">

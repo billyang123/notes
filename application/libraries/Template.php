@@ -14,7 +14,7 @@ class Template {
 		{               
 			$this->CI =& get_instance();
 			$this->set('content_for_template', $this->CI->load->view($view, $view_data, TRUE));
-			$this->set('nav_list', array('home','notes','media', 'about', 'write'));	
+			$this->set('nav_list', array('home','notes','mine','media', 'about', 'write'));	
 			return $this->CI->load->view($template, $this->template_data, $return);
 		}
 		function load_main($view = '', $view_data = array(), $return = FALSE)

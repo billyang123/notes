@@ -47,6 +47,7 @@ $route['write'] = 'write';
 $route['login'] = 'account/login';
 $route['logout'] = 'account/logout';
 $route['notes'] = "notes/index";
+$route['mine'] = "notes/mine";
 $route['notes/(:num)'] = "notes/note/$1";
 $route['register'] = "account/register";
 $route['comment/(:num)'] = "comment/index/$1";

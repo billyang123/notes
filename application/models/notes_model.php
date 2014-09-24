@@ -24,23 +24,26 @@ class Notes_model extends MY_Model {
 	  {
 	  	//$this->cache_notes();
 
-	  	$query = $this->db->get('notes');
+	  	//$query = $this->db->get('notes');
 	    //$query = $this->db->get('notes');
 	    //return $this->cache->get('notes');
-	    // if($this->session->userdata('logged_in')){
+	    if($this->session->userdata('logged_in')){
+	    	$query = $this->db->get('notes');
 	    // 	$query1 = $this->db->get_where('notes', array('scope' => '1');
 	    // 	$query2 = $this->db->get_where('notes', array('scope' => '2','userId'=>$this->session->userdata('userId'));
 	    // 	$result = array_merge_recursive($query1->result_array(), $query2->result_array()); 
 	    // }else{
 	    // 	$query = $this->db->get_where('notes', array('scope' => '1');
 	    // 	$result = $query->result_array();
-	    // }
+	    }else{
+	    	$query = $this->db->get_where('notes', array('scope' => '1'));
+	    }
 	    //$result = $this->get_page_data('notes', FALSE, $limit, ($page-1)*$limit, FALSE);
 	    $result = $query->result_array();
 	    return $result;
 	  }
 	  
-	  //$query = $this->db->get_where('notes', array('id' => $id));
+	  $query = $this->db->get_where('notes', array('id' => $id));
 	  return $query->row_array();
 	  //return $this->get_page_data('notes', array('id' => $id), $limit, $page, FALSE);
 	}
@@ -55,9 +58,20 @@ class Notes_model extends MY_Model {
 	  $query = $this->db->get_where('notes', array('type' => $type));
 	  return $query->row_array();
 	}
+
 	public function get_notes_by_scope($scope='1'){
 		$query = $this->db->get_where('notes', array('scope' => $scope,'userId'=>$this->session->userdata('userId')));
 	  	return $query->result_array();
+	}
+	public function get_notesByUserId($userId = FALSE){
+	  if ($userId === FALSE)
+	  {
+	    $query = $this->db->get('notes');
+
+	    return $query->result_array();
+	  }	  
+	  $query = $this->db->get_where('notes', array('userId' => $userId));
+	  return $query->result_array();
 	}
 	public function set_notes()
 	{

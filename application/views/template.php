@@ -18,22 +18,9 @@
 		    <a class="uk-navbar-brand uk-hidden-small" href="/"><i class="uk-icon-home uk-icon-small"></i>note</a>
 		    <ul class="uk-navbar-nav uk-hidden-small">
 		    	<?php foreach($nav_list  as $i => $nav_item): ?>
-			    	<?php if($nav_item=="notes"): ?>
-					<li class="<?= ($nav == $nav_item ? 'uk-active' : '')?>" data-uk-dropdown="{mode:'click'}">
-						<a href="javascript:void(0)"><?=ucwords($nav_item) ?></a>
-						<div class="uk-dropdown">
-							<ul class="uk-nav uk-nav-dropdown">
-								<li><a href="<?=$assets ?>/index.php/notes">All Notes</a></li>
-								<li><a href="<?=$assets ?>/index.php/public">Public</a></li>
-								<li><a href="<?=$assets ?>/index.php/personal">Personal</a></li>
-							</ul>
-						</div>
-					</li>
-					<?php else: ?>
-					<li class="<?= ($nav == $nav_item ? 'uk-active' : '')?>">
+			    	<li class="<?= ($nav == $nav_item ? 'uk-active' : '')?>">
 						<a href="<?=$assets ?>/index.php/<?=$nav_item ?>"><?=ucwords($nav_item) ?></a>
 					</li>
-					<?php endif ?>
 				<?php endforeach ?>
 		    </ul>
 		    <div class="uk-navbar-flip">

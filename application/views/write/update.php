@@ -8,7 +8,7 @@
 <script src="<?=$assets?>/public/vendor/marked.js"></script>
 <!-- Markdown Area JavaScript and CSS -->
 <script src="<?=$assets?>/public/dist/markdownarea.js"></script>
-<form action="<?=$assets?>/index.php/notes/update/<?=$content['id']?>/do" data-method="post" data-remote="true" data-done="$.alert('修改成功！！')" class="uk-form uk-form-horizontal _write-form">
+<form action="<?=$assets?>/index.php/notes/update/<?=$content['id']?>/do" method="POST" data-remote="true" data-done="$.alert(res.content)" class="uk-form uk-form-horizontal _write-form">
     <input value="<?=$content['userName'] ?>" name="userName" type="hidden">
     <input value="<?=$content['userId'] ?>" name="userId" type="hidden">
  	<div class="uk-form-row _write-title">
@@ -21,60 +21,13 @@
     <div class="uk-form-row">
         <span>分类:</span>
         <select name="type">
-        	<?php
-				switch ($content['type'])
-				{
-				case 1:
-				  ?>
-				  	<option value="1" selected="selected">javascript</option>
-		            <option value="2">php</option>
-		            <option value="3">html</option>
-		            <option value="4">css</option>
-		            <option value="5">其他</option>
-				  <?php
-				  break;
-				case 2:
-				   ?>
-				  	<option value="1">javascript</option>
-		            <option value="2" selected="selected">php</option>
-		            <option value="3">html</option>
-		            <option value="4">css</option>
-		            <option value="5">其他</option>
-				  <?php
-				  break;
-				case 3:
-				  ?>
-				  	<option value="1">javascript</option>
-		            <option value="2">php</option>
-		            <option value="3" selected="selected">html</option>
-		            <option value="4">css</option>
-		            <option value="5">其他</option>
-				  <?php
-				  break;
-				case 4:
-				  ?>
-				  	<option value="1">javascript</option>
-		            <option value="2">php</option>
-		            <option value="3" >html</option>
-		            <option value="4" selected="selected">css</option>
-		            <option value="5">其他</option>
-				  <?php
-				  break;
-				default:
-				  ?>
-				  	<option value="1">javascript</option>
-		            <option value="2">php</option>
-		            <option value="3" >html</option>
-		            <option value="4">css</option>
-		            <option value="5" selected="selected">其他</option>
-				  <?php
-				}
-			?>
-        	
+        	<?php foreach ($classify as $item):?>
+            <option value="<?=$item['id']?>" <?=($item['id']==$content['type'])?'selected':''?> ><?=$item['name']?></option>
+            <?php endforeach;?>
         </select>
         <span class="uk-margin-left">是否公开：</span>
-        <label><input type="radio" value="1" name="scope"> 是</label>
-        <label><input type="radio" value="2" name="scope"> 否</label>
+        <label><input type="radio" value="1" name="scope" <?=$content['scope']=='1'?'checked':''?>> 是</label>
+        <label><input type="radio" value="0" name="scope" <?=$content['scope']=='0'?'checked':''?>> 否</label>
     </div>
     <div class="uk-form-row">
         <input type="submit" name="submit" class="uk-button" value="update notes" />
