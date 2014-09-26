@@ -1,25 +1,23 @@
+<link rel="stylesheet" type="text/css" href="<?=$assets?>/public/vendor/foxibox/foxibox.css">
+<script type="text/javascript" src="<?=$assets?>/public/vendor/foxibox/jquery-foxibox-0.2.min.js"></script>
 <div class="uk-width-1-1">
     <ul class="uk-subnav uk-subnav-pill">
         <li><a href="/index.php/media">Album</a></li>
         <li class="uk-active"><a href="/index.php/media/photo">Photo</a></li>
         <li class=""><a href="/index.php/media/video">Video</a></li>
     </ul>
-            <div class="uk-grid" data-uk-grid-margin="">
+            <div class="uk-grid" data-uk-grid-margin="" id="notesPics">
                 <?php foreach ($content as $item):?>
-                <div class="uk-width-medium-1-6" style="height:194px;">
-                    <a class="uk-thumbnail uk-overlay-toggle uk-width-medium-1-1" data-uk-modal="{target:'#modal-<?=$item["id"]?>'}">
-                        <div class="uk-overlay uk-align-center">
-                            <img src="<?=$item["path"]?>" alt="">
-                            <div class="uk-overlay-area"></div>
-                        </div>
+                <div class="picitem">
+                    <a class="uk-thumbnail notes-imgbox" rel="[gall1]" href="<?=$item["path"]?>">
+                        <img src="<?=$item["path"]?>?imageMogr2/thumbnail/160x" alt="" onerror="javascript:$(this).closest('.picitem').remove()">
                     </a>
-                    <div id="modal-<?=$item['id']?>" class="uk-modal">
-                        <div class="uk-modal-dialog uk-modal-dialog-frameless">
-                            <a href="" class="uk-modal-close uk-close uk-close-alt"></a>
-                            <img src="<?=$item["path"]?>" alt="">
-                        </div>
-                    </div>
                 </div>
                 <?php endforeach;?>
             </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){$('#notesPics a').foxibox({
+    scale:true
+});});
+</script>

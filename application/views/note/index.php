@@ -1,6 +1,6 @@
 <div class="uk-width-medium-3-4">
 	<?php foreach ($content as $item):?>
-	<article class="uk-article _index-article uk-panel-box">
+	<article class="uk-article _index-article uk-panel-box" id="note_<?=$item["id"] ?>">
         <h1 class="uk-article-title">
             <a href="<?=$assets?>/index.php/notes/<?=$item["id"] ?>"><?=$item["title"] ?></a>
         </h1>
@@ -26,6 +26,7 @@
         </div> 
     </article>
     <?php endforeach;?>
+    <?=$pagin?>
 </div>
 <div class="uk-width-medium-1-4">
 	<!-- <div class="uk-panel uk-panel-box uk-text-center">
@@ -33,13 +34,19 @@
         <h3>Author Name</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut.</p>
     </div> -->
-	<div class="uk-panel uk-panel-box">
-        <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Latest Articles</h3>
+	<div class="uk-panel uk-panel-box notes-subbox" data-uk-sticky>
+        <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Articles</h3>
         <ul class="uk-list uk-list-line">
         	<?php foreach (array_slice($content,0,10) as $item):?>
-            <li class="uk-text-overflow"><a href="/index.php/notes/<?=$item["id"] ?>" title="<?=$item["title"] ?>"><?=$item["title"] ?></a></li>
+            <li class="uk-text-overflow"><a href="#note_<?=$item["id"] ?>" title="<?=$item["title"] ?>"><?=$item["title"] ?></a></li>
             <?php endforeach;?>
         </ul>
+        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Classify</h3>
+        <div class="notes-tags">
+            <?php foreach ($classify as $item):?>
+            <a href="/index.php/notes/?class=<?=$item['id']?>"><?=$item['name']?></a>
+            <?php endforeach;?>
+        </div>
         <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>
         <ul class="uk-list uk-list-line">            
             <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>

@@ -2,35 +2,28 @@
 
 class Welcome extends MY_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -  
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in 
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see http://codeigniter.com/user_guide/general/urls.html
-	 */
 	function __construct()
 	{
 		parent::__construct();
-		//$this->load->spark('markdown/1.2.0');
-		$this->load->library('uploadtoken');
+		$this->load->spark('markdown/1.2.0');
+		//$this->load->library('uploadtoken');
+		$this->load->model('notes_model');
 	}
 	public function index()
 	{
 
-		$data["token"] = $this->uploadtoken->get_token();
-		$data["key"] = $this->uploadtoken->get_key();
-		$this->loadView('notes','','welcome_message',$data);
+		$data = $this->notes_model->get_pageNotes(1,2);
+		//$data["laters"] = array_reverse($data["content"]);
+		//echo($this->result_jsonCode($data));exit(0);
+		//var_dump($data);exit(0);
+		//$data["assets"] = "";
+		//echo json_encode($data);exit(0);
+		//$this->pagination();
+		$data['pagin'] = $this->pagination();
+		if($this->input->is_ajax_request()){
+			$this->loadView('notes','notes','note/note_page',$data);
+		}else{
+			$this->loadView('notes','notes','note/index',$data);
+		}
 	}
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

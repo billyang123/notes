@@ -8,17 +8,20 @@
 		  	$this->load->library('session');
 		  	$this->load->model('classify_model');
 		}
-		public function index($page = 1)
+		public function index()
 		{	
-			
-			//$page = $this->input->get('p',1);
+			$isPage = $this->input->get('isPage',true);
+			$page = $this->input->get('p','1');
+			$page = $page ? $page :1;
 			//$data = $this->notes_model->get_notes(FALSE,$page,5);
-			$data["content"] = array_reverse($this->notes_model->get_notes());
+			$data = $this->notes_model->get_pageNotes($page,5);
 			//$data["laters"] = array_reverse($data["content"]);
 			//echo($this->result_jsonCode($data));exit(0);
 			//var_dump($data);exit(0);
 			//$data["assets"] = "";
 			//echo json_encode($data);exit(0);
+			$data['classify'] = $this->classify_model->getClassify();
+			$data['pagin'] = $this->pagination('/index.php/notes/?pg=true',$data['total'],5,'/index.php/notes/');
 			if($this->input->is_ajax_request()){
 				$this->loadView('notes','notes','note/note_page',$data);
 			}else{
@@ -31,19 +34,22 @@
 			
 			//$page = $this->input->get('p',1);
 			//$data = $this->notes_model->get_notes(FALSE,$page,5);
+			$this->checkLogin();
+			$isPage = $this->input->get('isPage',true);
+			$page = $this->input->get('p','1');
+			$page = $page ? $page :1;
+			//$data = $this->notes_model->get_notes(FALSE,$page,5);
 			$data["user"] = $this->get_currentUser();
-			$data["content"] = array_reverse($this->notes_model->get_notesByUserId($data["user"]["userId"]));
-			//$data["laters"] = array_reverse($data["content"]);
-			//echo($this->result_jsonCode($data));exit(0);
-			//var_dump($data);exit(0);
-			//$data["assets"] = "";
+			$data = $this->notes_model->get_notesByUserId($data["user"]["userId"],$page,5);
+			$data['classify'] = $this->classify_model->getClassify();
+			$data['pagin'] = $this->pagination('/index.php/notes/?pg=true',$data['total'],5,'/index.php/notes/');
+			
 			//echo json_encode($data);exit(0);
 			if($this->input->is_ajax_request()){
 				$this->loadView('notes','mine','note/note_page',$data);
 			}else{
 				$this->loadView('notes','mine','note/index',$data);
 			}
-			//$this->loadView('notes','notes','note/index',$data);
 		}
 		public function note($id)
 		{
@@ -59,6 +65,10 @@
 				'email'=>$info["email"],
 				'is_login'=>true
 				);
+			// if($data["content"]['scope'] == '0' && $data["user"]["userId"] == $data["content"]["userId"]){
+			// 	$this->checkLogin();
+			// 	return;
+			// }
 			if(count($data["content"])>0){
 				$this->loadView('notes','notes','note/note',$data);
 			}else{

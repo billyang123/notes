@@ -35,6 +35,6 @@ class MY_Model extends CI_Model {
 	        $dbhandle->order_by($order_by);
 	    }
 	    $data = $dbhandle->get($tablename)->result_array();
-	    return array('total' => $total, 'currentPage' => ceil($offset/$limit), 'content' => $data);
+	    return array('total' => $total, 'limit' => $limit,'offset' => $offset, 'content' => array_reverse($data));
 	}
 }

@@ -35,6 +35,7 @@
 
 			// $this->template->set('username',$this->session->userdata('username'));
 			//$this->user = $this->get_currentUser();
+
 			$this->template->set_globals(array(
 				'user' =>$this->get_currentUser(),
 				'assets' =>$this->assets
@@ -61,6 +62,18 @@
 				//redirect('/index.php/account/login?redirect='.$redirect);
 			}
 
+		}
+		public function pagination($url = '/index.php/notes/?pg=true',$total=10,$per=2,$first_url='/index.php/notes/'){
+			$this->load->library('pagination');
+			$config['base_url'] = $url;
+			$config['total_rows'] = $total;
+			$config['per_page'] = $per; 
+			$config['query_string_segment'] = 'p';
+			$config['page_query_string'] = true;
+			$config['first_url'] = $first_url;
+			$this->pagination->initialize($config); 
+
+			return $this->pagination->create_links();
 		}
 	}
 	
