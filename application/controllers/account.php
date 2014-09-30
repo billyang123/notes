@@ -8,6 +8,7 @@
 		  	$this->load->library('form_validation');
 		  	$this->load->helper("uri");
 		  	$this->salt = "notes";
+		  	$this->load->model('media_model');
 		}
 		public function details(){
 			$this->loadView('notes','','account/details');
@@ -63,10 +64,11 @@
 				
 				$email = $this->input->post("email");
 				$intro = $this->input->post("intro");
-				if($this->account_model->add_user($username,$password,$email,$intro)){
+				$defaultAlbumId = $this->media_model->add_default_album($username);
+				if($this->account_model->add_user($username,$password,$email,$intro,$defaultAlbumId)){
 					$data["message"] = "账号创建成功!";
 					$data["redirect"] = "/notes";
-					$this->loadView('login','','account/login',$data);
+					$this->loadView('login','login','account/login',$data);
 					
 				}else{
 					$data["message"] = "账号创建失败!";
@@ -103,6 +105,14 @@
 					$this->result_jsonCode('修改失败！',false);
 				}
 
+			}
+		}
+		public function logincheck()
+		{
+			if($this->session->userdata('logged_in')){
+				$this->result_jsonCode($this->get_currentUser(),true);
+			}else{
+				$this->result_jsonCode('未登录',false);
 			}
 		}
 		public function userList(){

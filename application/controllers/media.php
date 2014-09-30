@@ -3,12 +3,12 @@
 		function __construct()
 		{
 		  	parent::__construct();
-		  	$this->checkLogin();
 		  	$this->load->model('media_model');
 		  	$this->load->library('uploadtoken');
 		}
 		public function index()
 		{
+			$this->checkLogin();
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_album();
 			//var_dump($this->uploadtoken->get_token());exit(0);
@@ -21,6 +21,7 @@
 		public function photo()
 		{
 			//echo $albumId;exit(0);
+			$this->checkLogin();
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo();
 			//var_dump($data);exit(0);
@@ -28,15 +29,15 @@
 		}
 		public function createAlbum()
 		{
+			$this->checkLogin();
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('albumName', 'albumName', 'trim|required|xss_clean');
 			$this->form_validation->set_rules('albumDescription', 'albumDescription', 'trim|xss_clean');			
 			if ($this->form_validation->run() == FALSE){
-				$this->result_jsonCode("相册名不为空",false);	
-				
+				$this->result_jsonCode(array('msg' => '保存失败'),false);		
 			}else{
-				if($this->media_model->add_album()){
-					$this->result_jsonCode("保存成功",true);
+				if($albumId = $this->media_model->add_album()){
+					$this->result_jsonCode(array('msg' => '保存成功','albumId' => $albumId),true);
 				}else{
 					$this->result_jsonCode("保存失败",false);
 				}
@@ -44,6 +45,7 @@
 		}
 		public function album($albumId)
 		{
+			$this->checkLogin();
 			//echo $albumId;exit(0);
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo($albumId);
@@ -52,6 +54,7 @@
 		}
 		public function video()
 		{
+			$this->checkLogin();
 			//echo $albumId;exit(0);
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_video();
@@ -60,6 +63,10 @@
 		}
 		public function addVideo()
 		{
+			$this->checkLogin();
 			$this->media_model->set_video_info();
+		}
+		public function albumInfo(){
+			$this->result_jsonCode($this->media_model->get_album(),true);
 		}
 	}

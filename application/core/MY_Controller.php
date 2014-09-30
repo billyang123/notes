@@ -17,16 +17,26 @@
 			header('Content-type:text/json');
 		   	echo $json;
 		}
+		public function result_jsonp($data = FALSE, $isSuccess = true)
+		{
+			$result = json_encode(array("content"=>$data,"success"=>$isSuccess));
+		   	$callback=$this->input->get('callback');    
+			echo $callback."($result)";  
+		}
 		public function get_currentUser()
 		{	
 
 			return array(
 				"userId"=>$this->session->userdata('userId'),
 				'username'=>$this->session->userdata('username'),
-				'is_login'=>$this->session->userdata('logged_in')
+				'is_login'=>$this->session->userdata('logged_in'),
+				'default_albumId'=>$this->session->userdata('default_albumId')
 			);
 		}
-		
+		public function varSet($name,$nStr)
+		{
+			return $this->template->set($name, $nStr);
+		}
 		public function loadView($title = '', $nav = '' , $viewName = '', $data = array(), $return = FALSE)
 		{
 			$this->template->set('title', $title);
@@ -42,17 +52,14 @@
 			));
 			$this->template->load('template', $viewName,$data);
 		}
+
 		public function checkLogin()
 		{
 			$this->load->helper('uri');
 			if(!$this->session->userdata('logged_in'))
 			{
-				//$redirect = $this->uri->uri_string();
 				$redirect = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-				//var_dump('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-				if($_SERVER['QUERY_STRING']){
-					$redirect = '?' . $_SERVER['QUERY_STRING'];
-				}
+				
 				if($this->input->is_ajax_request()) {
 					echo '<script>window.location.href="http://'.$_SERVER['HTTP_HOST'].$this->assets.'/index.php/login";</script>';
 					exit(0);

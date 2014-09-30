@@ -13,7 +13,7 @@
 </head>
 <body class="uk-width-1-1<?php if($nav=="login"): ?><?php endif ?>">
 	<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-		<?php if($nav!="login"): ?>
+		<?php if($nav!="login" && $nav!="bookmarklet"): ?>
 		<nav class="uk-navbar uk-margin-large-bottom">
 		    <a class="uk-navbar-brand uk-hidden-small" href="/"><i class="uk-icon-home uk-icon-small"></i>note</a>
 		    <ul class="uk-navbar-nav uk-hidden-small">

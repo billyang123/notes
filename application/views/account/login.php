@@ -9,7 +9,7 @@
                 <input class="uk-width-1-1 uk-form-large" type="text" name="username" placeholder="Username">
             </div>
             <div class="uk-form-row">
-                <input class="uk-width-1-1 uk-form-large" type="text" name="password" placeholder="Password">
+                <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="Password">
             </div>
             <div class="uk-form-row">
             	<button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">Login</button>

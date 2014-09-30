@@ -26,15 +26,16 @@ class Account_model extends CI_Model {
 	{
 		if($user = $this->get_by_username($username)){
 			$this->session->set_userdata('userId',$user->id);
+			$this->session->set_userdata('default_albumId',$user->default_albumId);
 			return $user->password == $password ? TRUE : FALSE;
 		}
 		return FALSE;
 	}
 
 
-	public function add_user($username, $password, $email, $intro)
+	public function add_user($username, $password, $email, $intro, $defaultAlbumId)
 	{
-		$data = array('username'=>$username,'password'=>$password,'email'=>$email,'intro'=>$intro);
+		$data = array('username'=>$username,'password'=>$password,'email'=>$email,'intro'=>$intro,'default_albumId'=>$defaultAlbumId);
 		$this->db->insert('note_users',$data);
 		if($this->db->affected_rows() > 0)
 		{

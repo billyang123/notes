@@ -105,16 +105,56 @@ class Upload_model extends CI_Model {
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
 		$result = $this->uploadtoken->uploadToQiNiu('ybbcdn',$_key_,$filePath);
 		$path = 'http://ybbcdn.qiniudn.com/'.$_key_;
-		$this->set_upload_info($path,$fileName,$this->input->post("albumId"));
+		$this->set_upload_info($path,$fileName,$this->input->post("albumId"),$this->input->post("description"));
 		// Return Success JSON-RPC response
 		return $result;
 	}
-	
 	public function get_token()
 	{
 		return $this->uploadtoken->get_token();
 	}
-	public function set_upload_info($path,$name,$albumId)
+	public function getFile($url,$filePath)
+	{
+		set_time_limit(24*60*60);
+		$tmpDir = '/var/tmp';
+		//$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
+		$newfname = $filePath;
+		$file=fopen($url, 'rb');
+		if($file){
+			$newf = fopen($newfname, 'wb');
+			if($newf){
+				while (!feof($file)) {
+					fwrite($newf, fread($file,1024*8),1024*8);
+				}
+			}
+			if($file){
+				fclose($file);
+			}
+			if($newf){
+				fclose($newf);
+			}
+		}
+	}
+	public function signUpload()
+	{
+		$tmpDir = '/var/tmp';
+		$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
+
+		$imgUrl = $this->input->post("imgUrl");
+		$fileName = 'colectimg'.time().'.' . $this->input->post("media_type");
+		$filePath = $targetDir.DIRECTORY_SEPARATOR.$fileName;
+
+		$this->getFile($imgUrl,$filePath);
+		$_key_=date("Ymd",time())."_".time()."_".$fileName;
+		$result = $this->uploadtoken->uploadToQiNiu('ybbcdn',$_key_,$filePath);
+		$path = 'http://ybbcdn.qiniudn.com/'.$_key_;
+		$albumId = $this->input->post("albumId");
+		$albumId = $albumId?$albumId:$this->session->userdata('default_albumId');
+		$this->set_upload_info($path,$fileName,$albumId,$this->input->post("description"));
+		$result['albumId'] = $albumId;
+		return $result;
+	}
+	public function set_upload_info($path,$name,$albumId,$description)
 	{
 		$data = array(
 		    'path' => $path,
@@ -122,7 +162,8 @@ class Upload_model extends CI_Model {
 		    'albumId' => $albumId,
 		    'userId' => $this->session->userdata('userId'),
 		    'userName' => $this->session->userdata('username'),
-		    'createTime' => time()
+		    'createTime' => time(),
+		    'description' => $description
 		);
 		return $this->db->insert('yun_img_info', $data);
 	}

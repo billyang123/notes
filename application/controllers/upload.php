@@ -11,5 +11,10 @@
 
 			$data=$this->upload_model->upload();
 			$this->result_jsonCode($data,true);
+		}
+		public function sign()
+		{
+			$data=$this->upload_model->signUpload();
+			$this->result_jsonCode($data,true);
 		}		
 	}

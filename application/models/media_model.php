@@ -6,6 +6,7 @@ class Media_model extends CI_Model {
 	   	//$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 	   	$this->db->cache_on();
 	   	$this->load->library('session');
+	   	$this->load->library('cart');
 	}
 	public function add_album()
 	{
@@ -17,22 +18,43 @@ class Media_model extends CI_Model {
 			"limits" => $this->input->post("albumLimits"),
 			'cover' => $this->input->post("albumCover")
 		);
-		return $this->db->insert('album', $data);
-		$this->db->insert('album',$data);
-		if($this->db->affected_rows() > 0)
-		{
-			return TRUE;
+		if($this->db->insert('album', $data)){
+			return $this->db->insert_id();
+		}else{
+			return FALSE;
 		}
-		return FALSE;
+	}
+	public function add_default_album($username)
+	{
+		$data = array(
+			"name" => '默认',
+			"userId" =>$this->session->userdata('userId'),
+			"userName" =>$username,
+			"description" => '默认相册',
+			"limits" => 'public',
+			'cover' => ''
+		);
+		$this->db->insert('album', $data);
+		return $this->db->insert_id();
+		//$this->db->insert('album',$data);
 	}
 	public function get_album($id=FALSE)
 	{
 		if($id == FALSE)
 		{
-			$query = $this->db->get_where('album',array('userId' => $this->session->userdata('userId')));
+			$query = $this->db->get_where('album',array(
+				//'userId' => $this->session->userdata('userId'),
+				'userName' => $this->session->userdata('username')
+				)
+			);
 			return $query->result_array();
 		}
-		$query = $this->db->get_where('album', array('id' => $id,'userId' => $this->session->userdata('userId')));
+		$query = $this->db->get_where('album', array(
+			'id' => $id,
+			//'userId' => $this->session->userdata('userId'),
+			'userName' => $this->session->userdata('username')
+			)
+		);
 		return $query->row_array();
 	}
 	public function get_video($id=FALSE)
