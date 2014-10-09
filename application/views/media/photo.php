@@ -35,16 +35,21 @@
     </div>
     <div class="uk-grid" data-uk-grid-margin="" id="notesPics">
         <?php foreach ($content as $item):?>
-        <div class="picitem">
-            <a class="uk-thumbnail notes-imgbox images-center" rel="[gall1]" href="<?=$item["path"]?>" title="<?=$item["description"]?>">
-                <img src="<?=$item["path"]?>?imageMogr2/thumbnail/160x" alt="" onerror="javascript:$(this).closest('.picitem').remove()">
-            </a>
+        <div class="picitem media-relative">
+            <div class="media-abs">
+                <a class="uk-button uk-button-mini" data-remote="true" href="/index.php/upload/delete/<?=$item['id']?>" data-done="$(this).parent('.picitem').remove();">X</a>
+            </div>
+            <div>
+                <a class="uk-thumbnail notes-imgbox images-center" rel="[gall1]" href="<?=$item["path"]?>" title="<?=$item["description"]?>">
+                    <img src="<?=$item["path"]?>?imageMogr2/thumbnail/160x" alt="" onerror="javascript:$(this).closest('.picitem').remove()">
+                </a>
+            </div>
         </div>
         <?php endforeach;?>
     </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){$('#notesPics a').foxibox({
+$(document).ready(function(){$('#notesPics .uk-thumbnail').foxibox({
     scale:true
 });});
 </script>

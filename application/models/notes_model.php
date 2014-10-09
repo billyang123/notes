@@ -24,10 +24,10 @@ class Notes_model extends MY_Model {
 	  {
 	  	//$this->cache_notes();
 
-	  	$query = $this->db->get_where('notes',array('scope' => '1'));
+	  	$query = $this->db->get_where('notes');
 	    return $query->result_array();
 	  }	  
-	  $query = $this->db->get_where('notes', array('id' => $id,'scope' => '1'));
+	  $query = $this->db->get_where('notes', array('id' => $id));
 	  return $query->row_array();
 	  //return $this->get_page_data('notes', array('id' => $id), $limit, $page, FALSE);
 	}

@@ -167,4 +167,15 @@ class Upload_model extends CI_Model {
 		);
 		return $this->db->insert('yun_img_info', $data);
 	}
+	public function delete_file($id=FALSE)
+	{
+		if(!$id) return FALSE;
+		$query = $this->db->get_where('yun_img_info', array('id' => $id));
+	  	$fileInfo = $query->row_array();
+	  	//var_dump(explode("ybbcdn.qiniudn.com/",$fileInfo['path'])[1]);exit(0);
+	  	$_key_ = explode("ybbcdn.qiniudn.com/",$fileInfo['path'])[1];
+		$result = $this->uploadtoken->deleteFromQiNiu($_key_);
+		$this->db->delete("yun_img_info",array("id"=>$id));
+		return $result;
+	}
 }

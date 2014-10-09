@@ -88,4 +88,32 @@ class Media_model extends CI_Model {
 		);
 		return $this->db->insert('video_info', $data);
 	}
+	public function update_album($id=FALSE)
+	{	
+		if($id==FALSE){
+			return FALSE;
+		}else{
+			$data = array(
+				"name" => $this->input->post("albumName"),
+				"userId" =>$this->input->post('userId'),
+				"userName" =>$this->input->post('userName'),
+				"description" => $this->input->post("albumDescription"),
+				"limits" => $this->input->post("albumLimits"),
+				'cover' => $this->input->post("albumCover")
+			);
+			$this->db->where('id',$id);
+			if($this->db->update('album', $data)){
+				return $id;
+			}else{
+				return FALSE;
+			}
+		}
+	}
+	public function delete_album($id=FALSE)
+	{
+		if($id==FALSE){
+			return FALSE;
+		}	
+		$this->db->delete("album",array("id"=>$id));
+	}
 }

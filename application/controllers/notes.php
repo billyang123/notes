@@ -55,9 +55,19 @@
 		{
 
 			$data["content"] = $this->notes_model->get_notes($id);
+			//var_dump($data["content"]);exit(0);
 			$data["user"] = $this->get_currentUser();
 			$this->load->model('account_model');
 			$info = $this->account_model->get_users($data["content"]["userId"]);
+			//var_dump($data["content"]["scope"] ,$data["content"]["userId"],$data["user"]["userId"]);
+			if($data["content"]["scope"] == '0' &&  $data["content"]["userId"]!=$data["user"]["userId"]){
+				if(!$data["user"]["is_login"]){
+					$this->checkLogin();
+				}else{
+					show_404();
+				}
+				return;
+			}
 			$data["com_user"] = array(
 				"userId"=>$data["content"]["userId"],
 				'userName'=>$info["username"],

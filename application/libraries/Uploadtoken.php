@@ -36,6 +36,20 @@ class Uploadtoken {
 				return $ret;   
 			}
 		}
+		function deleteFromQiNiu($key1="default",$bucket='ybbcdn')
+		{
+			$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
+			$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
+			Qiniu_SetKeys($accessKey, $secretKey);
+			$client = new Qiniu_MacHttpClient(null);
+			$err = Qiniu_RS_Delete($client, $bucket, $key1);
+			echo "====> Qiniu_RS_Delete result: \n";
+			if ($err !== null) {
+			    return $err;
+			} else {
+			    return "Success";
+			}
+		}
 }
 
 /* End of file Template.php */

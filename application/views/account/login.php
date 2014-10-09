@@ -13,10 +13,10 @@
             </div>
             <div class="uk-form-row">
             	<button class="uk-width-1-1 uk-button uk-button-primary uk-button-large" type="submit">Login</button>
-                <a href="/index.php/register" class="uk-width-1-1 uk-button uk-button-primary uk-button-large">Register</a>
             </div>
             <div class="uk-form-row">
-                <a class="uk-float-right uk-link uk-link-muted" href="/index.php">去首页</a>
+                <a href="/index.php/register" class="uk-float-left uk-link uk-link-muted">Register</a>
+                <a class="uk-float-right uk-link uk-link-muted" href="/index.php">Go Home</a>
             </div>
             <!-- <div class="uk-form-row uk-text-small">
                 <label class="uk-float-left"><input type="checkbox"> Remember Me</label>

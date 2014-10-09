@@ -43,6 +43,33 @@
 				}
 			}
 		}
+		public function updateAlbum($id=FALSE)
+		{
+			if ($id==FALSE) {
+				return FALSE;
+			}
+			$this->checkLogin();
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('albumName', 'albumName', 'trim|required|xss_clean');
+			$this->form_validation->set_rules('albumDescription', 'albumDescription', 'trim|xss_clean');
+			if ($this->form_validation->run() == FALSE){
+				$this->result_jsonCode(array('msg' => '保存失败'),false);		
+			}else{
+				if($albumId = $this->media_model->update_album($id) ){
+					$this->result_jsonCode(array('msg' => '保存成功','albumId' => $albumId),true);
+				}else{
+					$this->result_jsonCode("保存失败",false);
+				}
+			}
+
+		}
+		public function deleteAlbum($id=FALSE)
+		{
+			if ($id==FALSE) {
+				return FALSE;
+			}
+			$this->media_model->delete_album($id);
+		}
 		public function album($albumId)
 		{
 			$this->checkLogin();
@@ -52,6 +79,7 @@
 			//var_dump($data);exit(0);
 			$this->loadView('media','media','media/photo',$data);
 		}
+
 		public function video()
 		{
 			$this->checkLogin();

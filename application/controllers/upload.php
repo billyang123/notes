@@ -16,5 +16,10 @@
 		{
 			$data=$this->upload_model->signUpload();
 			$this->result_jsonCode($data,true);
+		}
+		public function delete($id)
+		{
+			$result = $this->upload_model->delete_file($id);
+			$this->result_json($result,"true");
 		}		
 	}
