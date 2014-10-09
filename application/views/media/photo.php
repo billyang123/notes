@@ -9,7 +9,7 @@
             <div class="uk-grid" data-uk-grid-margin="" id="notesPics">
                 <?php foreach ($content as $item):?>
                 <div class="picitem">
-                    <a class="uk-thumbnail notes-imgbox" rel="[gall1]" href="<?=$item["path"]?>" title="<?=$item["description"]?>">
+                    <a class="uk-thumbnail notes-imgbox images-center" rel="[gall1]" href="<?=$item["path"]?>" title="<?=$item["description"]?>">
                         <img src="<?=$item["path"]?>?imageMogr2/thumbnail/160x" alt="" onerror="javascript:$(this).closest('.picitem').remove()">
                     </a>
                 </div>
