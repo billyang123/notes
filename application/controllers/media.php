@@ -24,6 +24,7 @@
 			$this->checkLogin();
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo();
+			$data["album"] = $this->media_model->get_album();
 			//var_dump($data);exit(0);
 			$this->loadView('media','media','media/photo',$data);
 		}

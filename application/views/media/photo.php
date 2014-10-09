@@ -19,7 +19,7 @@
                         <div class="albumContent uk-form-row">
                             <span>Uploaded to</span>
                             <select name="albumId">
-                                <?php foreach ($content as $item):?>
+                                <?php foreach ($album as $item):?>
                                 <option value="<?=$item["id"]?>"><?=$item["name"]?></option>
                                 <?php endforeach;?>
                             </select>
