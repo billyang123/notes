@@ -43,7 +43,7 @@ class Uploadtoken {
 			Qiniu_SetKeys($accessKey, $secretKey);
 			$client = new Qiniu_MacHttpClient(null);
 			$err = Qiniu_RS_Delete($client, $bucket, $key1);
-			echo "====> Qiniu_RS_Delete result: \n";
+			//echo "====> Qiniu_RS_Delete result: \n";
 			if ($err !== null) {
 			    return $err;
 			} else {
