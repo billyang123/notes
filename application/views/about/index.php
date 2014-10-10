@@ -9,11 +9,10 @@
 		Users want to be able to leave some memories, but we would like to be able to put these little experience and skills of each user to share to everyone, and we learn together and progress together!</br> 
 		As long as you want to record yourself, you can register, write your own.</br> 
 		Because of their ability to wired, limited technical level, the site may have some flaws, if we find that there are shortcomings, I implore you to help correct me!</br>
-		<p>
-			<a href="https://github.com/billyang123/notes" class="uk-icon-button uk-icon-github"></a>
-			<a href="http://weibo.com/u/2383340037" class="uk-icon-button uk-icon-weibo"></a>
-			<span class="uk-align-right"><i class="uk-icon-envelope-o uk-icon-small"></i>   yangbinbin_1226@126.com</span>
+		<p class="uk-text-right">			
+			<span><i class="uk-icon-envelope-o uk-icon-small"></i>   yangbinbin_1226@126.com</span>
 		</p>
+		<p class="uk-text-center"><img src="http://ybbcdn.qiniudn.com/20141010_1412932278_colectimg1412932278.jpg"></p>
 	</div>
 </div>
 

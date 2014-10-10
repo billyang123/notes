@@ -45,7 +45,6 @@
 	            <li><a href="https://github.com/">GitHub</a></li>
 	            <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
 	            <li><a href="http://getbootstrap.com/">bootstrap</a></li>
-	            <li><a href="http://www.getuikit.net/">uikit</a></li>
 	        </ul>
 	    </div>
 </div>

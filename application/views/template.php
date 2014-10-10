@@ -14,7 +14,7 @@
 <body class="uk-width-1-1<?php if($nav=="login"): ?><?php endif ?>">
 	<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
 		<?php if($nav!="login" && $nav!="bookmarklet"): ?>
-		<nav class="uk-navbar uk-margin-large-bottom">
+		<nav class="uk-navbar uk-margin-large-bottom" id="Top">
 		    <a class="uk-navbar-brand uk-hidden-small" href="/"><i class="uk-icon-home uk-icon-small"></i>note</a>
 		    <ul class="uk-navbar-nav uk-hidden-small">
 		    	<?php foreach($nav_list  as $i => $nav_item): ?>
@@ -52,7 +52,7 @@
 		    <div class="uk-navbar-brand uk-navbar-center uk-visible-small">notes</div>
 		</nav>
 		<?php endif ?>
-		<div class="uk-grid">
+		<div class="uk-grid notes-main">
 		    <?=$content_for_template ?>
 		</div>
 	</div>
@@ -69,5 +69,27 @@
         </div>
     </div>
     <?php endif ?>
+    <?php if($nav!="login" && $nav!="bookmarklet"): ?>
+    <div class="uk-container-center uk-margin-large-top notes-footer">
+		<footer>
+			<div class="uk-container uk-container-center uk-text-center">
+				<ul class="uk-subnav uk-subnav-line">
+                    <li><a href="https://github.com/billyang123/notes" target="_blank" rel="nofollow">GitHub</a></li>
+                    <li><a href="https://github.com/billyang123/notes/issues" target="_blank" rel="nofollow">问题反馈</a></li>
+                   <!--  <li><a href="https://github.com/uikit/uikit/blob/master/CHANGELOG.md" target="_blank" rel="nofollow">更新日志</a></li> -->
+                    <li><a href="http://weibo.com/u/2383340037" target="_blank" rel="nofollow">新浪微博</a></li>
+                    <li>
+                    	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253123138'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1253123138%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+						<a href="http://www.cnzz.com/stat/website.php?web_id=1253123138" target="_blank">网站统计</a>
+					</li>
+                </ul>
+				<span>© 2014 - 2014 Bill Yang Coding with Pleasure</span>
+			</div>
+		</footer>
+	</div>
+	<?php endif ?>
+	<a href="#Top" id="goToTop" class="uk-button" data-uk-smooth-scroll=""><i class="uk-icon-chevron-up"></i></a>
+	<a href="#bottom" id="goToBottom" class="uk-button" data-uk-smooth-scroll=""><i class="uk-icon-chevron-down"></i></a>
+	<span id="bottom"></span>
 </body>   
 </html>
