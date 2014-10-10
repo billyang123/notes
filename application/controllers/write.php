@@ -12,7 +12,7 @@
 			$this->template->set('nav', 'Write');
 			$data['classify'] = $this->classify_model->getClassify();
 			$data['user'] = $this->get_currentUser();
-			$this->loadView('Write','Write','write/index',$data);
+			$this->loadView('write','write','write/index',$data);
 		}
 		
 	}
