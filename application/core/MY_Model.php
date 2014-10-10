@@ -3,6 +3,8 @@ class MY_Model extends CI_Model {
 	function __construct()
 	{
 	  	parent::__construct();
+	  	$this->config->load('my_config',TRUE,TRUE);
+		$this->app_ini = $this->config->item('my_config');
 	}
 	/**
 	 * 获取分页数据及总条数

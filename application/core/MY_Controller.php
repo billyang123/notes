@@ -9,6 +9,8 @@
 		  	$this->load->library('session');
 		  	$this->assets = '';
 		  	date_default_timezone_set('UTC');
+		  	$this->config->load('my_config',TRUE,TRUE);
+		  	$this->app_ini = $this->config->item('my_config');
 		}
 		public function result_jsonCode($data = FALSE, $isSuccess = true)
 		{

@@ -20,6 +20,7 @@ class Welcome extends MY_Controller {
 		//echo json_encode($data);exit(0);
 		//$this->pagination();
 		$data['pagin'] = $this->pagination();
+		var_dump($this->app_ini['bucket']);exit(0);
 		if($this->input->is_ajax_request()){
 			$this->loadView('notes','notes','note/note_page',$data);
 		}else{

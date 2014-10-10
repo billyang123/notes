@@ -8,16 +8,16 @@
             <?=parse_markdown($content["content"]) ?>
         </div>
         <div class="uk-clearfix">
-            <a href="<?=$assets?>/index.php/comment?noteId=<?=$content['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$content['id'] ?>').html(res).parent().show()">comment</a>
+            <a href="<?=$assets?>/index.php/comment?noteId=<?=$content['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$content['id'] ?>').html(res).parent().show()"><i class="uk-icon-comments"></i>   comment</a>
             <?php if($content['userId']==$user["userId"]): ?>
             <div class="uk-button-group uk-float-right">
-                <button class="uk-button">Option</button>
+                <button class="uk-button uk-button-primary">Option</button>
                 <div data-uk-dropdown="{mode:'click'}" class="">
-                    <button class="uk-button"><i class="uk-icon-caret-down"></i></button>
+                    <button class="uk-button uk-button-primary"><i class="uk-icon-caret-down"></i></button>
                     <div class="uk-dropdown uk-dropdown-small">
                         <ul class="uk-nav uk-nav-dropdown">
-                            <li><a href="/index.php/notes/update/<?=$content["id"] ?>">update</a></li>
-                            <li><a href="/index.php/notes/delete/<?=$content["id"] ?>" data-remote="true" data-method="post" data-done="$.alert('删除成功！')">delete</a></li>
+                            <li><a href="/index.php/notes/update/<?=$content["id"] ?>"><i class="uk-icon-edit"></i>   update</a></li>
+                            <li><a href="/index.php/notes/delete/<?=$content["id"] ?>" data-remote="true" data-method="post" data-done="$.alert('删除成功！')"><i class="uk-icon-times-circle"></i>   delete</a></li>
                         </ul>
                     </div>
                 </div>

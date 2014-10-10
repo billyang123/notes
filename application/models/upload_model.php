@@ -1,11 +1,13 @@
 <?php
-class Upload_model extends CI_Model {
+class Upload_model extends MY_Model {
  
 	public function __construct()
 	{
 	    $this->load->database();
 	    $this->load->library('session');
 	    $this->load->library('uploadtoken');
+	    $this->config->load('my_config',TRUE,TRUE);
+		$this->app_ini = $this->config->item('my_config');
 	}
 	public function upload()
 	{
@@ -22,7 +24,7 @@ class Upload_model extends CI_Model {
 
 		// Settings
 		//$tmpDir = '/Library/WebServer/Documents/notes/notes';
-		$tmpDir = '/var/tmp';
+		$tmpDir = $this->app_ini['tmpDir'];
 
 		$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
 
@@ -103,20 +105,20 @@ class Upload_model extends CI_Model {
 		}
 		//echo 'hhhhh'.$filePath;exit(0);
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
-		$result = $this->uploadtoken->uploadToQiNiu('ybbcdn',$_key_,$filePath);
-		$path = 'http://ybbcdn.qiniudn.com/'.$_key_;
+		$result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$filePath,$this->app_ini['accessKey'],$this->app_ini['secretKey']);
+		$path = 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$_key_;
 		$this->set_upload_info($path,$fileName,$this->input->post("albumId"),$this->input->post("description"));
 		// Return Success JSON-RPC response
 		return $result;
 	}
 	public function get_token()
 	{
-		return $this->uploadtoken->get_token();
+		return $this->uploadtoken->get_token($this->app_ini['bucket'],$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 	}
 	public function getFile($url,$filePath)
 	{
 		set_time_limit(24*60*60);
-		$tmpDir = '/var/tmp';
+		//$tmpDir = $this->app_ini['tmpDir'];
 		//$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
 		$newfname = $filePath;
 		$file=fopen($url, 'rb');
@@ -137,7 +139,7 @@ class Upload_model extends CI_Model {
 	}
 	public function signUpload()
 	{
-		$tmpDir = '/var/tmp';
+		$tmpDir = $this->app_ini['tmpDir'];
 		$targetDir = $tmpDir . DIRECTORY_SEPARATOR . "plupload";
 
 		$imgUrl = $this->input->post("imgUrl");
@@ -146,8 +148,8 @@ class Upload_model extends CI_Model {
 
 		$this->getFile($imgUrl,$filePath);
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
-		$result = $this->uploadtoken->uploadToQiNiu('ybbcdn',$_key_,$filePath);
-		$path = 'http://ybbcdn.qiniudn.com/'.$_key_;
+		$result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$filePath,$this->app_ini['accessKey'],$this->app_ini['secretKey']);
+		$path = 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$_key_;
 		$albumId = $this->input->post("albumId");
 		$albumId = $albumId?$albumId:$this->session->userdata('default_albumId');
 		$this->set_upload_info($path,$fileName,$albumId,$this->input->post("description"));
@@ -173,8 +175,8 @@ class Upload_model extends CI_Model {
 		$query = $this->db->get_where('yun_img_info', array('id' => $id));
 	  	$fileInfo = $query->row_array();
 	  	//var_dump(explode("ybbcdn.qiniudn.com/",$fileInfo['path'])[1]);exit(0);
-	  	$_key_ = explode("ybbcdn.qiniudn.com/",$fileInfo['path'])[1];
-		$result = $this->uploadtoken->deleteFromQiNiu($_key_);
+	  	$_key_ = explode($this->app_ini['bucket'].".qiniudn.com/",$fileInfo['path'])[1];
+		$result = $this->uploadtoken->deleteFromQiNiu($_key_,$this->app_ini['bucket'],$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 		$this->db->delete("yun_img_info",array("id"=>$id));
 		return $result;
 	}

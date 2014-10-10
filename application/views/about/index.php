@@ -12,9 +12,7 @@
 		<p>
 			<a href="https://github.com/billyang123/notes" class="uk-icon-button uk-icon-github"></a>
 			<a href="http://weibo.com/u/2383340037" class="uk-icon-button uk-icon-weibo"></a>
-		</p>
-		<p>
-			Email:yangbinbin_1226@126.com
+			<span class="uk-align-right"><i class="uk-icon-envelope-o uk-icon-small"></i>   yangbinbin_1226@126.com</span>
 		</p>
 	</div>
 </div>

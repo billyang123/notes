@@ -1,5 +1,5 @@
 <?php
-class Upload_model extends CI_Model {
+class Upload_model extends MY_Model {
  
 	public function __construct()
 	{

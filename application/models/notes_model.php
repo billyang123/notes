@@ -7,6 +7,7 @@ class Notes_model extends MY_Model {
 	   	//$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 	   	$this->db->cache_on();
 	   	$this->load->library('session');
+		//var_dump($this->app_ini);exit(0);
 	}
 
 	public function cache_notes(){
@@ -111,6 +112,7 @@ class Notes_model extends MY_Model {
 		}
 	}
 	public function get_pageNotes($page = 1,$pageSize = 10){
+
 		$where = FALSE;
 		$classId = $this->input->get('class');
 

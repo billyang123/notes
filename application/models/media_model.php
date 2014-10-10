@@ -1,5 +1,5 @@
 <?php
-class Media_model extends CI_Model {
+class Media_model extends MY_Model {
 	public function __construct()
 	{
 	    $this->load->database();

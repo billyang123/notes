@@ -6,12 +6,10 @@ class Uploadtoken {
 		var $bucket = 'ybbcdn';
 		
 
-		function get_token()
+		function get_token($bucket = 'ybbcdn',$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ',$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7')
 		{	
-			$bucket = $this->bucket;
-			$SecertKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
-			$AccessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
-			Qiniu_SetKeys($AccessKey, $SecertKey);
+			$bucket = $bucket;
+			Qiniu_SetKeys($accessKey, $secretKey);
 			$putPolicy = new Qiniu_RS_PutPolicy($bucket);
 			$upToken = $putPolicy->Token(null);
 			return $upToken;
@@ -20,10 +18,8 @@ class Uploadtoken {
 		{
 			return md5("yangbinbin".time());
 		}
-		function uploadToQiNiu($bucket='ybbcdn',$key1="default",$fileDir)
+		function uploadToQiNiu($bucket='ybbcdn',$key1="default",$fileDir,$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ',$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7')
 		{
-			$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
-			$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
 			Qiniu_SetKeys($accessKey, $secretKey);
 			$putPolicy = new Qiniu_RS_PutPolicy($bucket);
 			$upToken = $putPolicy->Token(null);
@@ -36,10 +32,9 @@ class Uploadtoken {
 				return $ret;   
 			}
 		}
-		function deleteFromQiNiu($key1="default",$bucket='ybbcdn')
+		function deleteFromQiNiu($key1="default",$bucket='ybbcdn',$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ',$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7')
 		{
-			$accessKey = 'hZB4el2zIFDT7eb5XXX7qxQso3-x1s5GCLpzNmNQ';
-			$secretKey = '-5P_lb891K-xXUSNj2pTxSNK21FxnbXKvAn9dDF7';
+			
 			Qiniu_SetKeys($accessKey, $secretKey);
 			$client = new Qiniu_MacHttpClient(null);
 			$err = Qiniu_RS_Delete($client, $bucket, $key1);
@@ -47,7 +42,7 @@ class Uploadtoken {
 			if ($err !== null) {
 			    return $err;
 			} else {
-			    return "Success";
+			    return 'success';
 			}
 		}
 }

@@ -20,6 +20,6 @@
 		public function delete($id)
 		{
 			$result = $this->upload_model->delete_file($id);
-			$this->result_json($result,"true");
+			$this->result_jsonCode($result,"true");
 		}		
 	}

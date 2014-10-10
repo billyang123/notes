@@ -8,7 +8,7 @@
         <div class="notes-content">
         	<?=parse_markdown($item["content"]) ?>
         </div>
-        <p><a href="<?=$assets?>/index.php/comment?noteId=<?=$item['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$item['id'] ?>').html(res).parent().show()">comment</a></p>
+        <p><a href="<?=$assets?>/index.php/comment?noteId=<?=$item['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$item['id'] ?>').html(res).parent().show()"><i class="uk-icon-comments"></i>   comment</a></p>
         <div class="_comment-content" style="display:none;">
             <ul class="uk-comment-list js-comment-<?=$item['id'] ?>"></ul>
             <form class="uk-form uk-clearfix" data-remote="true" action="<?=$assets?>/index.php/comment/add/<?=$item['id'] ?>" method="post" data-done="$('.js-comment-<?=$item['id'] ?>').append(res);">
