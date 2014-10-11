@@ -75,8 +75,10 @@
 		{
 			$this->checkLogin();
 			//echo $albumId;exit(0);
+			$data["albumId"] = $albumId;
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo($albumId);
+			$data["album"] = $this->media_model->get_album();
 			//var_dump($data);exit(0);
 			$this->loadView('media','media','media/photo',$data);
 		}

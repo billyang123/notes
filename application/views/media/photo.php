@@ -21,7 +21,9 @@
                                 <span>Uploaded to</span>
                                 <select name="albumId">
                                     <?php foreach ($album as $item):?>
-                                    <option value="<?=$item["id"]?>"><?=$item["name"]?></option>
+                                    <option value="<?=$item["id"]?>" <?php if($albumId){
+                                        echo $albumId == $item["id"] ? 'selected':'';
+                                    }  ?>><?=$item["name"]?></option>
                                     <?php endforeach;?>
                                 </select>
                             </div>
