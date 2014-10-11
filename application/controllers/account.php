@@ -32,12 +32,12 @@
 			if($this->account_model->get_by_username($username)){
 				return TRUE;
 			}else{
-				$this->form_validation->set_message('username_check','用户名不存在');
+				$this->form_validation->set_message('username_check','UserName does not exist！');
 				return FALSE;
 			}
 		}
 		public function password_check($password){
-			$this->form_validation->set_message('password_check',$password);
+			$this->form_validation->set_message('password_check','password error!');
 			$password = md5($password);
 			if($this->account_model->password_check($this->_username,$password)){
 				return TRUE;

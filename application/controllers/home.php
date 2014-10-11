@@ -10,7 +10,7 @@ class Home extends MY_Controller {
 	public function index()
 	{
 
-		$data["content"] = array_reverse($this->notes_model->get_notes());
+		$data["content"] = array_reverse($this->notes_model->get_home_notes());
 		$this->loadView('home','home','home/index',$data);
 	}
 	

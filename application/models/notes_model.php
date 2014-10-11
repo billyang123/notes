@@ -32,7 +32,7 @@ class Notes_model extends MY_Model {
 	  return $query->row_array();
 	  //return $this->get_page_data('notes', array('id' => $id), $limit, $page, FALSE);
 	}
-	// type：1为public，1为personal
+	// type：1为public，0为personal
 	public function get_notesByType($type = FALSE){
 	  if ($type === FALSE)
 	  {
@@ -45,8 +45,23 @@ class Notes_model extends MY_Model {
 	}
 
 	public function get_notes_by_scope($scope='1'){
-		$query = $this->db->get_where('notes', array('scope' => $scope,'userId'=>$this->session->userdata('userId')));
+		$query = $this->db->get_where('notes', array('scope' => $scope));
 	  	return $query->result_array();
+	}
+	public function get_home_notes(){
+		if($this->session->userdata('logged_in')){
+	    	$userId = $this->session->userdata('userId');
+	    	$where = "userId=$userId OR scope='1'";
+	    }else{
+	    	$where = array('scope' => '1');
+	    }
+        if(is_array($where)) {
+            $this->db->where($where);
+        } else {
+            $this->db->where($where, NULL, false);
+        }
+	    $query = $this->db->get('notes');
+	    return $query->result_array();
 	}
 	public function get_notesByUserId($userId = FALSE,$page = 1,$pageSize = 5){
 	  if ($userId)
@@ -117,8 +132,10 @@ class Notes_model extends MY_Model {
 		$classId = $this->input->get('class');
 
 	    if($this->session->userdata('logged_in')){
+	    	$userId = $this->session->userdata('userId');
+	    	$where = "userId=$userId OR scope='1'";
 			if($classId){
-				$where = array('type'=>$classId);
+				$where += "AND type=$classId";
 			}
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    }else{
