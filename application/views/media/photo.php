@@ -64,7 +64,7 @@ $(document).ready(function(){$('#notesPics .uk-thumbnail').foxibox({
 // Initialize the widget when the DOM is ready
 $(function() {
     // Setup html5 version
-    $("#uploader").pluploadQueue({
+    var uploader = $("#uploader").pluploadQueue({
         // General settings
         runtimes : 'html5,flash,silverlight,html4',
         url : "/index.php/upload",
@@ -97,11 +97,12 @@ $(function() {
         flash_swf_url : '/js/Moxie.swf',
     
         // Silverlight settings
-        silverlight_xap_url : '/js/Moxie.xap'
+        silverlight_xap_url : '/js/Moxie.xap',
     });
-    var uploader = $('#uploader').pluploadQueue();
-    uploader.bind('BeforeUpload', function(up) {
-      up.settings.multipart_params.albumId = $('select[name="albumId"]').val();
-    });  
+    // //var uploader = $('#uploader').pluploadQueue();
+    // uploader.bind('UploadComplete', function(up) {
+    //     console.log(up);
+    //   //up.settings.multipart_params.albumId = $('select[name="albumId"]').val();
+    // });  
 });
 </script>

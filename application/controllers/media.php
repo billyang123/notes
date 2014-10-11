@@ -11,21 +11,19 @@
 			$this->checkLogin();
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_album();
-			//var_dump($this->uploadtoken->get_token());exit(0);
+			
 			$data["token"] = $this->uploadtoken->get_token();
-			//$this->result_jsonCode($data["content"]);exit(0);
-			//echo $this->upload_model->get_token();exit(0);
+			
 			$data["images"] = $this->media_model->get_yunImgInfo();
 			$this->loadView('media','media','media/album',$data);
 		}
 		public function photo()
 		{
-			//echo $albumId;exit(0);
 			$this->checkLogin();
+			$data["albumId"] = false;
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo();
 			$data["album"] = $this->media_model->get_album();
-			//var_dump($data["album"]);exit(0);
 			$this->loadView('media','media','media/photo',$data);
 		}
 		public function createAlbum()
@@ -74,7 +72,6 @@
 		public function album($albumId)
 		{
 			$this->checkLogin();
-			//echo $albumId;exit(0);
 			$data["albumId"] = $albumId;
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo($albumId);

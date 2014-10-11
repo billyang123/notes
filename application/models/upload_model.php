@@ -11,6 +11,7 @@ class Upload_model extends MY_Model {
 	}
 	public function upload()
 	{
+		//var_dump($albumId = $this->input->post("albumId"));exit(0);
 		header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 		header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 		header("Cache-Control: no-store, no-cache, must-revalidate");
@@ -103,12 +104,14 @@ class Upload_model extends MY_Model {
 			// Strip the temp .part suffix off 
 			rename("{$filePath}.part", $filePath);
 		}
-		//echo 'hhhhh'.$filePath;exit(0);
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
 		$result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$filePath,$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 		$path = 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$_key_;
-		$this->set_upload_info($path,$fileName,$this->input->post("albumId"),$this->input->post("description"));
-		// Return Success JSON-RPC response
+		$albumId = $this->input->post("albumId");
+		if(!$albumId || $albumId == 'false'){
+			$albumId = $this->add_default_album($this->session->userdata('username'));
+		}
+		$this->set_upload_info($path,$fileName,$albumId,$this->input->post("description"));
 		return $result;
 	}
 	public function get_token()
@@ -150,8 +153,16 @@ class Upload_model extends MY_Model {
 		$_key_=date("Ymd",time())."_".time()."_".$fileName;
 		$result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$filePath,$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 		$path = 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$_key_;
+
 		$albumId = $this->input->post("albumId");
-		$albumId = $albumId?$albumId:$this->session->userdata('default_albumId');
+		if(!$albumId || $albumId == 'false'){
+			if(!$this->session->userdata('default_albumId')){
+				$albumId = $this->add_default_album($this->session->userdata('username'));
+			}else{
+				$albumId = $this->session->userdata('default_albumId');
+			}
+		}
+		//$albumId = $albumId?$albumId:$this->session->userdata('default_albumId');
 		$this->set_upload_info($path,$fileName,$albumId,$this->input->post("description"));
 		$result['albumId'] = $albumId;
 		return $result;
@@ -174,10 +185,22 @@ class Upload_model extends MY_Model {
 		if(!$id) return FALSE;
 		$query = $this->db->get_where('yun_img_info', array('id' => $id));
 	  	$fileInfo = $query->row_array();
-	  	//var_dump(explode("ybbcdn.qiniudn.com/",$fileInfo['path'])[1]);exit(0);
 	  	$_key_ = explode($this->app_ini['bucket'].".qiniudn.com/",$fileInfo['path'])[1];
 		$result = $this->uploadtoken->deleteFromQiNiu($_key_,$this->app_ini['bucket'],$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 		$this->db->delete("yun_img_info",array("id"=>$id));
 		return $result;
+	}
+	public function add_default_album($username)
+	{
+		$data = array(
+			"name" => '默认',
+			"userId" =>$this->session->userdata('userId'),
+			"userName" =>$username,
+			"description" => '默认相册',
+			"limits" => 'public',
+			'cover' => ''
+		);
+		$this->db->insert('album', $data);
+		return $this->db->insert_id();
 	}
 }
