@@ -40,6 +40,14 @@
             </div>
         </div>
         <div class="uk-grid" data-uk-grid-margin="" id="notesPics">
+            <?php if (count($content)==0):?>
+            <div class="uk-width-medium-1-1">
+                <div class="uk-alert" data-uk-alert>
+                    <a href="" class="uk-alert-close uk-close"></a>
+                    <p>Now there is no picture, please update you picture...</p>
+                </div>
+            </div>
+            <?php endif; ?>
             <?php foreach ($content as $item):?>
             <div class="picitem media-relative">
                 <div class="media-abs">

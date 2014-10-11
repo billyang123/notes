@@ -20,7 +20,16 @@
                 </div>
             </div>
         </div>
+        <br>
         <div class="uk-grid" data-uk-grid-margin="">
+            <?php if (count($content)==0):?>
+            <div class="uk-width-medium-1-1">
+                <div class="uk-alert" data-uk-alert>
+                    <a href="" class="uk-alert-close uk-close"></a>
+                    <p>Now there is no video, please create a new video...</p>
+                </div>
+            </div>
+            <?php endif; ?>
             <?php foreach ($content as $item):?>
             <div class="uk-width-medium-1-4" style="height:210px;">
             	<embed src="<?=$item["path"]?>" allowFullScreen="true" quality="high" width="100%" height="100%" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>

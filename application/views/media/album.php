@@ -56,6 +56,14 @@
             </div>        
         </div>         
         <div class="uk-grid" data-uk-grid-margin="">
+            <?php if (count($content)==0):?>
+            <div class="uk-width-medium-1-1">
+                <div class="uk-alert" data-uk-alert>
+                    <a href="" class="uk-alert-close uk-close"></a>
+                    <p>Now there is no album, please create a new album...</p>
+                </div>
+            </div>
+            <?php endif; ?>
             <?php foreach ($content as $item):?>
             <div class="uk-width-medium-1-3 media-relative media-ablumid-<?=$item['id']?>">
                 <div class="media-abs">

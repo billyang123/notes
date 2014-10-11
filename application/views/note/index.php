@@ -1,4 +1,10 @@
 <div class="uk-width-medium-3-4">
+    <?php if (count($content)==0):?>
+    <div class="uk-alert" data-uk-alert>
+        <a href="" class="uk-alert-close uk-close"></a>
+        <p>Oh, you do not write notes, please share your notes ...</p>
+    </div>
+    <?php endif; ?>
 	<?php foreach ($content as $item):?>
 	<article class="uk-article _index-article uk-panel-box" id="note_<?=$item["id"] ?>">
         <h1 class="uk-article-title">
