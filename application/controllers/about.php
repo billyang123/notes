@@ -7,6 +7,6 @@
 		public function index()
 		{
 
-			$this->loadView('notes','about','about/index');
+			$this->loadView('about of notes','about','about/index');
 		}
 	}

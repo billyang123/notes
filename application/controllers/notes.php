@@ -23,9 +23,9 @@
 			$data['classify'] = $this->classify_model->getClassify();
 			$data['pagin'] = $this->pagination('/index.php/notes/?pg=true',$data['total'],5,'/index.php/notes/');
 			if($this->input->is_ajax_request()){
-				$this->loadView('notes','notes','note/note_page',$data);
+				$this->loadView('notes public','notes','note/note_page',$data);
 			}else{
-				$this->loadView('notes','notes','note/index',$data);
+				$this->loadView('notes public','notes','note/index',$data);
 			}
 			//$this->loadView('notes','notes','note/index',$data);
 		}
@@ -46,9 +46,9 @@
 			
 			//echo json_encode($data);exit(0);
 			if($this->input->is_ajax_request()){
-				$this->loadView('notes','mine','note/note_page',$data);
+				$this->loadView('my notes','mine','note/note_page',$data);
 			}else{
-				$this->loadView('notes','mine','note/index',$data);
+				$this->loadView('my notes','mine','note/index',$data);
 			}
 		}
 		public function note($id)
@@ -80,7 +80,7 @@
 			// 	return;
 			// }
 			if(count($data["content"])>0){
-				$this->loadView('notes','notes','note/note',$data);
+				$this->loadView($data["content"]["title"],'notes','note/note',$data);
 			}else{
 				show_404();
 			}

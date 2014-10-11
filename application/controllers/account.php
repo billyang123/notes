@@ -21,7 +21,7 @@
 			if ($this->form_validation->run() == FALSE){
 				$data["redirect"] = $this->input->get('redirect') ? $this->input->get('redirect') : "/index.php/notes";
 				$data["userName"] = $this->session->userdata("username");
-				$this->loadView('login','login','account/login',$data);
+				$this->loadView('notes-login','login','account/login',$data);
 			}else{
 				$data["redirect"] = $this->input->post('redirect');
 				$this->account_model->login($this->_username);
@@ -68,11 +68,11 @@
 				if($this->account_model->add_user($username,$password,$email,$intro,$defaultAlbumId)){
 					$data["message"] = "账号创建成功!";
 					$data["redirect"] = "/notes";
-					$this->loadView('login','login','account/login',$data);
+					$this->loadView('notes-register','login','account/login',$data);
 					
 				}else{
 					$data["message"] = "账号创建失败!";
-					$this->loadView('register','','account/register',$data);
+					$this->loadView('notes-register','','account/register',$data);
 				}
 
 			}

@@ -13,6 +13,6 @@
 			$data["user"] = $this->get_currentUser();
 			$data["album"] = $this->media_model->get_album();
 			//$this->result_jsonCode($data,true);
-			$this->loadView('bookmarklet','bookmarklet','marklet/book',$data);
+			$this->loadView('notes-bookmarklet','bookmarklet','marklet/book',$data);
 		}
 	}

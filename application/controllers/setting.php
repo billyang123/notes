@@ -11,6 +11,6 @@
 		{
 			$userId= $this->session->userdata('userId');
 			$data["userInfo"] = $this->account_model->get_users($userId);
-			$this->loadView('setting','setting','setting/index',$data);
+			$this->loadView('notes-setting','setting','setting/index',$data);
 		}
 	}

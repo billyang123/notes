@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="my notes,我的个人笔记,创建自己的个人笔记，博客；markdown编写笔记，chrome插件收集图片，技术博客">
     <title><?=$title ?></title>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="<?=$assets ?>/public/app.css">
