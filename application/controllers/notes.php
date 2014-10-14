@@ -23,7 +23,7 @@
 			//echo json_encode($data);exit(0);
 			$data['classId'] = $classId?$classId:1;
 			$data['classify'] = $this->classify_model->getClassify();
-			$data['pagin'] = $this->pagination('/index.php/notes/?class='.$classId,$data['total'],5,'/index.php/notes/');
+			$data['pagin'] = $this->pagination('/index.php/notes/?class='.$data['classId'],$data['total'],5,'/index.php/notes/');
 			if($this->input->is_ajax_request()){
 				$this->loadView('notes public','notes','note/note_page',$data);
 			}else{
