@@ -10,9 +10,10 @@
 		}
 		public function index()
 		{	
-			$isPage = $this->input->get('isPage',true);
+			//$isPage = $this->input->get('isPage',true);
 			$page = $this->input->get('p','1');
 			$page = $page ? $page :1;
+			$classId = $this->input->get('class');
 			//$data = $this->notes_model->get_notes(FALSE,$page,5);
 			$data = $this->notes_model->get_pageNotes($page,5);
 			//$data["laters"] = array_reverse($data["content"]);
@@ -20,8 +21,9 @@
 			//var_dump($data);exit(0);
 			//$data["assets"] = "";
 			//echo json_encode($data);exit(0);
+			$data['classId'] = $classId;
 			$data['classify'] = $this->classify_model->getClassify();
-			$data['pagin'] = $this->pagination('/index.php/notes/?pg=true',$data['total'],5,'/index.php/notes/');
+			$data['pagin'] = $this->pagination('/index.php/notes/?class='.$classId,$data['total'],5,'/index.php/notes/');
 			if($this->input->is_ajax_request()){
 				$this->loadView('notes public','notes','note/note_page',$data);
 			}else{

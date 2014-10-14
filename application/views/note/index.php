@@ -2,7 +2,7 @@
     <?php if (count($content)==0):?>
     <div class="uk-alert" data-uk-alert>
         <a href="" class="uk-alert-close uk-close"></a>
-        <p>Oh, you do not write notes, please share your notes ...</p>
+        <p>Oh, you do not write notes or in that classify, please share your notes ...</p>
     </div>
     <?php endif; ?>
 	<?php foreach ($content as $item):?>
@@ -50,7 +50,7 @@
         <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Classify</h3>
         <div class="notes-tags">
             <?php foreach ($classify as $item):?>
-            <a href="/index.php/notes/?class=<?=$item['id']?>"><?=$item['name']?></a>
+            <a href="/index.php/notes/?class=<?=$item['id']?>" <?=($item['id']==$classId)? 'class="active"':'' ?> ><?=$item['name']?></a>
             <?php endforeach;?>
         </div>
         <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>

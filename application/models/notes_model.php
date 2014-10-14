@@ -133,10 +133,11 @@ class Notes_model extends MY_Model {
 
 	    if($this->session->userdata('logged_in')){
 	    	$userId = $this->session->userdata('userId');
-	    	$where = "userId=$userId OR scope='1'";
+	    	$where = "(userId=$userId OR scope='1')";
 			if($classId){
-				$where += " AND type=$classId";
+				$where .= " AND type=$classId";
 			}
+			//echo $where;
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    }else{
 	    	$where = array('scope' => '1');

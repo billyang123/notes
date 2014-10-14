@@ -9,8 +9,5 @@ $(document).ready ->
 	winH = do $(window).height
 	bodyH = do $('body').height
 	if winH>bodyH
-		mainht = $ '.notes-footer'
-		.offset().top - $ '.notes-main'
-		.offset().top
-		$ ".notes-main"
-		.css "height",mainht+'px'
+		mainht = winH - 135 - $('.notes-main').offset().top
+		$(".notes-main").css "height",mainht+'px'
