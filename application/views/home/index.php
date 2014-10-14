@@ -1,8 +1,8 @@
 <div class="uk-width-medium-1-1">
-	<div class="uk-vertical-align uk-text-center" style="background: url('http://ybbcdn.qiniudn.com/QrhZFbv.gif') 50% -100px no-repeat; height: 430px;margin-bottom:10px;">
-        <div class="uk-vertical-align-middle uk-width-1-2">
-            <h1 class="uk-heading-large" style="color:#FFF;">my notes</h1>
-            <p class="uk-text-large" style="color:#FFF;">My notes are recorded in my life and learn bit by bit, even personal life record, also recorded in technology, everyone has his own blog, as long as the registration you can write something you like, you can also be private not open, it can be open.</p>
+	<div class="uk-vertical-align uk-text-center" style="background: url('http://ybbcdn.qiniudn.com/QrhZFbv.gif') 50% bottom no-repeat;margin-bottom:10px;background-size: 100%;">
+        <div class="uk-vertical-align-middle" style="width:565px;">
+            <h1 class="uk-heading-large" style="color:#FFF;">Dribs and drabs</h1>
+            <p class="uk-text-large uk-text-overflow" style="color:#FFF;">Belong to your notes.Need create your own account</p>
             <p>
                	<a class="uk-button uk-button-primary uk-button-large" href="/index.php/login">Login</a>
                 <a class="uk-button uk-button-large" href="/index.php/register">Register</a>

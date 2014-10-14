@@ -21,7 +21,7 @@
 			//var_dump($data);exit(0);
 			//$data["assets"] = "";
 			//echo json_encode($data);exit(0);
-			$data['classId'] = $classId;
+			$data['classId'] = $classId?$classId:1;
 			$data['classify'] = $this->classify_model->getClassify();
 			$data['pagin'] = $this->pagination('/index.php/notes/?class='.$classId,$data['total'],5,'/index.php/notes/');
 			if($this->input->is_ajax_request()){
@@ -40,17 +40,19 @@
 			$isPage = $this->input->get('isPage',true);
 			$page = $this->input->get('p','1');
 			$page = $page ? $page :1;
+			
 			//$data = $this->notes_model->get_notes(FALSE,$page,5);
 			$data["user"] = $this->get_currentUser();
 			$data = $this->notes_model->get_notesByUserId($data["user"]["userId"],$page,5);
-			$data['classify'] = $this->classify_model->getClassify();
-			$data['pagin'] = $this->pagination('/index.php/notes/?pg=true',$data['total'],5,'/index.php/notes/');
+	
 			
-			//echo json_encode($data);exit(0);
+			$data['pagin'] = $this->pagination('/index.php/mine/?',$data['total'],5,'/index.php/mine/');
+			
+			//var_dump($classId,$data['classId']);exit(0);
 			if($this->input->is_ajax_request()){
 				$this->loadView('my notes','mine','note/note_page',$data);
 			}else{
-				$this->loadView('my notes','mine','note/index',$data);
+				$this->loadView('my notes','mine','note/mynotes',$data);
 			}
 		}
 		public function note($id)
