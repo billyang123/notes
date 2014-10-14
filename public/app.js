@@ -29235,17 +29235,24 @@ $(window).on('beforeunload', function() {
 
 ;require.register("module/common", function(exports, require, module) {
 $(document).ready(function() {
-  return $(window).scroll(function() {
+  var bodyH, mainht, winH;
+  $(window).scroll(function() {
     if ($(window).scrollTop() > 200) {
       return $("#goToTop,#goToBottom").fadeIn(300);
     } else {
       return $("#goToTop,#goToBottom").fadeOut(200);
     }
   });
+  winH = $(window).height();
+  bodyH = $('body').height();
+  if (winH > bodyH) {
+    mainht = $('.notes-footer'.offset().top - $('.notes-main'.offset().top));
+    return $(".notes-main".css("height", mainht + 'px'));
+  }
 });
 });
 
-require.register("module/highlight", function(exports, require, module) {
+;require.register("module/highlight", function(exports, require, module) {
 var highlight;
 
 highlight = function() {

@@ -135,7 +135,7 @@ class Notes_model extends MY_Model {
 	    	$userId = $this->session->userdata('userId');
 	    	$where = "userId=$userId OR scope='1'";
 			if($classId){
-				$where += "AND type=$classId";
+				$where += " AND type=$classId";
 			}
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    }else{

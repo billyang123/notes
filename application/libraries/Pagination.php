@@ -40,7 +40,7 @@ class CI_Pagination {
 	var $prev_link			= '上一页';
 	var $last_link			= '最后一页';
 	var $uri_segment		= 2;
-	var $full_tag_open		= '<ul class="uk-pagination">';
+	var $full_tag_open		= '<ul class="uk-pagination uk-margin-bottom">';
 	var $full_tag_close		= '</ul>';
 	var $first_tag_open		= '<li>';
 	var $first_tag_close	= '</li>';
