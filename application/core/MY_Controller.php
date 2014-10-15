@@ -8,7 +8,7 @@
 		  	$this->load->library('template');
 		  	$this->load->library('session');
 		  	$this->assets = '';
-		  	date_default_timezone_set('UTC');
+		  	date_default_timezone_set('PRC');
 		  	$this->config->load('my_config',TRUE,TRUE);
 		  	$this->app_ini = $this->config->item('my_config');
 		}
