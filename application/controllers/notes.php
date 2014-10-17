@@ -5,6 +5,7 @@
 		  	parent::__construct();
 		  	$this->load->spark('markdown/1.2.0');
 		  	$this->load->model('notes_model');
+		  	$this->load->model('tags_model');
 		  	$this->load->library('session');
 		  	$this->load->model('classify_model');
 		}
@@ -83,6 +84,7 @@
 			// 	$this->checkLogin();
 			// 	return;
 			// }
+			//$this->result_jsonCode($data);exit(0);
 			if(count($data["content"])>0){
 				$this->loadView($data["content"]["title"],'notes','note/note',$data);
 			}else{
@@ -121,6 +123,10 @@
 			{
 				$result = $this->notes_model->set_notes();
 				if($result){
+					$tagName = $this->input->post('tagsStr');
+					if($tagName){			
+						$this->tags_model->set_tag(explode(',',$tagName));
+					}
 			    	$this->result_jsonCode("保存成功",true);
 			    }else{
 			    	$this->result_jsonCode("保存失败",false);
@@ -133,6 +139,10 @@
 			if($ip){
 				$result = $this->notes_model->update_notes($id);
 				if($result){
+					$tagName = $this->input->post('tagsStr');
+					if($tagName){			
+						$this->tags_model->set_tag(explode(',',$tagName));
+					}
 			    	$this->result_jsonCode("修改成功",true);
 			    }else{
 			    	$this->result_jsonCode("修改失败",false);
@@ -150,5 +160,4 @@
 
 			echo json_encode($data["notes"]);
 		}
-
 	}

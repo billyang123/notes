@@ -10,7 +10,18 @@
         <h1 class="uk-article-title">
             <a href="<?=$assets?>/index.php/notes/<?=$item["id"] ?>"><?=$item["title"] ?></a>
         </h1>
-        <p class="uk-article-meta"><span><i class="uk-icon-user uk-icon-small"></i>  <?=$item['userName'] ?></span>   <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$item["create_date"]) ?></span></p>
+        <p class="uk-article-meta">
+        	<span><i class="uk-icon-user uk-icon-small"></i>  <?=$item['userName'] ?></span>   
+        	<span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$item["create_date"]) ?></span>
+        	<?php if ($item['tags']):?>
+            <span>
+                <i class="uk-icon-tags"></i>
+                <?php foreach (explode(',',$item['tags']) as $key => $value):?>
+                <a href="/index.php/notes?tagName=<?=$value ?>"><?=$value ?></a>   
+                <?php endforeach;?>
+            </span>
+            <?php endif; ?>
+        </p>
         <div class="notes-content">
         	<?=parse_markdown($item["content"]) ?>
         </div>

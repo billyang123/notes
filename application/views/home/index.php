@@ -39,12 +39,24 @@
 	            <li><a href="#"><?=$item["title"] ?></a></li>
 	            <?php endforeach;?>
 	        </ul>-->
-	        <h3 class="uk-panel-title">Social Links</h3>
+	        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>   Social Links</h3>
 	        <ul class="uk-list uk-list-line">            
 	            <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>
 	            <li><a href="https://github.com/">GitHub</a></li>
 	            <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
 	            <li><a href="http://getbootstrap.com/">bootstrap</a></li>
 	        </ul>
+	        <h3 class="uk-panel-title"><i class="uk-icon-leaf"></i>   classify</h3>
+	        <div class="notes-tags">
+	            <?php foreach ($classify as $item):?>
+	            <a href="/index.php/notes/?class=<?=$item['id']?>"><?=$item['name']?></a>
+	            <?php endforeach;?>
+	        </div>
+	        <h3 class="uk-panel-title"><i class="uk-icon-tags"></i>   tags</h3>
+	        <div class="notes-tags">
+	            <?php foreach ($tags as $item):?>
+	            <a href="/index.php/notes/?tagName=<?=$item['tag_name']?>"><?=$item['tag_name']?></a>
+	            <?php endforeach;?>
+	        </div>
 	    </div>
 </div>

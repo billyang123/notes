@@ -12,19 +12,19 @@ class Welcome extends MY_Controller {
 	public function index()
 	{
 
-		$data = $this->notes_model->get_pageNotes(1,2);
+		//$data = $this->notes_model->get_pageNotes(1,2);
 		//$data["laters"] = array_reverse($data["content"]);
 		//echo($this->result_jsonCode($data));exit(0);
 		//var_dump($data);exit(0);
 		//$data["assets"] = "";
 		//echo json_encode($data);exit(0);
 		//$this->pagination();
-		$data['pagin'] = $this->pagination();
-		var_dump($this->app_ini['bucket']);exit(0);
+		//$data['pagin'] = $this->pagination();
+		//var_dump($this->app_ini['bucket']);exit(0);
 		if($this->input->is_ajax_request()){
-			$this->loadView('notes','notes','note/note_page',$data);
+			$this->loadView('notes','notes','note/note_page');
 		}else{
-			$this->loadView('notes','notes','note/index',$data);
+			$this->loadView('notes','notes','welcome_message');
 		}
 	}
 }

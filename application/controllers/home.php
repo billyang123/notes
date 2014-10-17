@@ -6,11 +6,15 @@ class Home extends MY_Controller {
 		parent::__construct();
 		$this->load->spark('markdown/1.2.0');
 		$this->load->model('notes_model');
+		$this->load->model('classify_model');
+		$this->load->model('tags_model');
 	}
 	public function index()
 	{
 
 		$data["content"] = array_reverse($this->notes_model->get_home_notes());
+		$data['classify'] = $this->classify_model->getClassify();
+		$data['tags'] = $this->tags_model->get_tags();
 		$this->loadView('notes-home','home','home/index',$data);
 	}
 	

@@ -85,7 +85,8 @@ class Notes_model extends MY_Model {
 	    'create_date' => $time,
 	    'scope' => $this->input->post('scope'),
 	    'userName' => $this->input->post('userName'),
-	    'userId' =>$this->input->post('userId')
+	    'userId' =>$this->input->post('userId'),
+	    'tags' =>$this->input->post('tagsStr')
 	  );
 	  return $this->db->insert('notes', $data);
 	}
@@ -122,7 +123,8 @@ class Notes_model extends MY_Model {
 			    'content' => $this->input->post('content'),
 			    'type' => $this->input->post('type'),
 			    'create_date' => $time,
-			    'scope' => $this->input->post('scope')
+			    'scope' => $this->input->post('scope'),
+			    'tags' => $this->input->post('tagsStr')
 				));
 		}
 	}
@@ -130,19 +132,25 @@ class Notes_model extends MY_Model {
 
 		$where = FALSE;
 		$classId = $this->input->get('class');
-
+		$tag = $this->input->get('tagName');
 	    if($this->session->userdata('logged_in')){
 	    	$userId = $this->session->userdata('userId');
 	    	$where = "(userId=$userId OR scope='1')";
 			if($classId&&$classId!='1'){
-				$where .= " AND type=$classId";
+				$where .= " AND type=".$classId;
+			}
+			if($tag){
+				$where .= " AND tags LIKE '%".$tag."%'";
 			}
 			//echo $where;
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    }else{
-	    	$where = array('scope' => '1');
+	    	$where = "scope = '1'";
 	    	if($classId&&$classId!='1'){
-				$where = array_merge($where,array('type'=>$classId));
+				$where .= " AND type=".$classId;
+			}
+			if($tag){
+				$where .= " AND tags LIKE '%".$tag."%'";
 			}
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    	//$query = $this->db->get_where('notes', array('scope' => '1'));

@@ -1,7 +1,17 @@
-<form method="post" action="http://up.qiniu.com/" enctype="multipart/form-data">
-      <input name="key" type="hidden" value="<?=$key?>">
-      
-      <input name="token" type="hidden" value="<?=$token?>">
-      <input name="file" type="file" />
-      <button class="uk-button" type="submit">upload</button>
-</form>
+<input id="select-tags" class="movies" placeholder="Find a movie...">
+<select id="select-repo" class="repositories" placeholder="Pick a repository...">
+	
+</select>
+<script type="text/javascript">
+$('#select-tags').selectize({
+    delimiter: ',',
+    persist: false,
+    create: function(input) {
+        return {
+            value: input,
+            text: input
+        }
+    }
+});
+
+</script>

@@ -3,7 +3,18 @@
         <h1 class="uk-article-title">
             <a href="<?=$assets?>/index.php/notes/<?=$content["id"] ?>"><?=$content["title"] ?></a>
         </h1>
-        <p class="uk-article-meta"><span><i class="uk-icon-user uk-icon-small"></i>  <?=$content['userName'] ?></span>   <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$content["create_date"]) ?></span></p>
+        <p class="uk-article-meta">
+            <span><i class="uk-icon-user uk-icon-small"></i>  <?=$content['userName'] ?></span>   
+            <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$content["create_date"]) ?></span>
+            <?php if ($content['tags']):?>
+            <span>
+                <i class="uk-icon-tags"></i>
+                <?php foreach (explode(',',$content['tags']) as $key => $value):?>
+                <a href="/index.php/notes?tagName=<?=$value ?>"><?=$value ?></a>   
+                <?php endforeach;?>
+            </span>
+            <?php endif; ?>
+        </p>
         <div class="notes-content">
             <?=parse_markdown($content["content"]) ?>
         </div>

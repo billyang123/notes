@@ -21,15 +21,27 @@
                 <textarea data-uk-markdownarea="{mode:'tab'}" name="content" style="width:100%;"></textarea>
             </div>
             <div class="uk-form-row">
-                <span>分类:</span>
-                <select name="type">
-                    <?php foreach ($classify as $item):?>
-                    <option value="<?=$item['id']?>"><?=$item['name']?></option>
-                    <?php endforeach;?>
-                </select>
-                <span class="uk-margin-left">是否公开：</span>
-                <label><input type="radio" value="1" name="scope" checked> 是</label>
-                <label><input type="radio" value="2" name="scope"> 否</label>
+                <label class="uk-form-label" for="form-s-t">分类</label>
+                <div class="uk-form-controls">
+                    <select name="type">
+                        <?php foreach ($classify as $item):?>
+                        <option value="<?=$item['id']?>"><?=$item['name']?></option>
+                        <?php endforeach;?>
+                    </select>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="form-s-t">是否公开</label>
+                <div class="uk-form-controls">
+                    <label><input type="radio" value="1" name="scope" checked> 是</label>
+                    <label><input type="radio" value="2" name="scope"> 否</label>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label" for="form-s-t">标签</label>
+                <div class="uk-form-controls">
+                    <input type="text" class="uk-width-1-1 js-tags-complete" name="tagsStr" value="">
+                </div>
             </div>
             <div class="uk-form-row">
                 <button type="submit" name="submit" class="uk-button uk-button-primary uk-align-center">Create news</button>
@@ -37,3 +49,6 @@
         </form>
     </div>
 </div>
+<script type="text/javascript">
+require("module/tags-complete");
+</script>

@@ -52,5 +52,6 @@ $route['notes/(:num)'] = "notes/note/$1";
 $route['register'] = "account/register";
 $route['comment/(:num)'] = "comment/index/$1";
 $route['identicon/(:any)'] = "identicon/show/$1/$2";
+$route['ajax'] = "/ajax";
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
