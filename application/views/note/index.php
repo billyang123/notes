@@ -53,7 +53,7 @@
     </div> -->
 	<div class="uk-panel uk-panel-box notes-subbox" data-uk-sticky>
         <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Articles</h3>
-        <ul class="uk-list uk-list-line">
+        <ul class="uk-list uk-list-line" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">
         	<?php foreach (array_slice($content,0,10) as $item):?>
             <li class="uk-text-overflow"><a href="#note_<?=$item["id"] ?>" title="<?=$item["title"] ?>"><?=$item["title"] ?></a></li>
             <?php endforeach;?>
@@ -64,13 +64,13 @@
             <a href="/index.php/notes/?class=<?=$item['id']?>" <?=($item['id']==$classId)? 'class="active"':'' ?> ><?=$item['name']?></a>
             <?php endforeach;?>
         </div>
-        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>
+        <!-- <h3 class="uk-panel-title"><i class="uk-icon-link"></i>    Social Links</h3>
         <ul class="uk-list uk-list-line">            
             <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>
             <li><a href="https://github.com/">GitHub</a></li>
             <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
             <li><a href="http://getbootstrap.com/">bootstrap</a></li>
             <li><a href="http://www.getuikit.net/">uikit</a></li>
-        </ul>
+        </ul> -->
     </div>
 </div>

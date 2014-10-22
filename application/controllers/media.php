@@ -15,7 +15,7 @@
 			$data["token"] = $this->uploadtoken->get_token();
 			
 			$data["images"] = $this->media_model->get_yunImgInfo();
-			$this->loadView('media','media','media/album',$data);
+			$this->loadView('notes-media-album','media','media/album',$data);
 		}
 		public function photo()
 		{
@@ -24,7 +24,7 @@
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_yunImgInfo();
 			$data["album"] = $this->media_model->get_album();
-			$this->loadView('media','media','media/photo',$data);
+			$this->loadView('notes-media-photo','media','media/photo',$data);
 		}
 		public function createAlbum()
 		{
@@ -87,7 +87,7 @@
 			$data["user"] = $this->get_currentUser();
 			$data["content"] = $this->media_model->get_video();
 			//var_dump($data);exit(0);
-			$this->loadView('media','media','media/video',$data);
+			$this->loadView('notes-media-video','media','media/video',$data);
 		}
 		public function addVideo()
 		{

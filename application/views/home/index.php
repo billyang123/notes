@@ -12,7 +12,7 @@
 </div>
 <div class="uk-width-medium-3-4">
 	<div class="uk-width-medium-1-1 uk-panel-box">
-		<h3 class="uk-panel-title">Articles</h3>
+		<h3 class="uk-panel-title"><i class="uk-icon-list"></i>   Articles</h3>
 		<ul class="uk-list uk-list-line">
 			<?php foreach ($content as $item):?>
 			<li>
@@ -39,13 +39,7 @@
 	            <li><a href="#"><?=$item["title"] ?></a></li>
 	            <?php endforeach;?>
 	        </ul>-->
-	        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>   Social Links</h3>
-	        <ul class="uk-list uk-list-line">            
-	            <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>
-	            <li><a href="https://github.com/">GitHub</a></li>
-	            <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
-	            <li><a href="http://getbootstrap.com/">bootstrap</a></li>
-	        </ul>
+	        
 	        <h3 class="uk-panel-title"><i class="uk-icon-leaf"></i>   classify</h3>
 	        <div class="notes-tags">
 	            <?php foreach ($classify as $item):?>
@@ -58,5 +52,12 @@
 	            <a href="/index.php/notes/?tagName=<?=$item['tag_name']?>"><?=$item['tag_name']?></a>
 	            <?php endforeach;?>
 	        </div>
+	        <h3 class="uk-panel-title"><i class="uk-icon-link"></i>   Social Links</h3>
+	        <ul class="uk-list uk-list-line">            
+	            <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>
+	            <li><a href="https://github.com/">GitHub</a></li>
+	            <li><a href="http://craig.is/making/rainbows">rainbows</a></li>
+	            <li><a href="http://getbootstrap.com/">bootstrap</a></li>
+	        </ul>
 	    </div>
 </div>
