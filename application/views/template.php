@@ -12,9 +12,9 @@
 
 </head>
 <body class="uk-width-1-1<?php if($nav=="login"): ?> _login-body<?php endif ?>">
-	<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+	<div class="uk-container uk-container-center uk-margin-top">
 		<?php if($nav!="login" && $nav!="bookmarklet"): ?>
-		<nav class="uk-navbar uk-margin-large-bottom" id="Top">
+		<nav class="uk-navbar uk-margin-bottom notes-header" id="Top">
 		    <a class="uk-navbar-brand uk-hidden-small" href="/"><i class="uk-icon-home uk-icon-small"></i>note</a>
 		    <ul class="uk-navbar-nav uk-hidden-small">
 		    	<?php foreach($nav_list  as $i => $nav_item): ?>
@@ -52,6 +52,8 @@
 		    <div class="uk-navbar-brand uk-navbar-center uk-visible-small">notes</div>
 		</nav>
 		<?php endif ?>
+	</div>
+	<div class="uk-container uk-container-center uk-margin-large-bottom">
 		<div class="uk-grid notes-main">
 		    <?=$content_for_template ?>
 		</div>
