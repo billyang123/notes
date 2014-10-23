@@ -50,7 +50,7 @@
             <div class="uk-form-row">
                 <label class="uk-form-label">附件</label>
                 <div class="uk-form-controls">
-                    <input type="hidden" value="" name="attachments" id="fileId">
+                    <textarea style="display: none" name="attachments" id="fileId"></textarea>
                     <a class="uk-button" href="javascript:void(0);" data-uk-modal="{target:'#uploadContainer'}"><i class="uk-icon-plus"></i>   select files</a>
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
@@ -126,13 +126,13 @@ $(function() {
                         data.content.key,
                         '"><i class="uk-icon-paperclip"></i><a href="',
                         data.content.baseUrl,
-                        '">',
+                        '" target="_blank">',
                         data.content.fileName,
                         '</a><a href="/index.php/upload/deletefile/',
                         data.content.key,
                         '" data-remote="true" class="uk-icon-times removefile"></a></li>'
                     ];
-                    fileIDs[data.content.key] = [data.content.fileName,data.content.baseUrl];
+                    fileIDs[data.content.key] = [data.content.fileName,encodeURIComponent(data.content.baseUrl];
                     //fileIDs.push(data.content.key);
                     $("#fileId").val(JSON.stringify(fileIDs));
                     $(".filebox").append(liStrArr.join(""));

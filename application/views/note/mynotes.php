@@ -24,6 +24,9 @@
         </p>
         <div class="notes-content">
         	<?=parse_markdown($item["content"]) ?>
+        	<?php if ($item["attachments"]):?>
+        	<textarea style="display:none;" class="js-files-string"><?=$item["attachments"] ?></textarea>
+        	<?php endif; ?>
         </div>
         <p><a href="<?=$assets?>/index.php/comment?noteId=<?=$item['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$item['id'] ?>').html(res).parent().show()"><i class="uk-icon-comments"></i>   comment</a></p>
         <div class="_comment-content" style="display:none;">
@@ -68,3 +71,22 @@
         </ul> -->
     </div>
 </div>
+<script type="text/javascript">
+$(".js-files-string").each(function(i,n){
+    if($(n).val()!=''){
+        var fileIDs = $.parseJSON($(n).val());
+        $(n).after('<ul class="filebox uk-list"></ul>');
+        $.each(fileIDs,function(index,item){
+            $(".filebox").append([
+                '<li data-id="',
+                index,
+                '"><i class="uk-icon-paperclip"></i><a href="',
+                item[1],
+                '" target="_blank">',
+                item[0],
+                '</a></li>'
+            ].join(""));
+        })
+    }
+})
+</script>

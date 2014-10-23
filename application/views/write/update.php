@@ -52,7 +52,7 @@
             <div class="uk-form-row">
                 <label class="uk-form-label">附件</label>
                 <div class="uk-form-controls">
-                    <input type="hidden" value="<?=($content['attachments']?$content['attachments']:'')?>" name="attachments" id="fileId">
+                    <textarea style="display: none" name="attachments" id="fileId"><?=($content['attachments']?$content['attachments']:'')?></textarea>
                     <a class="uk-button" href="javascript:void(0);" data-uk-modal="{target:'#uploadContainer'}"><i class="uk-icon-plus"></i>   select files</a>
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
@@ -98,7 +98,7 @@ $(function() {
                 '</a><a href="/index.php/upload/deletefile/',
                 index,
                 '" data-remote="true" class="uk-icon-times removefile"></a></li>'
-            ]);
+            ].join(""));
         })
     }
     var uploaderInit = function(){
@@ -144,7 +144,7 @@ $(function() {
                         data.content.key,
                         '"><i class="uk-icon-paperclip"></i><a href="',
                         data.content.baseUrl,
-                        '">',
+                        '" target="_blank">',
                         data.content.fileName,
                         '</a><a href="/index.php/upload/deletefile/',
                         data.content.key,
