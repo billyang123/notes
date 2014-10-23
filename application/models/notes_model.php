@@ -86,7 +86,8 @@ class Notes_model extends MY_Model {
 	    'scope' => $this->input->post('scope'),
 	    'userName' => $this->input->post('userName'),
 	    'userId' =>$this->input->post('userId'),
-	    'tags' =>$this->input->post('tagsStr')
+	    'tags' =>$this->input->post('tagsStr'),
+	    'attachments'=>$this->input->post('attachments')
 	  );
 	  return $this->db->insert('notes', $data);
 	}
@@ -124,7 +125,8 @@ class Notes_model extends MY_Model {
 			    'type' => $this->input->post('type'),
 			    'create_date' => $time,
 			    'scope' => $this->input->post('scope'),
-			    'tags' => $this->input->post('tagsStr')
+			    'tags' => $this->input->post('tagsStr'),
+			    'attachments'=>$this->input->post('attachments')
 				));
 		}
 	}

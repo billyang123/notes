@@ -45,6 +45,13 @@ class Uploadtoken {
 			    return 'success';
 			}
 		}
+		function makeBaseUrl($key,$domain){
+			// $key = 'pic.jpg';
+			// $domain = 'phpsdk.qiniudn.com';
+			//$baseUrl 就是您要访问资源的地址
+			$baseUrl = Qiniu_RS_MakeBaseUrl($domain, $key);
+			return $baseUrl;
+		}
 }
 
 /* End of file Template.php */

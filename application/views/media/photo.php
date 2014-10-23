@@ -105,7 +105,7 @@ $(function() {
         flash_swf_url : '/js/Moxie.swf',
     
         // Silverlight settings
-        silverlight_xap_url : '/js/Moxie.xap',
+        silverlight_xap_url : '/js/Moxie.xap'
     });
     // //var uploader = $('#uploader').pluploadQueue();
     // uploader.bind('UploadComplete', function(up) {
