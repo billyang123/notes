@@ -1,3 +1,7 @@
+body.uk-width-1-1 {
+	background-image: url(http://ybbcdn.qiniudn.com/20141023_1414059335_1_143.gif);
+	background-repeat: repeat;
+}
 ._comment {
 	&-controls {
 		width: 100%;
@@ -17,6 +21,15 @@
 }
 .uk-navbar.notes-header {
 	background: #99cc33;
+	.uk-navbar-nav {
+		> li {
+			> a{
+				&:hover {
+					color: #000;
+				}
+			}
+		}
+	}
 }
 .uk-comment-footer {
 	text-align: right;
@@ -55,8 +68,11 @@
 	background: #000;
 	color: #777;
 	border-top: 1px solid #ddd;
-	.uk-subnav > li > a {
-		color: #888;
+	.uk-subnav > li {
+
+		> a {
+			color: #888;
+		}
 	}
 }
 #goToTop {
