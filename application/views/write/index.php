@@ -132,7 +132,7 @@ $(function() {
                         data.content.key,
                         '" data-remote="true" class="uk-icon-times removefile"></a></li>'
                     ];
-                    fileIDs[data.content.key] = [data.content.fileName,encodeURIComponent(data.content.baseUrl];
+                    fileIDs[data.content.key] = [data.content.fileName,data.content.baseUrl];
                     //fileIDs.push(data.content.key);
                     $("#fileId").val(JSON.stringify(fileIDs));
                     $(".filebox").append(liStrArr.join(""));
