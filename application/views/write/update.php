@@ -57,7 +57,7 @@
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
-                        <p>只支持图片（jpg,gif,png）和压缩包（zip）</p>
+                        <p>只支持图片（jpg,gif,png）和压缩包（zip），不能超过10M</p>
                     </div>
                 </div>
             </div>
@@ -107,14 +107,14 @@ $(function() {
             runtimes : 'html5,flash,silverlight,html4',
             url : "/index.php/upload/signfiles",
             
-            chunk_size : '1mb',
+            chunk_size : '10mb',
             rename : true,
             dragdrop: true,
             multipart : true,
             //multipart_params : {'albumId': $('select[name="albumId"]').val()},
             filters : {
                 // Maximum file size
-                max_file_size : '50mb',
+                max_file_size : '10mb',
                 // Specify what files to browse for
                 mime_types: [
                     {title : "Image files", extensions : "jpg,gif,png"},
