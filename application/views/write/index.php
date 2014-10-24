@@ -55,7 +55,7 @@
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
-                        <p>只支持图片（jpg,gif,png）和压缩包（zip）</p>
+                        <p>只支持图片（jpg,gif,png）和压缩包（zip,rar）</p>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,8 @@ $(function() {
                 // Specify what files to browse for
                 mime_types: [
                     {title : "Image files", extensions : "jpg,gif,png"},
-                    {title : "Zip files", extensions : "zip"}
+                    {title : "Zip files", extensions : "zip"},
+                    {title : "Rar files", extensions : "rar"}
                 ]
             },
 
