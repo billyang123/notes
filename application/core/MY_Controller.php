@@ -32,7 +32,8 @@
 				"userId"=>$this->session->userdata('userId'),
 				'username'=>$this->session->userdata('username'),
 				'is_login'=>$this->session->userdata('logged_in'),
-				'default_albumId'=>$this->session->userdata('default_albumId')
+				'default_albumId'=>$this->session->userdata('default_albumId'),
+				'avatar'=>$this->session->userdata('avatar')
 			);
 		}
 		public function varSet($name,$nStr)

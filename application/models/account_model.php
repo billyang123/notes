@@ -28,6 +28,7 @@ class Account_model extends CI_Model {
 		if($user = $this->get_by_username($username)){
 			$this->session->set_userdata('userId',$user->id);
 			$this->session->set_userdata('default_albumId',$user->default_albumId);
+			$this->session->set_userdata('avatar',$user->avatar);
 			return $user->password == $password ? TRUE : FALSE;
 		}
 		return FALSE;

@@ -78,6 +78,7 @@
 				'userName'=>$info["username"],
 				'intro' => $info["intro"],
 				'email'=>$info["email"],
+				'avatar'=>$info["avatar"],
 				'is_login'=>true
 				);
 			// if($data["content"]['scope'] == '0' && $data["user"]["userId"] == $data["content"]["userId"]){

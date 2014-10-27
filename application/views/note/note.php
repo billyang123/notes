@@ -62,7 +62,11 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut.</p>
     </div> -->
     <div class="uk-panel uk-panel-box uk-text-center">
+        <?php if($com_user['avatar']): ?>
+        <img class="uk-border-circle" src="<?=$com_user['avatar'] ?>">
+        <?php else: ?>
         <img class="uk-border-circle" src="/identicon.php?uid=<?=$com_user['userName'] ?>&size=120">
+        <?php endif; ?>
         <h3><?=$com_user['userName'] ?></h3>
         <p><?=$com_user['intro'] ?></p>
         <p>邮箱：<?=$com_user['email'] ?></p>

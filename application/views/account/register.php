@@ -54,6 +54,8 @@
 		<?php echo (validation_errors()=='')?'':'<div class="uk-alert uk-alert-danger"><a href="" class="uk-alert-close uk-close"></a>'.validation_errors().'</div>'; ?>
 	</div>
 </div>
+<link rel="stylesheet" type="text/css" href="/public/jquerypicturecut/cropper.min.css">
+<link rel="stylesheet" type="text/css" href="/public/jquerypicturecut/crop-avatar.css">
 <div class="container" id="crop-avatar">
 
     <!-- Current avatar -->
@@ -97,15 +99,5 @@
 	</div>
 	<div class="loading"></div>
 </div>
-<link rel="stylesheet" type="text/css" href="/public/jquerypicturecut/cropper.min.css">
-<link rel="stylesheet" type="text/css" href="/public/jquerypicturecut/crop-avatar.css">
 <script type="text/javascript" src="/public/jquerypicturecut/crop-avatar.js"></script>
 <script type="text/javascript" src="/public/jquerypicturecut/cropper.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-
-    
-
-})
-
-</script>
