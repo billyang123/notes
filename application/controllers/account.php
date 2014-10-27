@@ -64,8 +64,9 @@
 				
 				$email = $this->input->post("email");
 				$intro = $this->input->post("intro");
+				$avatar = $this->input->post("avatar");
 				$defaultAlbumId = $this->media_model->add_default_album($username);
-				if($this->account_model->add_user($username,$password,$email,$intro,$defaultAlbumId)){
+				if($this->account_model->add_user($username,$password,$email,$intro,$defaultAlbumId,$avatar)){
 					$data["message"] = "账号创建成功!";
 					$data["redirect"] = "/notes";
 					$this->loadView('notes-register','login','account/login',$data);
@@ -118,5 +119,8 @@
 		public function userList(){
 			$data["content"] = $this->account_model->get_users();
 			echo($this->result_jsonCode($data));return;
+		}
+		public function cropavatar(){
+			$this->account_model->crop_avatar();
 		}
 	}

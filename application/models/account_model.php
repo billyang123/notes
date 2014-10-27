@@ -5,7 +5,8 @@ class Account_model extends CI_Model {
 	{
 	    $this->load->database();
 	    $this->load->library('session');
-	    
+	    $this->config->load('my_config',TRUE,TRUE);
+	    $this->load->library('uploadtoken');
 	}
 	public function login($username)
 	{
@@ -33,9 +34,9 @@ class Account_model extends CI_Model {
 	}
 
 
-	public function add_user($username, $password, $email, $intro, $defaultAlbumId)
+	public function add_user($username, $password, $email, $intro, $defaultAlbumId,$avatar)
 	{
-		$data = array('username'=>$username,'password'=>$password,'email'=>$email,'intro'=>$intro,'default_albumId'=>$defaultAlbumId);
+		$data = array('username'=>$username,"avatar" => $avatar,'password'=>$password,'email'=>$email,'intro'=>$intro,'default_albumId'=>$defaultAlbumId);
 		$this->db->insert('note_users',$data);
 		if($this->db->affected_rows() > 0)
 		{
@@ -79,8 +80,24 @@ class Account_model extends CI_Model {
 			$this->db->where('id',$id);  
 			return $this->db->update('note_users',array(
 				"email"=> $this->input->post("email"),
-				"intro"=> $this->input->post("intro")
+				"intro"=> $this->input->post("intro"),
+				"avatar" => $this->input->post("avatar")
 				));
 		}
+	}
+	public function crop_avatar()
+	{
+		$this->load->library('cropavatar');
+		$tmpDir = $this->app_ini['tmpDir'];
+		$crop = $this->cropavatar;
+		$crop->init($this->input->post['avatar_src'], $this->input->post['avatar_data'], $this->input->post['avatar_file'],$tmpDir);
+		$_key_ = 'avatar_'.time().'.png';
+	    $result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$crop -> getResult(),$this->app_ini['accessKey'],$this->app_ini['secretKey']);
+	    $response = array(
+	        'state'  => 200,
+	        'message' => $crop -> getMsg(),
+	        'result' => 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$result['key']
+	    );
+	    echo json_encode($response);
 	}
 }

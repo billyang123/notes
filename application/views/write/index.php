@@ -38,7 +38,7 @@
                 <label class="uk-form-label" for="form-s-t">是否公开</label>
                 <div class="uk-form-controls">
                     <label><input type="radio" value="1" name="scope" checked> 是</label>
-                    <label><input type="radio" value="2" name="scope"> 否</label>
+                    <label><input type="radio" value="0" name="scope"> 否</label>
                 </div>
             </div>
             <div class="uk-form-row">
