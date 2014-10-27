@@ -13,7 +13,7 @@
 					<a href="#my-avatar-modal" class="uk-button uk-button-primary" data-uk-modal>选择</a>
 					<div class="avatar-view" id="avatar-view" title="Change the avatar">
 						<input value="<?=$userInfo['avatar']?$userInfo['avatar']:'' ?>" name="avatar" type="hidden">
-				      <?=$userInfo['avatar']?'<img src="'.$userInfo['avatar'].'" alt="Avatar">':'' ?>
+				      	<img src="<?=$userInfo['avatar']?$userInfo['avatar']:'/identicon.php?uid='.$com_user['userName'].'&size=120' ?>">
 				    </div>
 		        </div>
 			</div>
