@@ -90,7 +90,7 @@ class Account_model extends CI_Model {
 		$this->load->library('cropavatar');
 		$tmpDir = $this->app_ini['tmpDir'];
 		$crop = $this->cropavatar;
-		$crop->init($this->input->post['avatar_src'], $this->input->post['avatar_data'], $this->input->post['avatar_file'],$tmpDir);
+		$crop->init($_POST['avatar_src'], $_POST['avatar_data'], $_FILES['avatar_file'],$tmpDir);
 		$_key_ = 'avatar_'.time().'.png';
 	    $result = $this->uploadtoken->uploadToQiNiu($this->app_ini['bucket'],$_key_,$crop -> getResult(),$this->app_ini['accessKey'],$this->app_ini['secretKey']);
 	    $response = array(
