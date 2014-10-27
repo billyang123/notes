@@ -54,6 +54,16 @@
         <h3>Author Name</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut.</p>
     </div> -->
+    <div class="uk-panel uk-panel-box uk-text-center uk-margin-bottom">
+        <?php if($userInfo['avatar']): ?>
+        <img class="uk-border-circle" src="<?=$userInfo['avatar'] ?>">
+        <?php else: ?>
+        <img class="uk-border-circle" src="/identicon.php?uid=<?=$userInfo['username'] ?>&size=120">
+        <?php endif; ?>
+        <h3><?=$userInfo['username'] ?></h3>
+        <p class="uk-text-left"><?=$userInfo['intro'] ?></p>
+        <p class="uk-text-left">邮箱：<?=$userInfo['email'] ?></p>
+    </div>
 	<div class="uk-panel uk-panel-box notes-subbox" data-uk-sticky>
         <h3 class="uk-panel-title"><i class="uk-icon-list-alt"></i>    Articles</h3>
         <ul class="uk-list uk-list-line" data-uk-scrollspy-nav="{closest:'li', smoothscroll:true}">

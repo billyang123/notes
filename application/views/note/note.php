@@ -71,8 +71,7 @@
         <p><?=$com_user['intro'] ?></p>
         <p>邮箱：<?=$com_user['email'] ?></p>
     </div>
-    <div class="uk-panel uk-panel-box">
-        
+    <div class="uk-panel uk-panel-box">     
         <h3 class="uk-panel-title">Social Links</h3>
         <ul class="uk-list uk-list-line">            
             <li><a href="http://wowubuntu.com/markdown/">Markdown</a></li>

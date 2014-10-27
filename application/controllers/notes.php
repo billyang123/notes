@@ -8,6 +8,7 @@
 		  	$this->load->model('tags_model');
 		  	$this->load->library('session');
 		  	$this->load->model('classify_model');
+		  	$this->load->model('account_model');
 		}
 		public function index()
 		{	
@@ -41,12 +42,12 @@
 			$isPage = $this->input->get('isPage',true);
 			$page = $this->input->get('p','1');
 			$page = $page ? $page :1;
-			
-			//$data = $this->notes_model->get_notes(FALSE,$page,5);
-			$data["user"] = $this->get_currentUser();
-			$data = $this->notes_model->get_notesByUserId($data["user"]["userId"],$page,5);
+			$user = $this->get_currentUser();
+			//var_dump($data['userInfo']);exit(0);
+			$data = $this->notes_model->get_notesByUserId($user["userId"],$page,5);
 	
-			
+			//$data = $this->notes_model->get_notes(FALSE,$page,5);
+			$data['userInfo'] = $this->account_model->get_users($user["userId"]);
 			$data['pagin'] = $this->pagination('/index.php/mine/?',$data['total'],5,'/index.php/mine/');
 			
 			//var_dump($classId,$data['classId']);exit(0);
