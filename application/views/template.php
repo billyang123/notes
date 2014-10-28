@@ -23,6 +23,7 @@
 					</li>
 				<?php endforeach ?>
 		    </ul>
+		    
 		    <div class="uk-navbar-flip">
 		        <ul class="uk-navbar-nav">
 		        	<li data-uk-dropdown="{mode:'click'}">
@@ -48,6 +49,14 @@
 					</li>
 		        </ul>
 			</div>
+			<div class="uk-navbar-flip">
+		        <div class="uk-navbar-content">
+		        	<form class="uk-search" action="/index.php/notes/search" data-uk-search="{source:'/index.php/notes/search'}">
+					    <input class="uk-search-field" name="key" type="search" placeholder="">
+					    <button class="uk-search-close" type="reset"></button>
+					</form>
+		        </div>
+		    </div>
 		    <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas=""></a>
 		    <div class="uk-navbar-brand uk-navbar-center uk-visible-small">notes</div>
 		</nav>

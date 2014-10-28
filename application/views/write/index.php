@@ -21,8 +21,8 @@
                 <input type="text" name="title" placeholder="Title" class="uk-width-1-1"/>
             </div>
           	<div class="uk-form-row">
-                <p><i class="uk-icon-info-circle uk-icon-small"></i>      Notes written in Markdown syntax requirements, please refer to <a href="http://wowubuntu.com/markdown/">Markdown</a> syntax concrete syntax.</p>
-                <textarea data-uk-markdownarea="{mode:'tab'}" name="content" style="width:100%;"></textarea>
+                <p><i class="uk-icon-info-circle uk-icon-small"></i>      Notes written in Markdown syntax requirements, please refer to <a href="http://wowubuntu.com/markdown/" target="_blank">Markdown</a> syntax concrete syntax. </p>
+                <textarea data-uk-markdownarea="{mode:'tab'}" name="content" style="width:100%;">code highlighting please use following as &lt;pre&gt;&lt;code data-language="javascript"&gt;var i = 0&lt;/code&gt;&lt;/pre&gt;</textarea>
             </div>
             <div class="uk-form-row">
                 <label class="uk-form-label" for="form-s-t">分类</label>

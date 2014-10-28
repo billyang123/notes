@@ -1,5 +1,5 @@
 <?php
-	class Notes extends MY_Controller {
+	class Search extends MY_Controller {
 		function __construct()
 		{
 		  	parent::__construct();
@@ -154,25 +154,6 @@
 			$data["content"] = $this->notes_model->get_notes($id);
 			$data["classify"] = $this->classify_model->getClassify();
 			$this->loadView('Write','Write','write/update',$data);
-
-		}
-		public function search()
-		{
-			$page = $this->input->get('p','1');
-			$page = $page ? $page :1;
-			$key = $this->input->get('key');
-			$classId = $this->input->get('class');
-			//$data = $this->notes_model->get_notes(FALSE,$page,5);
-			$data = $this->notes_model->get_search_notes($key,$page,5);
-			$data['classId'] = $classId?$classId:1;
-			$data['classify'] = $this->classify_model->getClassify();
-			$data['pagin'] = $this->pagination('/index.php/notes/search?key='.$key,$data['total'],5,'/index.php/notes/search?key='.$key);
-			if($this->input->is_ajax_request()){
-				$this->loadView('notes public','notes','note/note_page',$data);
-			}else{
-				$this->loadView('notes public','notes','note/index',$data);
-			}
-			//$this->loadView('notes','notes','note/index',$data);
 
 		}
 		public function old()

@@ -159,4 +159,28 @@ class Notes_model extends MY_Model {
 	    }
 	    return $query;
 	}
+
+	public function get_search_notes($key=FALSE,$page = 1,$pageSize = 10){
+		$where = FALSE;
+		echo $where;
+	    if($this->session->userdata('logged_in')){
+	    	$userId = $this->session->userdata('userId');
+	    	$where = "(userId=$userId OR scope='1')";
+			if($key){
+
+				$where .= " AND (title LIKE '%".$key."%' OR content LIKE '%".$key."%')";
+			}
+			
+	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
+	    }else{
+	    	$where = "scope = '1'";
+	    	if($key){
+				$where .= " AND (title LIKE '%".$key."%' OR content LIKE '%".$key."%')";
+			}
+			echo $where;
+	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
+	    	//$query = $this->db->get_where('notes', array('scope' => '1'));
+	    }
+	    return $query;
+	}
 }
