@@ -55,7 +55,7 @@
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
-                        <p>只支持图片（jpg,gif,png）和压缩包（zip,rar），不能超过10</p>
+                        <p>只支持图片（jpg,gif,png）和压缩包（zip,rar），不能超过10M</p>
                     </div>
                 </div>
             </div>

@@ -61,17 +61,17 @@
 	                </div>
 	                <!-- Crop and preview -->
 	                <div class="uk-grid">
-	                  <div class="uk-width-7-10">
+	                  <div class="uk-width-medium-7-10">
 	                    <div class="avatar-wrapper"></div>
 	                  </div>
-	                  <div class="uk-width-3-10">
+	                  <div class="uk-width-medium-3-10">
 	                    <div class="avatar-preview preview-lg"></div>
 	                    <div class="avatar-preview preview-md"></div>
 	                    <div class="avatar-preview preview-sm"></div>
 	                  </div>
 	                </div>
 	            </div>
-	            <div class="uk-modal-footer uk-text-center">
+	            <div class="uk-modal-footer uk-text-center uk-margin-top">
 	              <button class="uk-button uk-button-default uk-modal-close">Close</button>
 	              <button class="uk-button uk-button-primary avatar-save" type="submit">Save</button>
 	            </div>

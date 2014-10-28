@@ -23,7 +23,7 @@
                 <input type="text" value="<?=$content['title']?>" name="title" placeholder="title" class="uk-width-1-1"/>
             </div>
           	<div class="uk-form-row">
-                <p><i class="uk-icon-info-circle uk-icon-small"></i>      Notes written in Markdown syntax requirements, please refer to <a href="http://wowubuntu.com/markdown/">Markdown</a> syntax concrete syntax.</p>
+                <p><i class="uk-icon-info-circle uk-icon-small"></i>      Notes written in Markdown syntax requirements, please refer to <a target="_blank" href="http://wowubuntu.com/markdown/">Markdown</a> syntax concrete syntax.</p>
                 <textarea data-uk-markdownarea="{mode:'tab'}" name="content" style="width:100%;"><?=$content['content']?></textarea>
             </div>
             <div class="uk-form-row">

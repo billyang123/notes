@@ -3,17 +3,19 @@
         <h1 class="uk-article-title">
             <a href="<?=$assets?>/index.php/notes/<?=$content["id"] ?>"><?=$content["title"] ?></a>
         </h1>
-        <p class="uk-article-meta">
-            <span><i class="uk-icon-user uk-icon-small"></i>  <?=$content['userName'] ?></span>   
-            <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$content["create_date"]) ?></span>
-            <?php if ($content['tags']):?>
+        <?php if ($content['tags']):?>
+        <p class="uk-article-meta uk-text-left _index-note-tag">
             <span>
                 <i class="uk-icon-tags"></i>
                 <?php foreach (explode(',',$content['tags']) as $key => $value):?>
                 <a href="/index.php/notes?tagName=<?=$value ?>"><?=$value ?></a>   
                 <?php endforeach;?>
             </span>
-            <?php endif; ?>
+        </p>
+        <?php endif; ?>
+        <p class="uk-article-meta">
+            <span><i class="uk-icon-user uk-icon-small"></i>  <?=$content['userName'] ?></span>   
+            <span><i class="uk-icon-clock-o uk-icon-small"></i>  <?=date("Y-m-d H:i:s",$content["create_date"]) ?></span>
         </p>
         <div class="notes-content">
             <?=parse_markdown($content["content"]) ?>
@@ -65,11 +67,11 @@
         <?php if($com_user['avatar']): ?>
         <img class="uk-border-circle" src="<?=$com_user['avatar'] ?>">
         <?php else: ?>
-        <img class="uk-border-circle" src="/identicon.php?uid=<?=$com_user['userName'] ?>&size=120">
+        <img class="uk-border-circle" src="/identicon.php?uid=<?=$com_user['userName'] ?>&size=220">
         <?php endif; ?>
         <h3><?=$com_user['userName'] ?></h3>
-        <p><?=$com_user['intro'] ?></p>
-        <p>邮箱：<?=$com_user['email'] ?></p>
+        <p class="uk-text-left"><?=$com_user['intro'] ?></p>
+        <p class="uk-text-left">邮箱：<?=$com_user['email'] ?></p>
     </div>
     <div class="uk-panel uk-panel-box">     
         <h3 class="uk-panel-title">Social Links</h3>
