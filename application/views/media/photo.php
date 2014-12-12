@@ -14,7 +14,7 @@
             <div class="uk-width-medium-2-3">  
                 <button class="uk-button" data-uk-modal="{target:'#uploadContainer'}"><i class="uk-icon-plus"></i>   upload images</button>
                 <div id="uploadContainer" class="uk-modal">
-                    <div class="uk-modal-dialog">
+                    <div class="uk-modal-dialog uk-modal-dialog-large">
                         <a class="uk-modal-close uk-close"></a>
                         <form id="upload_form" class="uk-form uk-form-horizontal" method="POST" enctype="multipart/form-data">
                             <div class="albumContent uk-form-row">

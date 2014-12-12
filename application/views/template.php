@@ -50,7 +50,7 @@
 		        </ul>
 			</div>
 			<div class="uk-navbar-flip">
-		        <div class="uk-navbar-content">
+				<div class="uk-navbar-content">
 		        	<form class="uk-search" action="/index.php/notes/search" data-uk-search="{source:'/index.php/notes/search'}">
 					    <input class="uk-search-field" name="key" type="search" placeholder="">
 					    <button class="uk-search-close" type="reset"></button>
