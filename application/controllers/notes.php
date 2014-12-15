@@ -181,11 +181,4 @@
 
 			echo json_encode($data["notes"]);
 		}
-		public function list()
-		{
-			$page = $this->input->get('p','1');
-			$page = $page ? $page :1;
-			$data = $this->notes_model->get_pageNotes($page,5);
-			$this->result_jsonCode($data);
-		}
 	}
