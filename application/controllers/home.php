@@ -12,12 +12,35 @@ class Home extends MY_Controller {
 	public function index()
 	{
 
-		$data["content"] = array_reverse($this->notes_model->get_home_notes());
-		$data['classify'] = $this->classify_model->getClassify();
-		$data['tags'] = $this->tags_model->get_tags();
-		$this->loadView('notes-home','home','home/index',$data);
+		
+		//$this->result_jsonCode($data);
+		$pageSize = 15;
+		if($this->input->is_ajax_request()){
+			$page = $this->input->get('p','1');
+			$page = $page ? $page :1;
+			$data = $this->notes_model->get_pageNotes($page,$pageSize);
+			$data['assets'] = $this->assets;
+			//$this->result_jsonCode($data);exit(0);
+			$this->load->view('home/partial/list',$data);
+		}else{
+			$page = $this->input->get('p','1');
+			$page = $page ? $page :1;
+			$data = $this->notes_model->get_pageNotes($page,$pageSize);
+			$data['classify'] = $this->classify_model->getClassify();
+			$data['tags'] = $this->tags_model->get_tags();
+			$this->loadView('notes-home','home','home/index',$data);
+		}
+		//$this->loadView('notes-home','home','home/index',$data);
 	}
 	
+	public function homeList()
+	{
+
+		$data["content"] = $this->notes_model->get_home_notes();
+		
+		$this->loadView('notes-home','home','home/index',$data);
+	}
+
 }
 
 /* End of file welcome.php */

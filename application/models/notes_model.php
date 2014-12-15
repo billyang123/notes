@@ -145,7 +145,7 @@ class Notes_model extends MY_Model {
 				$where .= " AND tags LIKE '%".$tag."%'";
 			}
 			//echo $where;
-	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
+	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,"id desc");
 	    }else{
 	    	$where = "scope = '1'";
 	    	if($classId&&$classId!='1'){
@@ -154,7 +154,7 @@ class Notes_model extends MY_Model {
 			if($tag){
 				$where .= " AND tags LIKE '%".$tag."%'";
 			}
-	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
+	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,"id desc");
 	    	//$query = $this->db->get_where('notes', array('scope' => '1'));
 	    }
 	    return $query;

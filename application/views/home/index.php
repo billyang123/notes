@@ -23,6 +23,11 @@
 
 			</li>
 			<?php endforeach;?>
+			<li>
+				<p class="uk-clearfix uk-text-center">
+					<a href="/index.php/home?p=2" data-remote="true" data-done="$(this).closest('li').replaceWith(res)">显示更多..</a>
+				</p>
+			</li>
 		</ul>
 	</div>
 </div>
