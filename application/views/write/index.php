@@ -1,7 +1,3 @@
-<script type="text/javascript" src="<?=$assets?>/public/plupload/js/plupload.full.min.js"></script>
-<script type="text/javascript" src="<?=$assets?>/public/plupload/js/jquery.plupload.queue/jquery.plupload.queue.min.js"></script>
-<link type="text/css" rel="stylesheet" href="<?=$assets?>/public/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css" media="screen">
-
 <!-- Codemirror and marked dependencies -->
 <link rel="stylesheet" href="<?=$assets?>/public/vendor/codemirror/lib/codemirror.css">
 <script src="<?=$assets?>/public/vendor/codemirror/lib/codemirror.js"></script>
@@ -52,7 +48,7 @@
                 <label class="uk-form-label">附件</label>
                 <div class="uk-form-controls">
                     <textarea style="display: none" name="attachments" id="fileId"></textarea>
-                    <a class="uk-button" href="javascript:void(0);" data-uk-modal="{target:'#uploadContainer'}"><i class="uk-icon-plus"></i>   select files</a>
+                    <a class="uk-button j_upload_files" data-upload href="javascript:void(0);"><i class="uk-icon-plus"></i>   select files</a>
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>

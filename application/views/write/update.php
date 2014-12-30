@@ -8,11 +8,6 @@
 <script src="<?=$assets?>/public/vendor/marked.js"></script>
 <!-- Markdown Area JavaScript and CSS -->
 <script src="<?=$assets?>/public/dist/markdownarea.js"></script>
-
-
-<script type="text/javascript" src="<?=$assets?>/public/plupload/js/plupload.full.min.js"></script>
-<script type="text/javascript" src="<?=$assets?>/public/plupload/js/jquery.plupload.queue/jquery.plupload.queue.min.js"></script>
-<link type="text/css" rel="stylesheet" href="<?=$assets?>/public/plupload/js/jquery.plupload.queue/css/jquery.plupload.queue.css" media="screen">
 <div class="uk-width-1-1">
 
     <div class="uk-panel uk-panel-box">
@@ -53,7 +48,7 @@
                 <label class="uk-form-label">附件</label>
                 <div class="uk-form-controls">
                     <textarea style="display: none" name="attachments" id="fileId"><?=($content['attachments']?$content['attachments']:'')?></textarea>
-                    <a class="uk-button" href="javascript:void(0);" data-uk-modal="{target:'#uploadContainer'}"><i class="uk-icon-plus"></i>   select files</a>
+                    <a class="uk-button j_upload_files" data-upload href="javascript:void(0);" ><i class="uk-icon-plus"></i>   select files</a>
                     <ul class="filebox uk-list"></ul>
                     <div class="uk-alert" data-uk-alert>
                         <a href="" class="uk-alert-close uk-close"></a>
@@ -67,7 +62,7 @@
         </form>
     </div>
 </div>
-<div id="uploadContainer" class="uk-modal">
+<!-- <div id="uploadContainer" class="uk-modal">
     <div class="uk-modal-dialog uk-modal-dialog-large">
         <a class="uk-modal-close uk-close"></a>
         <form id="upload_form" class="uk-form uk-form-horizontal" method="POST" enctype="multipart/form-data">
@@ -76,5 +71,5 @@
             </div>
         </form>
     </div>
-</div>
+</div> -->
 <script type="text/javascript">require("write_index");</script>

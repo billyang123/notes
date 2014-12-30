@@ -189,8 +189,12 @@
                 if(Markdownarea.commands[cmd]) {
 
                    var title = Markdownarea.commands[cmd].title ? Markdownarea.commands[cmd].title : cmd;
-
-                   bar.push('<li><a data-markdownarea-cmd="'+cmd+'" title="'+title+'" data-uk-tooltip>'+Markdownarea.commands[cmd].label+'</a></li>');
+                   if(cmd=='imageUpload') {
+                        bar.push('<li><a data-upload data-markdownarea-cmd="'+cmd+'" title="'+title+'" data-uk-tooltip>'+Markdownarea.commands[cmd].label+'</a></li>');
+                   }else {
+                        bar.push('<li><a data-markdownarea-cmd="'+cmd+'" title="'+title+'" data-uk-tooltip>'+Markdownarea.commands[cmd].label+'</a></li>');
+                   }
+                   //bar.push('<li><a data-markdownarea-cmd="'+cmd+'" title="'+title+'" data-uk-tooltip>'+Markdownarea.commands[cmd].label+'</a></li>');
 
                    if(Markdownarea.commands[cmd].shortcut) {
                        $this.registerShortcut(Markdownarea.commands[cmd].shortcut, Markdownarea.commands[cmd].action);
@@ -208,6 +212,9 @@
                 }
 
             });
+            $('[data-markdownarea-cmd="imageUpload"]').on("upload.success",function(evt,data){
+                baseReplacer($this.getMode() == 'html' ? '<img src="'+data.content.baseUrl+'" alt="'+data.content.fileName+'">':"!["+data.content.fileName+"]("+data.content.baseUrl+")", $this.editor);
+            })
         },
 
         fit: function() {
@@ -354,6 +361,14 @@
                 baseReplacer(this.getMode() == 'html' ? '<img src="http://" alt="$1">':"![$1](http://)", editor);
             }
         },
+        "imageUpload" : {
+            "title"  : "imageUpload",
+            "label"  : '<i class="uk-icon-upload"></i>',
+            "action" : function(editor){
+               
+                baseReplacer(this.getMode() == 'html' ? '<a href="http://">$1</a>':"[$1](http://)", editor);
+            }
+        },
         "listUl" : {
             "title"  : "Unordered List",
             "label"  : '<i class="uk-icon-list-ul"></i>',
@@ -367,6 +382,13 @@
             "action" : function(editor){
                 if(this.getMode() == 'markdown') baseReplacer("1. $1", editor);
             }
+        },
+        "uploadImage" : {
+            "title"  : "upload Image",
+            "label"  : '<i class="uk-icon-upload" id="drop-button"></i>',
+            "action" : function(editor){
+                return;
+            }
         }
     }
 
@@ -375,7 +397,7 @@
         "height"       : 500,
         "maxsplitsize" : 1000,
         "codemirror"   : { mode: 'gfm', tabMode: 'indent', tabindex: "2", lineWrapping: true, dragDrop: false, autoCloseTags: true, matchTags: true },
-        "toolbar"      : [ "bold", "italic", "strike", "link", "picture", "blockquote", "listUl", "listOl" ],
+        "toolbar"      : [ "bold", "italic", "strike", "link", "picture","imageUpload", "blockquote", "listUl", "listOl"],
         "lblPreview"   : "Preview",
         "lblCodeview"  : "Markdown"
     };
@@ -391,7 +413,7 @@
                                         '</ul>' +
                                     '</div>' +
                                 '</div>' +
-                                '<div class="uk-markdownarea-content">' +
+                                '<div class="uk-markdownarea-content" id="drop-target">' +
                                     '<div class="uk-markdownarea-code"></div>' +
                                     '<div class="uk-markdownarea-preview"><div></div></div>' +
                                 '</div>' +
