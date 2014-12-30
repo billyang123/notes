@@ -372,7 +372,7 @@
 		
 		$('[data-upload]').each(function(){
 			var spy = $(this);
-			var new MultipleUploader({
+			new MultipleUploader({
 				trigger: spy,
 				name: spy.data('upload-name') || 'file',
 				action: spy.data('upload-action') || '/index.php/upload/signfiles',
