@@ -84,17 +84,19 @@
     <div class="uk-container-center uk-margin-large-top notes-footer">
 		<footer>
 			<div class="uk-container uk-container-center uk-text-center">
-				<ul class="uk-subnav uk-subnav-line">
+				<!-- <ul class="uk-subnav uk-subnav-line">
+					<li><a href="https://github.com/billyang123/notes" target="_blank" rel="nofollow">GitHub</a></li>
                     <li><a href="https://github.com/billyang123/notes" target="_blank" rel="nofollow">GitHub</a></li>
                     <li><a href="https://github.com/billyang123/notes/issues" target="_blank" rel="nofollow">问题反馈</a></li>
-                   <!--  <li><a href="https://github.com/uikit/uikit/blob/master/CHANGELOG.md" target="_blank" rel="nofollow">更新日志</a></li> -->
+                   	<li><a href="https://github.com/uikit/uikit/blob/master/CHANGELOG.md" target="_blank" rel="nofollow">更新日志</a></li>
                     <li><a href="http://weibo.com/u/2383340037" target="_blank" rel="nofollow">新浪微博</a></li>
                     <li>
                     	<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253123138'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1253123138%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 						<a href="http://www.cnzz.com/stat/website.php?web_id=1253123138" target="_blank">网站统计</a>
 					</li>
-                </ul>
+                </ul> -->
 				<span>© 2014 - 2014 Bill Yang Coding with Pleasure</span>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253123138'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1253123138%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
 			</div>
 		</footer>
 	</div>
