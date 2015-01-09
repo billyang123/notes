@@ -173,7 +173,7 @@
 <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin:8px auto;line-height:20px;padding:0 0 0 8px;">
 <tr>
 <td width="97">目前年薪：</td>
-<td width="188">8-10万人民币</td>
+<td width="188">10-12万人民币</td>
 <td width="80">&nbsp;</td>
 <td width="219">&nbsp;</td>
 </tr>
@@ -314,7 +314,25 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_set">
 <tr>
 <td colspan="2" class="text_left">2014
-      /10--至今：阿里财资管理系统银行评分项目</td>
+      /12--至今：阿里彩虹计划和阿里蒲公英计划项目</td>
+</tr>
+<tr>
+<td width="16%" class="text_left" valign="top">项目描述：</td>
+<td width="84%" id="Cur_Val" valign="top">针对阿里公益方面的，两个都是是一个扶危救困的平台</td>
+</tr>
+<tr>
+<td class="text_left" valign="top">责任描述：</td>
+<td id="Cur_Val" valign="top">框架的搭建，less css预处理等UI的编写，javascript（seajs）代码编写，本地调试，于后端联调，编写java velocity模版，脚本发布等</td>
+</tr>
+<tr>
+<td height="10" align="left" valign="middle"/>
+</tr>
+<tr>
+<td align="left" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_set">
+<tr>
+<td colspan="2" class="text_left">2014
+      /10--2014/12：阿里财资管理系统银行评分项目</td>
 </tr>
 <tr>
 <td width="16%" class="text_left" valign="top">项目描述：</td>
@@ -345,7 +363,7 @@
 <tr>
 <td class="text_left" valign="top">责任描述：</td>
 <td id="Cur_Val" valign="top">和员工体检项目一样，负者前端框架的搭建，前端开发的编写，前端代码的打包和发布等。
-<BR>全权负者前端的开发，主要又框架的搭建，less css预处理等UI的编写，javascript（seajs）代码编写，本地调试，于后端联调，编写java velocity模版，脚本发布等</td>
+<BR>全权负者前端的开发，主要是框架的搭建，less css预处理等UI的编写，javascript（seajs）代码编写，本地调试，于后端联调，编写java velocity模版，脚本发布等</td>
 </tr>
 <tr>
 <td colspan="2" align="center" valign="middle">
