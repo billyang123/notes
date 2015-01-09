@@ -69,9 +69,6 @@
 </td>
 <td width="17%" rowspan="6" align="center" valign="middle">
 <img src="http://img01.51jobcdn.com/im/2009/resumetemplate/resume_match_manpic.gif" width="90" height="110"/>
-<span>
-										                 (ID:311461101)
-										              </span>
 </td>
 </tr>
 <tr>
