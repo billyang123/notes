@@ -313,6 +313,9 @@
 <td align="left" valign="middle">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_set">
 <tr>
+<td align="left" valign="middle">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_set">
+<tr>
 <td colspan="2" class="text_left">2014
       /12--至今：阿里彩虹计划和阿里蒲公英计划项目</td>
 </tr>
@@ -325,11 +328,10 @@
 <td id="Cur_Val" valign="top">框架的搭建，less css预处理等UI的编写，javascript（seajs）代码编写，本地调试，于后端联调，编写java velocity模版，脚本发布等</td>
 </tr>
 <tr>
-<td height="10" align="left" valign="middle"/>
+<td colspan="2" align="center" valign="middle">
+<hr size="1" noshade="noshade"/>
+</td>
 </tr>
-<tr>
-<td align="left" valign="middle">
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table_set">
 <tr>
 <td colspan="2" class="text_left">2014
       /10--2014/12：阿里财资管理系统银行评分项目</td>
