@@ -292,8 +292,8 @@
 <tr>
 <td id="Cur_Val" colspan="2" valign="top">11年10月-12年9月:CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。
 <BR>11年10月-12年9月:在东部软件园，淘宝首焦活动和其他活动的前端开发，根据需求设计稿，开发静态页面，html/css,javascript,利用TMS标签发布页面。在此期间曾负责淘宝偏高地图360.taobao.com前端一期的开发。
-<BR>12年9月-13年12月:在创业大厦，负责淘宝首焦活动页面和淘宝麦麦平台项目前端开发，主要负责jade，sass,coffeescript的编辑，与java开发人员联调。
-<BR>12年12月-13年3月:在淘宝西溪园区，CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。</td>
+<BR>12年9月-13年11月:在创业大厦，负责淘宝首焦活动页面和淘宝麦麦平台项目前端开发，主要负责jade，sass,coffeescript的编辑，与java开发人员联调。
+<BR>13年11月-14年3月:在淘宝西溪园区，CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。</td>
 </tr>
 </table>
 </td>
@@ -432,6 +432,11 @@
 <tr>
 <td class="text_left" valign="top">责任描述：</td>
 <td id="Cur_Val" valign="top">负者html，css，javascript的编写</td>
+</tr>
+<tr>
+<td colspan="2" align="center" valign="middle">
+<hr size="1" noshade="noshade"/>
+</td>
 </tr>
 <tr>
 <td colspan="2" class="text_left">2011
