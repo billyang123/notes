@@ -259,9 +259,9 @@
 </tr>
 <tr>
 <td id="Cur_Val" colspan="2" valign="top">14年4月－14年8月：阿里员工体检项目系统开发
-<BR>14年8月－14年10月：阿里新员工入职体检系统项目开发
-<BR>14年10月－14年12：阿里財财资管理系统前端开发，负者银行评分项目的前端开发。
-<BR>14年12月－至今：阿里彩虹计划和蒲公英计划系统的前端开发。
+<BR>14年8月－14年10月：在淘宝西溪园区，阿里新员工入职体检系统项目开发
+<BR>14年10月－14年12：在海创园，阿里財财资管理系统前端开发，负者银行评分项目的前端开发。
+<BR>14年12月－至今：在海创园，阿里彩虹计划和蒲公英计划系统的前端开发。
 <BR>
 <BR>主要负者搭建前端框架的搭建,编写less、html、javascript、coffee、velocity模版等</td>
 </tr>
@@ -290,9 +290,10 @@
 </td>
 </tr>
 <tr>
-<td id="Cur_Val" colspan="2" valign="top">12年9月-13年8月:淘宝首焦活动的开发，根据需求设计稿，开发静态页面，html/css,javascript,利用TMS标签发布页面。在此期间曾负责淘宝偏高地图360.taobao.com前端一期的开发。
-<BR>13年8月-13年10月:淘宝麦麦平台项目开发，主要负责jade，sass,coffeescript的编辑，与java开发人员联调。
-<BR>13年10月-14年3月:CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。</td>
+<td id="Cur_Val" colspan="2" valign="top">11年10月-12年9月:CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。
+<BR>11年10月-12年9月:在东部软件园，淘宝首焦活动和其他活动的前端开发，根据需求设计稿，开发静态页面，html/css,javascript,利用TMS标签发布页面。在此期间曾负责淘宝偏高地图360.taobao.com前端一期的开发。
+<BR>12年9月-13年12月:在创业大厦，负责淘宝首焦活动页面和淘宝麦麦平台项目前端开发，主要负责jade，sass,coffeescript的编辑，与java开发人员联调。
+<BR>12年12月-13年3月:在淘宝西溪园区，CTO集团技术发展部，ATA网站的开发，参与网站框架的搭建，负责模板，控制台php代码编写和静态资源assets的编写。</td>
 </tr>
 </table>
 </td>
@@ -427,6 +428,19 @@
 <tr>
 <td width="16%" class="text_left" valign="top">项目描述：</td>
 <td width="84%" id="Cur_Val" valign="top">记录淘宝会员的足迹，你的买卖和浏览都会在那里展示，360.taobao.com</td>
+</tr>
+<tr>
+<td class="text_left" valign="top">责任描述：</td>
+<td id="Cur_Val" valign="top">负者html，css，javascript的编写</td>
+</tr>
+<tr>
+<td colspan="2" class="text_left">2011
+      /10--2013
+      /4：淘宝首焦</td>
+</tr>
+<tr>
+<td width="16%" class="text_left" valign="top">项目描述：</td>
+<td width="84%" id="Cur_Val" valign="top">淘宝活动页面</td>
 </tr>
 <tr>
 <td class="text_left" valign="top">责任描述：</td>
