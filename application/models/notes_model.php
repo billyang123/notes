@@ -177,7 +177,7 @@ class Notes_model extends MY_Model {
 	    	if($key){
 				$where .= " AND (title LIKE '%".$key."%' OR content LIKE '%".$key."%')";
 			}
-			echo $where;
+			//echo $where;
 	    	$query = $this->get_page_data('notes',$where,$pageSize,($page-1)*$pageSize,FALSE);
 	    	//$query = $this->db->get_where('notes', array('scope' => '1'));
 	    }
