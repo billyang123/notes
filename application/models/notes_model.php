@@ -162,7 +162,7 @@ class Notes_model extends MY_Model {
 
 	public function get_search_notes($key=FALSE,$page = 1,$pageSize = 10){
 		$where = FALSE;
-		echo $where;
+		//echo $where;
 	    if($this->session->userdata('logged_in')){
 	    	$userId = $this->session->userdata('userId');
 	    	$where = "(userId=$userId OR scope='1')";
