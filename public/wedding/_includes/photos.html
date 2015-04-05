@@ -1,0 +1,34 @@
+<span id="photos-anchor" class="anchor">&nbsp;</span>
+<div class="container section" id="photos">
+  {% if site.wedding.albums.size > 1 %}
+  <div class="btn-group" data-toggle="buttons-radio">
+    {% for album in site.wedding.albums %}
+      {% if forloop.first %}
+        <a href="#photos-pane-{{forloop.index | plus: 1}}" type="button" data-toggle="tab" class="btn active">{{album.name}}</a>
+      {% else %}
+        <a href="#photos-pane-{{forloop.index | plus: 1}}" type="button" data-toggle="tab" class="btn">{{album.name}}</a>
+      {% endif %}
+    {% endfor %}
+  </div><br/>
+  {% endif %}
+
+  <div class="tab-content">
+    {% for album in site.wedding.albums %}
+      {% capture index %}{{forloop.index | plus: 1}}{% endcapture %}
+      {% if forloop.first %}
+        <div class="tab-pane active" id="photos-pane-{{index}}">
+      {% else %}
+        <div class="tab-pane" id="photos-pane-{{index}}">
+      {% endif %}
+        <ul class="thumbnails gallery">
+          {% for photo in album.photos %}
+          <li>
+            <a href="{{photo.large_url}}" class="thumbnail" rel="prettyPhoto[{{index}}]"><img src="{{photo.thumb_url}}"/></a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+

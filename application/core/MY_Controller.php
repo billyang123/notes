@@ -55,7 +55,6 @@
 			));
 			$this->template->load('template', $viewName,$data);
 		}
-
 		public function checkLogin()
 		{
 			$this->load->helper('uri');

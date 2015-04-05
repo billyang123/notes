@@ -1,0 +1,178 @@
+
+/*********** bootstrap-override ************/
+
+body {
+  font-size: 14px;
+  background-color: #ECECEC;
+  font-family:Tahoma,Verdana,STHeiTi,simsun,sans-serif;
+  margin-top: 70px;
+}
+
+/* overwrite prettyPhoto */
+.pp_social {
+  display: none;
+}
+
+.section {
+  background-color: white;
+  margin: 20px auto;
+  padding: 30px 20px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 8px #aaa;
+  -webkit-box-shadow: 2px 2px 8px #aaa;
+  -moz-box-shadow: 2px 2px 8px #aaa;
+  position: relative;
+}
+
+::-moz-selection { background: #FF5E99; color:#fff; text-shadow: none; }
+::selection { background:#FF5E99; color:#fff; text-shadow: none; }
+
+.center {
+  text-align: center;
+}
+
+label.error {
+  color: red;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.anchor {
+  display: block;
+  height: 0;
+}
+
+/************* navigation styles *************/
+.navigation {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  min-height: 60px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+}
+
+#logo {
+  margin: 12px auto 0;
+  font-size: 1.7em;
+  color: #666;
+  display: block;
+  width: 250px;
+}
+
+#logo img {
+  margin-top: -10px;
+  display: inline-block;
+}
+
+#logo:hover {
+  text-decoration: none;
+}
+
+.navigation ul {
+  list-style: none outside none;
+  margin: 12px auto 0;
+}
+
+.navigation ul li {
+  display: block;
+  float: left;
+  margin: 0 12px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.3em;
+}
+
+.navigation ul li a {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  color: #656464;
+  display: block;
+  padding: 5px 0;
+}
+
+.navigation ul li a:hover {
+  border-bottom: 1px solid #2B2B2B;
+  border-top: 1px solid #2B2B2B;
+  color: #2B2B2B;
+  text-decoration: none;
+}
+
+.navigation ul li.current a {
+  border-bottom: 1px solid #2B2B2B;
+  border-top: 1px solid #2B2B2B;
+  color: #2B2B2B;
+}
+
+/*************home pages**************/
+#home {
+  padding: 20px 50px;
+  background-color: white;
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.cover-image {
+  margin: 0 auto;
+  width: 100%;
+}
+
+#invitation-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  right: 80px;
+  top: 50px;
+  position: absolute;
+  width: 300px;
+  z-index: 100;
+}
+
+/*************** story ************/
+#timeline-embed {
+  margin-top: 20px !important;
+}
+
+
+/*************** wedding ************/
+
+#wedding img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+/*************** map ************/
+.iw_poi_title {
+  color: #CC5522;
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  padding-right: 13px;
+  white-space: nowrap
+}
+
+.iw_poi_content {
+  font: 12px arial,sans-serif;
+  overflow: visible;
+  padding-top: 4px;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word
+}
+
+#dituContent {
+  width: 100%;
+  height: 550px;
+}
+
+#dituContent img {
+  max-width: none;
+}
+
+/*************** comments ************/
+
+/************** footer **************/
+footer {
+  margin:-10px -10px 50px;
+}

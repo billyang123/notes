@@ -1,0 +1,15 @@
+.navigation {
+  border-bottom: 1px solid #ccc;
+
+  background: transparent;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2FFFFFF,endColorstr=#F2FFFFFF)"; /* IE8 */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2FFFFFF,endColorstr=#F2FFFFFF);   /* IE6 & 7 */
+        zoom: 1;
+}
+
+#invitation-container {
+  background: transparent;
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF)"; /* IE8 */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF);   /* IE6 & 7 */
+        zoom: 1;
+}

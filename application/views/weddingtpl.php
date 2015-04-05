@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>杨斌斌和郑红英结婚啦～～</title>
+  <link href="/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.min.css" media="screen">
+  <link rel="stylesheet" href="/prettyphoto/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/main.css" media="screen">
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" media="screen" />
+  <![endif]-->
+  <script src="/javascripts/jquery.min.js"></script>
+  <script src="/javascripts/jquery.scrollto.min.js"></script>
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/prettyphoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/javascripts/jquery.validate.js"></script>
+  <script src="/javascripts/main.js"></script>
+  </head>
+
+  <body>
+    {{ content }}
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<span id="map-anchor" class="anchor">&nbsp;</span>
+<div class="container section" id="map">
+  <h2>地图</h2>
+  <div class="row-fluid">
+    <div class="span12">
+      <!--百度地图容器-->
+      <div id="dituContent"></div>
+
+      <br/>
+      <br/>
+
+      <p><strong>说明：</strong></p>
+      <p>
+        <i class="icon-retweet"></i>
+        到达<strong>南京南站</strong>的朋友，可以坐1号南延线，在新街口换乘2号线，在孝陵卫站下
+      </p>
+      <p>
+        <i class="icon-retweet"></i>
+        到达<strong>南京站</strong>的朋友，可以坐1号线，在新街口换乘2号线，在孝陵卫站下
+      </p>
+      <p>
+        <i class="icon-plane"></i>
+        我们将与非南京市的宾客联系，安排食宿
+      </p>
+      <p>
+        <i class="icon-envelope"></i>
+        liufengyunchina@gmail.com
+      </p>
+      <p>
+        <i class="icon-signal"></i>
+        13814171931(刘) 13951665846(王)
+      </p>
+
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  function makeMarker(latitude, longitude, title, content) {
+    var marker = new BMap.Marker(new BMap.Point(longitude, latitude));  //创建标注
+    var label = new BMap.Label(title, {'offset': new BMap.Size(20,3)}); //创建标签
+
+    label.setStyle({
+      borderColor: "#999",
+      color: "red",
+      "font-weight": "bold"
+    });
+
+    marker.setLabel(label);
+    var infoWindow = new BMap.InfoWindow("<b class='iw_poi_title'>" + title + "</b>"
+        + "<div class='iw_poi_content'>" + content + "</div>"); //创建信息窗口
+    marker.addEventListener("click", function(){this.openInfoWindow(infoWindow);});
+    return marker;
+  }
+
+  function showMap(){
+    var map = new BMap.Map("dituContent");
+    var point = new BMap.Point({{site.wedding.map.longitude}}, {{site.wedding.map.latitude}});
+    map.centerAndZoom(point, {{site.wedding.map.zoom}}); //设置地图中心坐标
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+
+    var markers = {{ site.wedding.map.markers | json }};
+
+    for (var i = 0; i < markers.length; i++) {
+      var marker = markers[i];
+      map.addOverlay(makeMarker(marker.latitude, marker.longitude, marker.title, marker.content));
+    }
+  }
+</script>

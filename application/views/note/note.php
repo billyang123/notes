@@ -23,7 +23,7 @@
             <textarea style="display:none;" class="js-files-string"><?=$content["attachments"] ?></textarea>
             <?php endif; ?>
         </div>
-        <div class="uk-clearfix">
+        <p class="uk-clearfix">
             <a href="<?=$assets?>/index.php/comment?noteId=<?=$content['id'] ?>" data-remote-once="true" class="uk-button uk-button-primary" data-remote="true" data-done="$('.js-comment-<?=$content['id'] ?>').html(res).parent().show()"><i class="uk-icon-comments"></i>   comment</a>
             <?php if($content['userId']==$user["userId"]): ?>
             <div class="uk-button-group uk-float-right">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <?php endif ?>
-        </div>
+        </p>
         <div class="_comment-content" style="display:none;">
             <ul class="uk-comment-list js-comment-<?=$content['id'] ?>"></ul>
             <form class="uk-form uk-clearfix" data-remote="true" action="<?=$assets?>/index.php/comment/add/<?=$content['id'] ?>" method="post" data-done="$('.js-comment-<?=$content['id'] ?>').after(res)">

@@ -1,0 +1,132 @@
+<form class="" id="rsvp-form"  method="post" action="#">
+  <p>为了方便安排酒席，如果您参加婚礼，请告诉我们具体信息，我们将会与您确认。</p>
+  <input type="hidden" name="host_email" value="<%= item[:email] %>">
+
+  <label for="inputName">您的姓名:</label>
+  <input type="text" id="inputName" placeholder="李三金" name="name" class="required input-xlarge" />
+
+  <label for="inputEmail">电子邮箱:</label>
+  <input type="text" id="inputEmail" placeholder="you@gmail.com" class="required email input-xlarge" />
+
+  <label>宾客人数:</label>
+  <select id="inputGuestsCount" class="input-xlarge">
+    <option>0</option>
+    <option selected>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+  </select>
+
+  <label>宾客说明:</label>
+  <textarea rows="2" placeholder="我，老婆和小孩" id="inputGuestsDescription" class="input-xlarge"></textarea>
+  <br/>
+
+  <button type="submit" class="btn btn-success">
+    <i class="icon-glass icon-white"></i>
+    我要喝喜酒
+  </button>
+</form>
+
+<div class="modal hide" id="confirm-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>确认参加婚礼信息</h3>
+  </div>
+  <div class="modal-body">
+    <dl class="dl-horizontal">
+      <dt>姓名:</dt>
+      <dd id="name"></dd>
+      <dt>邮箱:</dt>
+      <dd id="email"></dd>
+      <dt>人数:</dt>
+      <dd id="guests-count"></dd>
+      <dt>说明:</dt>
+      <dd id="guests-description"></dd>
+    </dl>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">修改</a>
+    <a href="#" class="btn btn-primary" id="rsvp-confirm-btn">发送</a>
+  </div>
+</div>
+
+<div class="modal hide" id="success-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>发送消息成功</h3>
+  </div>
+  <div class="modal-body">
+    <p class="alert alert-success">感谢登记参加我们的婚礼，您将会收到确认邮件通知。</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">关闭</a>
+  </div>
+</div>
+
+<div class="modal hide" id="failure-dialog">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>错误信息</h3>
+  </div>
+  <div class="modal-body">
+    <p class="alert alert-error">对不起，提交信息遇到了错误。</p>
+    <p>
+      <i class="icon-info-sign"></i>
+      您可以稍后重试
+    </p>
+    <p>
+      <i class="icon-info-sign"></i>
+      您也可以通过电话、短信或电子邮件发送信息给我们
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">关闭</a>
+  </div>
+</div>
+
+<script>
+  function submit_data(name, email, count, description) {
+    var params = {name: name, email: email, count: count, message: description, guestbook_id: {{site.wedding.reservations.id}} };
+    var jqXHR = $.getJSON("{{site.wedding.reservations.server_host}}/reservations/new?callback=?", {reservation:params}, function(data) {
+      if (data.success) {
+        $("#success-dialog").modal({backdrop:false});
+        $("#rsvp-form")[0].reset();
+      } else {
+        $("#failure-dialog p.alert").text(data.message);
+        $("#failure-dialog").modal({backdrop:false});
+      }
+    })
+
+    jqXHR.error(function() {
+      $("#failure-dialog p.alert").text("对不起，提交信息遇到了错误，请稍后重试。");
+      $("#failure-dialog").modal({backdrop:false});
+    })
+  }
+
+  function form_submit() {
+    if(!$("#rsvp-form").valid()) return false;
+
+    var name = $("#rsvp-form #inputName").val();
+    var email = $("#rsvp-form #inputEmail").val();
+    var count = parseInt($("#rsvp-form #inputGuestsCount").val());
+    var description = $("#rsvp-form #inputGuestsDescription").val();
+
+    $("#confirm-dialog #name").text(name);
+    $("#confirm-dialog #email").text(email);
+    $("#confirm-dialog #guests-count").text(count);
+    $("#confirm-dialog #guests-description").text(description);
+
+    $("#confirm-dialog").modal({backdrop:false});
+
+    $("#confirm-dialog #rsvp-confirm-btn").off("click");
+    $("#confirm-dialog #rsvp-confirm-btn").click(function(){
+      $("#confirm-dialog").modal('hide');
+      submit_data(name, email, count, description);
+      return false;
+    })
+
+    return false;
+  }
+</script>
