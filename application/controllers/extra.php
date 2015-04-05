@@ -31,7 +31,7 @@
 			//exit(0);
 			switch ($str) {
 				case 'wedding':
-					$result = $this->ipc_model->get_json(3);
+					$result = $this->ipc_model->get_json(1);
 					//$data['result'] = 
 					$data['result'] = json_decode($result['value'],true);
 				// $data['userId'] = $result['userId'];
