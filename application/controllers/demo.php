@@ -14,6 +14,7 @@
 		}
 		public function up($id = false)
 		{
+			$this->checkLogin();
 			$data['assets'] = $this->assets;
 			$data["id"] = $id;
 			if ($id === FALSE){
