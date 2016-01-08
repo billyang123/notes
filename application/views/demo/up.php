@@ -3,7 +3,7 @@
         <?php if ($userId==$data['user_id']):?>
         <h2>demo 编辑</h2>
         <form class="form-horizontal" action="<?=$assets ?>/index.php/demo/up/<?=$id ?>" method="post" data-remote="true" data-done="window.location.href='<?=$assets ?>/index.php/demo'">
-
+            <input type="hidden" name="userId" value="<?=$data['user_id'] ?>">
           <div class="form-group">
             <label class="col-sm-2 control-label">demo描述</label>
             <div class="col-sm-10">
@@ -34,6 +34,7 @@
     <?php else: ?>
     <h2>demo 新增</h2>
     <form class="form-horizontal" action="<?=$assets ?>/index.php/demo/up" method="post" data-remote="true" data-done="window.location.href='<?=$assets ?>/index.php/demo'">
+      <input type="hidden" name="userId" value="<?=$data['user_id'] ?>">
       <div class="form-group">
         <label class="col-sm-2 control-label">demo描述</label>
         <div class="col-sm-10">

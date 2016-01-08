@@ -21,6 +21,7 @@ class Demo_model extends MY_Model {
 
 	}
   	public function get_demo($id = FALSE){
+
 	  if ($id === FALSE)
 	  {
 	  	//$this->cache_notes();
@@ -64,7 +65,6 @@ class Demo_model extends MY_Model {
 			return FALSE;
 		}
 		if($id){
-			
 			$time = time();
 			$this->db->where('demo_id',$id);
 			return $this->db->update('demo',array(
@@ -72,8 +72,8 @@ class Demo_model extends MY_Model {
 			    'content' => $this->input->post('content'),
 			    'extra_text'=>$this->input->post('extra_text'),
 			    'create_time' => $time,
-			    'user_name' => $this->input->post('userName'),
-			    'user_id' =>$this->input->post('userId'),
+			    // 'user_name' => $this->input->post('userName'),
+			    // 'user_id' =>$this->input->post('userId'),
 			    'tag_name' =>"seajs",
 			    'level'=>1
 			  ));
