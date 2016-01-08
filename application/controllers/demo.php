@@ -3,6 +3,7 @@
 		function __construct()
 		{
 			parent::__construct();
+			$this->load->library('session');
 			$this->load->model('demo_model');
 		}
 		public function index()
@@ -16,6 +17,10 @@
 		{
 			$this->checkLogin();
 			$data['assets'] = $this->assets;
+
+			$data["userId"] = $this->session->userdata('userId');
+	  		$data["username"] = $this->session->userdata('username');
+
 			$data["id"] = $id;
 			if ($id === FALSE){
 				if($this->input->is_ajax_request()){
