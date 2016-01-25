@@ -118,7 +118,33 @@
 		}
 		public function userList(){
 			$data["content"] = $this->account_model->get_users();
-			echo($this->result_jsonCode($data));return;
+			//var_dump($data);
+			$this->loadView('account of notes','account','account/list',$data);
+			//echo($this->result_jsonCode($data));return;
+		}
+		public function pass($id){
+			$this->checkLogin();
+			$result = false;
+			if($this->session->userdata("auth")=="10001"){
+				$result = $this->account_model->pass_account($id);
+			}
+			if($result){
+				$this->result_jsonCode("修改成功",true);
+			}else{
+				$this->result_jsonCode("修改失败",false);
+			}
+		}
+		public function nopass($id){
+			$this->checkLogin();
+			$result = false;
+			if($this->session->userdata("auth")=="10001"){
+				$result = $this->account_model->nopass_account($id);
+			}
+			if($result){
+				$this->result_jsonCode("修改成功",true);
+			}else{
+				$this->result_jsonCode("修改失败",false);
+			}
 		}
 		public function cropavatar(){
 			$this->account_model->crop_avatar();

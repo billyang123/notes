@@ -29,6 +29,7 @@ class Account_model extends CI_Model {
 			$this->session->set_userdata('userId',$user->id);
 			$this->session->set_userdata('default_albumId',$user->default_albumId);
 			$this->session->set_userdata('avatar',$user->avatar);
+			$this->session->set_userdata('auth',$user->auth);
 			return $user->password == $password ? TRUE : FALSE;
 		}
 		return FALSE;
@@ -37,7 +38,7 @@ class Account_model extends CI_Model {
 
 	public function add_user($username, $password, $email, $intro, $defaultAlbumId,$avatar)
 	{
-		$data = array('username'=>$username,"avatar" => $avatar,'password'=>$password,'email'=>$email,'intro'=>$intro,'default_albumId'=>$defaultAlbumId);
+		$data = array('username'=>$username,"avatar" => $avatar,"create_date" => time(),'password'=>$password,'email'=>$email,'intro'=>$intro,'default_albumId'=>$defaultAlbumId);
 		$this->db->insert('note_users',$data);
 		if($this->db->affected_rows() > 0)
 		{
@@ -100,5 +101,27 @@ class Account_model extends CI_Model {
 	        'result' => 'http://'.$this->app_ini['bucket'].'.qiniudn.com/'.$result['key']
 	    );
 	    echo json_encode($response);
+	}
+	public function pass_account($id=FALSE){
+		if ($id === FALSE)
+		{
+			return FALSE;
+		}else{
+			$this->db->where('id',$id);  
+			return $this->db->update('note_users',array(
+				"auth"=> "10002"
+			));
+		}
+	}
+	public function nopass_account($id=FALSE){
+		if ($id === FALSE)
+		{
+			return FALSE;
+		}else{
+			$this->db->where('id',$id);  
+			return $this->db->update('note_users',array(
+				"auth"=> "0"
+			));
+		}
 	}
 }

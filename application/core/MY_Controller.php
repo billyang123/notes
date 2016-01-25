@@ -60,6 +60,7 @@
 			$this->load->helper('uri');
 			if(!$this->session->userdata('logged_in'))
 			{
+
 				$redirect = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 				
 				if($this->input->is_ajax_request()) {
@@ -68,7 +69,12 @@
 				}else{
 					redirect('/index.php/account/login?redirect='.$redirect);
 				}
+
 				//redirect('/index.php/account/login?redirect='.$redirect);
+			}else{
+				if($this->session->userdata('auth')=="0"){
+					redirect('/index.php/messages/index/1');
+				}
 			}
 
 		}

@@ -23,6 +23,9 @@
 					break;
 			}
 		}
+		public function demo(){
+			$this->load->view('demo/header');
+		}
 		public function mylife($str){
 			$this->checkLogin();
 			$data["user"] = $this->get_currentUser();
