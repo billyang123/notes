@@ -118,7 +118,7 @@
 		}
 		public function userList(){
 			$this->checkLogin();
-			if($this->session->userdata('auth')=="0"){
+			if($this->session->userdata('auth')!="10001"){
 				return redirect('/index.php');
 			}
 			$data["content"] = $this->account_model->get_users();
