@@ -4,6 +4,7 @@
 		{
 		  	parent::__construct();
 		  	$this->load->model('ipc_model');
+		  	$this->load->model('admin_model');
 		  	$this->load->library('session');
 		}
 		public function index($id)
@@ -25,6 +26,11 @@
 		}
 		public function demo(){
 			$this->load->view('demo/header');
+		}
+		public function food(){
+			$this->checkLogin();
+			$data["content"] = $this->admin_model->get_matchedfood();
+			$this->loadView('food of notes','food','admin/foodlist',$data);
 		}
 		public function mylife($str){
 			$this->checkLogin();
