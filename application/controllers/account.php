@@ -117,6 +117,10 @@
 			}
 		}
 		public function userList(){
+			$this->checkLogin();
+			if($this->session->userdata('auth')=="0"){
+				return redirect('/index.php');
+			}
 			$data["content"] = $this->account_model->get_users();
 			//var_dump($data);
 			$this->loadView('account of notes','account','account/list',$data);
