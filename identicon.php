@@ -373,7 +373,9 @@ imageantialias($resized,TRUE);
 $bg=imagecolorallocate($resized,255,255,255);
 imagefilledrectangle($resized,0,0,$_GET["size"],$_GET["size"],$bg);
 /* resize identicon according to specification */
-imagecopyresampled($resized,$identicon,0,0,(imagesx($identicon)-$spriteZ*3)/2,(imagesx($identicon)-$spriteZ*3)/2,$_GET["size"],$_GET["size"],$spriteZ*3,$spriteZ*3);
+list($width,$height) = explode('x',$_GET["size"]);
+//return var_dump($width,$height);
+imagecopyresampled($resized,$identicon,0,0,(imagesx($identicon)-$spriteZ*3)/2,(imagesx($identicon)-$spriteZ*3)/2,$width,$height,$spriteZ*3,$spriteZ*3);
 
 /* make white transparent */
 imagecolortransparent($resized,$bg);

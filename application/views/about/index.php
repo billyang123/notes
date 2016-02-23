@@ -10,13 +10,7 @@
 		Mainly includes: website home page (home), notes (notes), my notes (mine), media (media) (includes photo albums, pictures, and video), writing notes (write) and so on.<br> 
 		As long as you want to record yourself, you can register, write your own.</br> 
 		Because of their ability to wired, limited technical level, the site may have some flaws, if we find that there are shortcomings, I implore you to help correct me!</br></p>
-		<p class="uk-text-right">
-
-			<span><i class="uk-icon-envelope-o uk-icon-small"></i>   yangbinbin_1226@126.com</span><br>
-			<span>QQ:   289755081</span>
-			
-		</p>
-		<p class="uk-text-center"><img src="http://ybbcdn.qiniudn.com/20141010_1412932278_colectimg1412932278.jpg"></p>
+		<img src="http://ybbcdn.qiniudn.com/20141010_1412932278_colectimg1412932278.jpg">
 	</div>
 </div>
 

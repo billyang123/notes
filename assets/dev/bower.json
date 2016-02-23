@@ -1,0 +1,21 @@
+{
+  "name": "dev",
+  "homepage": "https://github.com/billyang123/notes",
+  "authors": [
+    "{杨斌斌}({TW003248}) <wb-yangbinbin@taobao.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Framework7": "framework7#~1.4.0"
+  }
+}
